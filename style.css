@@ -1,0 +1,74 @@
+
+/* Basic Style for all contents */
+body {
+    background-color: rgb(15, 15, 15);
+    font-family: Arial, sans-serif;
+    color:aliceblue;
+}
+
+
+footer
+{ 
+    margin-top: 10em;
+    padding: 2em;
+    background-color:rgb(35, 45, 63);
+}
+
+
+/* We want all the links in the site to have a more minimal style*/
+a 
+{
+    text-decoration: none;
+    color:rgb(237, 247, 255);
+}
+
+
+/* Isos Na to svisoume */
+header a{
+    padding:1em 1em 1em 0.5em;
+    color:rgb(237, 247, 255);
+}
+
+/* All list items inside a header tag*/
+header li {
+    padding: 1em;
+}
+
+/*When the links on the nav bar are hovered they change style*/
+header a:hover{
+    background-color: rgb(0, 91, 65);
+    color:rgb(189, 199, 207);
+}
+
+/*When the links on the nav bar are hovered they change style*/
+header a:active {
+    background-color: rgb(0, 41, 29);
+    color:rgb(0, 155, 134);
+}
+
+/**/
+li:hover{
+    background-color: rgb(35, 45, 63);
+    color:rgb(189, 199, 207);
+}
+
+/*When the links on the nav bar are hovered they change style*/
+a:active {
+    background-color: rgb(0, 41, 29);
+    color:rgb(0, 155, 134);
+}
+
+
+
+/*Site Header style (Since we have used headers in other instances we
+want to select only the ones that are a child of body)*/
+body>header{
+    padding: 1em;
+    background-color: rgb(0, 129, 112);
+}
+
+/*We don't want bullets in our lists*/
+ul {
+    list-style-type: none;
+}
+
