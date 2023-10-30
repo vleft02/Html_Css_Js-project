@@ -1,49 +1,121 @@
 :root
 {
-    --page-color:rgb(15, 15, 15);
-    --secondary-page-color: rgb(35, 45, 63);
-    --vibrant-color:rgb(0, 129, 112);
-    --semi-vibrant-color:rgb(0, 41, 29);
-    --dark-vibrant-color:rgb(0, 23, 16);
-    --vibrant-text-color: rgb(0, 155, 134);
+    --page-color:rgb(24, 23, 23);
+    --secondary-page-color: rgb(80, 47, 107);
+    --vibrant-color:rgb(115, 30, 237);
+    --hover-color:rgba(108, 23, 177, 0.603);
+    --dark-vibrant-color:rgb(52, 13, 109);
+    --vibrant-text-color: rgb(153, 32, 255);
     --normal-text-color :aliceblue;
 }
 
+html {
+    /*root font size setup for responsiveness*/
+    font-size: 62.5%;
+}
 
 
 /* Basic Style for all contents */
 body {
+    font-size: 1.6rem;
+    margin:0;
     background-color: var(--page-color);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:var(--normal-text-color);
 }
 
-p::selection
-{
-    background-color:rgba(0, 129, 112, 0.452) ;
+
+header {
+    width: 100%;
 }
 
 /*Site Header style (Since we have used headers in other instances we
 want to select only the ones that are a child of body)*/
-body>header{
-    padding: 0.5em;
-    background-color: var(--vibrant-color);
-    border-radius: 0em 0em 0em 1em;
-    width:100%;
-    margin-left:0.1em;
-    margin-top:-1em;
+header>nav{
+    padding: 0em;
+    height: 7rem;
 }
-main
+
+nav ul
 {
-    margin:0.9em;
+    box-sizing: content-box; 
+}
+
+header nav a{ 
+    padding: 1em;
+}
+
+/*When the links on the nav bar are hovered they change style*/
+header a:hover{
+    transition-duration: 300ms;
+    transition-property:all;
+    background-color: var(--hover-color);
+    border-radius: 2em;
+    color:var(--normal-text-color);
+}
+
+/*When the links on the nav bar are hovered they change style*/
+header a:active {
+    background-color: var(--dark-vibrant-color);
+    color:var(--vibrant-text-color);
+}
+
+
+
+header nav>ul>li{
+    display: inline-block;
+    line-height: 100%; 
+    align-items: center;
+}
+
+/* All list items inside a header tag*/
+header nav>ul>li:nth-child(1){
+    display: inline-block;
+    padding: 1em;
+}
+
+
+
+header li>ul
+{
+    margin-top: 1rem;
+    display:none;
+    border-radius: 1em;
+}
+
+header li:hover>ul
+{
+    
+    display:block;
+    position:absolute;
+    background-color: var(--page-color);
+
+    padding :0.5em;
+
 } 
-footer
-{ 
-    margin-top: 10em;
-    margin-left:0;
-    margin-right:0;
-    padding: 2em;
+
+header li:hover>ul>li
+{
+    
+    padding :0.5rem;
+    margin-bottom:2rem;
+
+} 
+
+nav input
+{
     background-color:var(--secondary-page-color);
+    border-radius: 1em;
+    border-color:transparent;
+    margin-left:0.5rem;
+}
+
+nav input::selection
+{
+    background-color:var(--secondary-page-color);
+    block-size: 2rem;
+    border-color:transparent;
+    margin-left:0.5rem;
 }
 
 
@@ -54,73 +126,48 @@ a
     color:var(--normal-text-color);
 }
 
-
-/* Isos Na to svisoume */
-header a{
-    padding:1em 1em 1em 1em;
-    align-items: center;
-    color:var(--normal-text-color);
-    
-}
-
-
-/* All list items inside a header tag*/
-header nav>ul>li {
-    display: inline;
-    padding: 1em;
-}
-header img 
-{
-    margin:0;
-    padding: 0;
-}
-
-/*When the links on the nav bar are hovered they change style*/
-header a:hover{
-    background-color: var(--semi-vibrant-color);
-    color:var(--normal-text-color);
-    
-}
-
-/*When the links on the nav bar are hovered they change style*/
-header a:active {
-    background-color: var(--dark-vibrant-color);
-    color:var(--vibrant-text-color);
-}
-
-header li>ul
-{
-    margin-top: 1em;
-    display:none;
-    border-radius: 1em;
-    /*visibility: hidden; */
-}
-
-header li:hover>ul
-{
-    background-color: var(--vibrant-color);
-    padding :0.5em;
-
-    display:block;
-    position:absolute;
-}
-
 /*When the links on the nav bar are hovered they change style*/
 a:active {
     background-color: var(--dark-vibrant-color);
     color:var(--vibrant-text-color);
 }
 
-
-nav input
+main
 {
-    background-color:var(--secondary-page-color);
-    border-radius: 1em;
-    border-color:transparent;
+    margin-top: 5rem;
 
+} 
+
+
+
+p::selection
+{
+    background-color:rgba(113, 5, 255, 0.452) ;
 }
+
+footer
+{ 
+    margin-top: 10em;
+    margin-left:0;
+    margin-right:0;
+    padding: 2em;
+    background-color:var(--secondary-page-color);
+    border-radius:1rem  1rem 0rem 0rem;
+}
+
+
+
+
+
 /*We don't want bullets in our lists*/
 ul {
+    list-style: none;
+    padding:0;
+    margin:0;
+}
+
+ol
+{
     list-style-type: none;
 }
 
