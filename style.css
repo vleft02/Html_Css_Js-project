@@ -1,17 +1,49 @@
-
-/* Basic Style for all contents */
-body {
-    background-color: rgb(15, 15, 15);
-    font-family: Arial, sans-serif;
-    color:aliceblue;
+:root
+{
+    --page-color:rgb(15, 15, 15);
+    --secondary-page-color: rgb(35, 45, 63);
+    --vibrant-color:rgb(0, 129, 112);
+    --semi-vibrant-color:rgb(0, 41, 29);
+    --dark-vibrant-color:rgb(0, 23, 16);
+    --vibrant-text-color: rgb(0, 155, 134);
+    --normal-text-color :aliceblue;
 }
 
 
+
+/* Basic Style for all contents */
+body {
+    background-color: var(--page-color);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:var(--normal-text-color);
+}
+
+p::selection
+{
+    background-color:rgba(0, 129, 112, 0.452) ;
+}
+
+/*Site Header style (Since we have used headers in other instances we
+want to select only the ones that are a child of body)*/
+body>header{
+    padding: 0.5em;
+    background-color: var(--vibrant-color);
+    border-radius: 0em 0em 0em 1em;
+    width:100%;
+    margin-left:0.1em;
+    margin-top:-1em;
+}
+main
+{
+    margin:0.9em;
+} 
 footer
 { 
     margin-top: 10em;
+    margin-left:0;
+    margin-right:0;
     padding: 2em;
-    background-color:rgb(35, 45, 63);
+    background-color:var(--secondary-page-color);
 }
 
 
@@ -19,54 +51,74 @@ footer
 a 
 {
     text-decoration: none;
-    color:rgb(237, 247, 255);
+    color:var(--normal-text-color);
 }
 
 
 /* Isos Na to svisoume */
 header a{
-    padding:1em 1em 1em 0.5em;
-    color:rgb(237, 247, 255);
+    padding:1em 1em 1em 1em;
+    align-items: center;
+    color:var(--normal-text-color);
+    
 }
 
+
 /* All list items inside a header tag*/
-header li {
+header nav>ul>li {
+    display: inline;
     padding: 1em;
+}
+header img 
+{
+    margin:0;
+    padding: 0;
 }
 
 /*When the links on the nav bar are hovered they change style*/
 header a:hover{
-    background-color: rgb(0, 91, 65);
-    color:rgb(189, 199, 207);
+    background-color: var(--semi-vibrant-color);
+    color:var(--normal-text-color);
+    
 }
 
 /*When the links on the nav bar are hovered they change style*/
 header a:active {
-    background-color: rgb(0, 41, 29);
-    color:rgb(0, 155, 134);
+    background-color: var(--dark-vibrant-color);
+    color:var(--vibrant-text-color);
 }
 
-/**/
-li:hover{
-    background-color: rgb(35, 45, 63);
-    color:rgb(189, 199, 207);
+header li>ul
+{
+    margin-top: 1em;
+    display:none;
+    border-radius: 1em;
+    /*visibility: hidden; */
+}
+
+header li:hover>ul
+{
+    background-color: var(--vibrant-color);
+    padding :0.5em;
+
+    display:block;
+    position:absolute;
 }
 
 /*When the links on the nav bar are hovered they change style*/
 a:active {
-    background-color: rgb(0, 41, 29);
-    color:rgb(0, 155, 134);
+    background-color: var(--dark-vibrant-color);
+    color:var(--vibrant-text-color);
 }
 
 
+nav input
+{
+    background-color:var(--secondary-page-color);
+    border-radius: 1em;
+    border-color:transparent;
 
-/*Site Header style (Since we have used headers in other instances we
-want to select only the ones that are a child of body)*/
-body>header{
-    padding: 1em;
-    background-color: rgb(0, 129, 112);
 }
-
 /*We don't want bullets in our lists*/
 ul {
     list-style-type: none;
