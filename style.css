@@ -60,13 +60,13 @@ header a{
     padding:1em 1em 1em 1em;
     align-items: center;
     color:var(--normal-text-color);
-    border-radius: 1em;
+    
 }
 
 
 /* All list items inside a header tag*/
 header nav>ul>li {
-    /* display: inline; */
+    display: inline;
     padding: 1em;
 }
 header img 
@@ -91,14 +91,18 @@ header a:active {
 header li>ul
 {
     margin-top: 1em;
-    /* display:none;
-    visibility: hidden; */
+    display:none;
+    border-radius: 1em;
+    /*visibility: hidden; */
 }
 
-header li>ul:hover
+header li:hover>ul
 {
+    background-color: var(--vibrant-color);
+    padding :0.5em;
+
     display:block;
-    visibility: visible;
+    position:absolute;
 }
 
 /*When the links on the nav bar are hovered they change style*/
