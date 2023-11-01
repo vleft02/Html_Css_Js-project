@@ -1,13 +1,16 @@
 :root
 {
     --page-color:rgb(24, 23, 23);
-    --secondary-page-color: rgb(80, 47, 107);
+    --secondary-page-color:rgb(60, 50, 63);
+    --form-field-color:rgb(10, 10, 34);
+    --form-field-border-color:rgb(80, 2, 151);
     --vibrant-color:rgb(115, 30, 237);
     --hover-color:rgba(108, 23, 177, 0.603);
-    --dark-vibrant-color:rgb(52, 13, 109);
+    --dark-vibrant-color:rgb(57, 12, 94);
     --vibrant-text-color: rgb(153, 32, 255);
     --normal-text-color :aliceblue;
 }
+
 
 html {
     /*root font size setup for responsiveness*/
@@ -19,6 +22,7 @@ html {
 body {
     font-size: 1.6rem;
     margin:0;
+    padding:0;
     background-color: var(--page-color);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:var(--normal-text-color);
@@ -42,15 +46,14 @@ nav ul
 }
 
 header nav a{ 
-    padding: 1em;
+    padding: 1rem;
 }
 
 /*When the links on the nav bar are hovered they change style*/
 header a:hover{
-    transition-duration: 300ms;
-    transition-property:all;
+    transition-duration: 300ms;/*animation time for smooth Transition */
     background-color: var(--hover-color);
-    border-radius: 2em;
+    border-radius: 2rem; /* Smooth corners*/
     color:var(--normal-text-color);
 }
 
@@ -80,7 +83,7 @@ header li>ul
 {
     margin-top: 1rem;
     display:none;
-    border-radius: 1em;
+    border-radius: 1rem;/* Smooth corners*/
 }
 
 header li:hover>ul
@@ -105,7 +108,7 @@ header li:hover>ul>li
 nav input
 {
     background-color:var(--secondary-page-color);
-    border-radius: 1em;
+    border-radius: 1rem;/* Smooth corners*/
     border-color:transparent;
     margin-left:0.5rem;
 }
@@ -140,7 +143,7 @@ main
 
 
 
-p::selection
+p::selection, h::selection
 {
     background-color:rgba(113, 5, 255, 0.452) ;
 }
@@ -152,7 +155,7 @@ footer
     margin-right:0;
     padding: 2em;
     background-color:var(--secondary-page-color);
-    border-radius:1rem  1rem 0rem 0rem;
+    border-radius:1rem  1rem 0rem 0rem; /* Smooth corners only on the top part of the block*/
 }
 
 
@@ -171,3 +174,129 @@ ol
     list-style-type: none;
 }
 
+
+/*---------------------------------- Table style --------------------------------*/
+
+/* We don't want to have borders inbetween contents for a more seamless style */
+table 
+{
+    border-spacing: 0;/*default table style has a spacing between the border of contents and the table, we romove this*/
+    border: 0.1rem solid var(--secondary-page-color);
+    border-radius: 0.9rem;/* Smooth corners on the entire table*/
+    overflow: hidden;/*Parts like the tr and td that would otherwise clip the rounded corners of the table are hidden*/
+}
+
+
+/* Colors of each row inter change for better visibility */
+table tr:nth-of-type(2n+1){
+    background-color: var(--secondary-page-color);
+}
+
+/* table tr:nth-of-type(1){
+    
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 0.1rem solid aliceblue;
+    border-radius: 0.9rem;
+    
+} */
+
+th
+{
+    border:0;
+}
+
+/* text centered and padding added */
+td
+{
+    text-align: center;/*Centered text*/
+    padding:0.8rem;
+    border:0;
+}
+/*--------------------------------End of Table style--------------------------------*/
+
+
+/*---------------------------------- Form style --------------------------------*/
+
+fieldset
+{
+    border-spacing: 0;
+    border: 0.1rem solid var(--dark-vibrant-color);
+    border-radius: 0.9rem;/* Smooth corners for the fieldset block*/
+    width:50%;
+    padding : 0.8rem;
+}
+
+fieldset input
+{
+    width:40rem;
+    height:2rem;
+    margin: 0.5rem;
+    border-radius: 0.9rem;/*Smooth edges*/
+    border: 0.1rem solid var(--form-field-border-color); 
+    background-color: var(--form-field-color);
+}
+
+fieldset textarea 
+{
+    border-radius: 0.9rem;/*Smooth edges*/
+    border: 0.1rem solid var(--form-field-border-color); 
+    background-color: var(--form-field-color);
+}
+
+
+
+/* We delete all previous styles from the pario buttons then add new size, color and a border*/
+fieldset input[type = "radio"]
+{
+    appearance: none;
+    margin-bottom: 0rem;/*Overwrites the rule above (fieldset input)else text aside  the radio button is pushed down*/
+    color: var(--secondary-color);
+    width: 1.15rem;/*We make a square that is 1.15rem x 1.15rem */
+    height: 1.15rem;
+    border: 0.15em solid var(--secondary-color);
+    border-radius: 50%; /*check box is a circular field*/
+    transition: 120ms /*animation time for smooth Transition */
+}
+
+fieldset input[type = "radio"]:checked
+{
+    background-color: var(--form-field-color);
+    border: 0.4rem solid var(--form-field-border-color);
+    transition: 120ms/*animation time for smooth Transition */
+}
+
+
+
+
+/* 
+The 2 buttons on the bottom of the form are set to have no default appearance */
+form input[type="submit"],form input[type="reset"]
+{
+    margin: 1rem;
+    padding:1rem;
+
+    appearance: none;
+    position:absolute; /*This is needed since when the button is hovered when the padding gets bigger eveything around it moves */
+    color:var(--normal-text-color); /*Text color change */
+    background-color: var(--form-field-color);
+    border: 0.2rem solid var(--form-field-border-color);
+    border-radius: 10%;
+    transition: 120ms;
+}
+
+form input[type="reset"]
+{
+    left:10%;/*We move the clear form button slightly to the left*/
+}
+
+form input[type="submit"]:hover ,form input[type="reset"]:hover
+{
+    padding:1.5rem;
+    background-color: var(--vibrant-color);
+    border: 0rem solid var(--form-field-color);
+    transition: 120ms;/*animation time for smooth Transition */
+
+}
+
+/*---------------------------------- End ofForm style --------------------------------*/
