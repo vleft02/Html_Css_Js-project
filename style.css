@@ -34,6 +34,17 @@ header {
     border-bottom:0.5rem aliceblue;
 }
 
+#nav-image
+{
+    margin-top: 1rem;
+    padding :0.5rem;
+}
+#nav-image img
+{
+    width:10rem;
+    height:auto;
+}
+
 /*Site Header style (Since we have used headers in other instances we
 want to select only the ones that are a child of body)*/
 header>nav{
@@ -46,7 +57,7 @@ header nav a{
 }
 
 /*When the links on the nav bar are hovered they change style*/
-header a:hover{
+header a:hover, header input[type="button"]:hover, header input:hover{
     transition-duration: 120ms;/*animation time for smooth Transition */
     padding:1rem;
     background-color: var(--form-field-color);
@@ -103,12 +114,19 @@ header li:hover>ul>li
 
 } 
 
-nav input
+nav input[type="text"]
 {
-    background-color:var(--secondary-page-color);
-    border-radius: 1rem;/* Smooth corners*/
-    border-color:transparent;
+    background-color: var(--form-field-color);
+    border: 0.2rem solid var(--form-field-border-color); /* Smooth corners*/
+    border-radius: 2rem;
+    color:var(--normal-text-color);
     margin-left:0.5rem;
+}
+
+nav input[type="button"]
+{
+    border:transparent;
+    background-color: var(--secondary-color);
 }
 
 nav input::selection
@@ -306,3 +324,36 @@ form input[type="submit"]:hover ,form input[type="reset"]:hover
 }
 
 /*---------------------------------- End ofForm style --------------------------------*/
+
+/*----------------------------------classified ads stle--------------------------------*/
+section article
+{
+    padding:3rem;
+    background-color: var(--secondary-page-color);
+    width:25%;
+    margin:1rem;
+    border-radius:0.9rem;
+}
+
+section article header
+{
+    font-size:2rem ;
+}
+
+
+section article img 
+{
+    width: 75%;
+    height:auto;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.145), 0 6px 20px 0 rgba(0, 0, 0, 0.145);
+}
+
+section span
+{
+
+    border-right: 0.2rem solid var(--vibrant-color);
+    padding:0.3rem;
+    margin :0.4rem;
+    margin-top:0.6rem;
+}
