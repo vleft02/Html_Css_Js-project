@@ -28,9 +28,10 @@ body {
     color:var(--normal-text-color);
 }
 
-
+/*---------------------------------------------nav menu---------------------------------------*/
 header {
     width: 100%;
+    border-bottom:0.5rem aliceblue;
 }
 
 /*Site Header style (Since we have used headers in other instances we
@@ -40,20 +41,17 @@ header>nav{
     height: 7rem;
 }
 
-nav ul
-{
-    box-sizing: content-box; 
-}
-
 header nav a{ 
     padding: 1rem;
 }
 
 /*When the links on the nav bar are hovered they change style*/
 header a:hover{
-    transition-duration: 300ms;/*animation time for smooth Transition */
-    background-color: var(--hover-color);
-    border-radius: 2rem; /* Smooth corners*/
+    transition-duration: 120ms;/*animation time for smooth Transition */
+    padding:1rem;
+    background-color: var(--form-field-color);
+    border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
+    border-radius: 2rem;
     color:var(--normal-text-color);
 }
 
@@ -120,6 +118,7 @@ nav input::selection
     border-color:transparent;
     margin-left:0.5rem;
 }
+/*----------------------------------End of Nav menu---------------------------------------*/
 
 
 /* We want all the links in the site to have a more minimal style*/
@@ -142,7 +141,15 @@ main
 } 
 
 
+main>section>p
+{
+    margin:2rem;
+    width :50%;
+    box-shadow: 0 4px 8px 0 rgba(149, 17, 250, 0.145), 0 6px 20px 0 rgba(149, 17, 250, 0.145);
+    border-radius: 2rem;
+    padding: 3rem;
 
+}
 p::selection, h::selection
 {
     background-color:rgba(113, 5, 255, 0.452) ;
@@ -247,17 +254,16 @@ fieldset textarea
 
 
 /* We delete all previous styles from the pario buttons then add new size, color and a border*/
-fieldset input[type = "radio"]
-{
-    appearance: none;
-    margin-bottom: 0rem;/*Overwrites the rule above (fieldset input)else text aside  the radio button is pushed down*/
-    color: var(--secondary-color);
-    width: 1.15rem;/*We make a square that is 1.15rem x 1.15rem */
-    height: 1.15rem;
-    border: 0.15em solid var(--secondary-color);
-    border-radius: 50%; /*check box is a circular field*/
-    transition: 120ms /*animation time for smooth Transition */
-}
+    fieldset input[type = "radio"] {
+        appearance: none;
+        margin-bottom: 0rem; /*Overwrites the rule above (fieldset input)else text aside  the radio button is pushed down*/
+        color: var(--secondary-color);
+        width: 1.15rem; /*We make a square that is 1.15rem x 1.15rem */
+        height: 1.15rem;
+        border: 0.15em solid var(--form-field-border-color);
+        border-radius: 50%; /*check box is a circular field*/
+        transition: 120ms /*animation time for smooth Transition */
+    }
 
 fieldset input[type = "radio"]:checked
 {
