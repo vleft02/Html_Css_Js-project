@@ -1,0 +1,43 @@
+header nav>ul
+{
+    display:flex;
+    flex-flow: row;
+    justify-content: right;
+    align-items:center
+}
+
+header nav>ul>li
+{
+    margin-right:2rem;
+}
+
+/* To li pou exei mesa to img */
+ #nav-image
+{ 
+    margin-right:auto;
+} 
+
+
+footer 
+{
+    display:grid ;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: "links info"
+                         "image image";
+    justify-content: center;
+    gap:2rem;
+}
+
+.footer-logo
+{
+    grid-area:image; 
+    display:flex;
+    flex-flow: row;
+    justify-content: center;
+     
+}
+.footer-logo img 
+{ 
+    width:10rem;
+    height:auto;
+}
