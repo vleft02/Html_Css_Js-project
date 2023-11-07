@@ -57,7 +57,7 @@ header nav a{
 }
 
 /*When the links on the nav bar are hovered they change style*/
-header a:hover, header input[type="button"]:hover, header input:hover{
+header a:hover, header button, header input:hover{
     transition-duration: 120ms;/*animation time for smooth Transition */
     padding:1rem;
     background-color: var(--form-field-color);
@@ -86,7 +86,15 @@ header nav>ul>li:nth-child(1){
     padding: 1em;
 }
 
-
+/* aside
+{
+    position:fixed;
+    margin-left:75%;
+    float:right;
+    background-color: var(--dark-vibrant-color);
+    height: 100%;
+    padding:10rem;
+} */
 
 header li>ul
 {
@@ -123,7 +131,7 @@ nav input[type="text"]
     margin-left:0.5rem;
 }
 
-nav input[type="button"]
+nav button
 {
     border:transparent;
     background-color: var(--secondary-color);
@@ -193,12 +201,6 @@ ul {
     padding:0;
     margin:0;
 }
-
-ol
-{
-    list-style-type: none;
-}
-
 
 /*---------------------------------- Table style --------------------------------*/
 
