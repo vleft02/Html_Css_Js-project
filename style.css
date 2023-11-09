@@ -1,7 +1,8 @@
 :root
 {
     --page-color:rgb(24, 23, 23);
-    --secondary-page-color:rgb(60, 50, 63);
+    --table-color:rgb(92, 78, 97);
+    --secondary-page-color:rgb(49, 27, 57);
     --form-field-color:rgb(10, 10, 34);
     --form-field-border-color:rgb(80, 2, 151);
     --vibrant-color:rgb(115, 30, 237);
@@ -9,6 +10,7 @@
     --dark-vibrant-color:rgb(57, 12, 94);
     --vibrant-text-color: rgb(153, 32, 255);
     --normal-text-color :aliceblue;
+    --transparent-text-color :rgba(155, 161, 165,0.6);
 }
 
 
@@ -32,14 +34,16 @@ body {
 header {
     width: 100%;
     border-bottom:0.5rem aliceblue;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    padding: 2rem;
 }
 
-#nav-image
+.logo-image
 {
     margin-top: 1rem;
     padding :0.5rem;
 }
-#nav-image img
+.logo-image img
 {
     width:10rem;
     height:auto;
@@ -52,12 +56,22 @@ header>nav{
     height: 7rem;
 }
 
+
+/*----------------------------Nav Menu Links--------------------------------------*/
 header nav a{ 
     padding: 1rem;
 }
 
+header nav button
+{
+    background-color: var(--page-color);
+    border:none;
+}
+
+
 /*When the links on the nav bar are hovered they change style*/
-header a:hover, header input[type="button"]:hover, header input:hover{
+header nav a:hover, header nav button:hover, header input:hover{
+    text-decoration: none;
     transition-duration: 120ms;/*animation time for smooth Transition */
     padding:1rem;
     background-color: var(--form-field-color);
@@ -66,24 +80,23 @@ header a:hover, header input[type="button"]:hover, header input:hover{
     color:var(--normal-text-color);
 }
 
+
 /*When the links on the nav bar are hovered they change style*/
-header a:active {
+header nav a:active, header nav button:active {
     background-color: var(--dark-vibrant-color);
     color:var(--vibrant-text-color);
+    padding:0.8rem;
 }
 
+/*When the links on the nav bar are hovered they change style*/
+header nav a:visited, header nav button:visited {
+    color:var(--normal-text-color)
+}
 
+/*----------------------------End of Nav Menu Links--------------------------------------*/
 
 header nav>ul>li{
     display: inline-block;
-    line-height: 100%; 
-    align-items: center;
-}
-
-/* All list items inside a header tag*/
-header nav>ul>li:nth-child(1){
-    display: inline-block;
-    padding: 1em;
 }
 
 
@@ -95,23 +108,22 @@ header li>ul
     border-radius: 1rem;/* Smooth corners*/
 }
 
+/*The dropdown menu block appears when the category li is hovered */
 header li:hover>ul
 {
-    
     display:block;
-    position:absolute;
+    position:absolute;/*the block has an absolute position over the other elements of the page*/
     background-color: var(--page-color);
-
-    padding :0.5em;
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);/*A shadow is added to seperate the block from the backgroud*/
+    border-radius: 1rem;
+    padding:0.3rem;
 } 
 
+/*Style for the li items inside the dropdown menu*/
 header li:hover>ul>li
 {
-    
-    padding :0.5rem;
+    padding :0.2rem;
     margin-bottom:2rem;
-
 } 
 
 nav input[type="text"]
@@ -120,41 +132,55 @@ nav input[type="text"]
     border: 0.2rem solid var(--form-field-border-color); /* Smooth corners*/
     border-radius: 2rem;
     color:var(--normal-text-color);
-    margin-left:0.5rem;
+    margin-left:0.5rem; 
 }
 
-nav input[type="button"]
+nav input[type="text"]::placeholder
 {
-    border:transparent;
-    background-color: var(--secondary-color);
+    color:var(--transparent-text-color);
+    font-weight:bold;
 }
 
 nav input::selection
 {
-    background-color:var(--secondary-page-color);
+    background-color:var(--table-color);
     block-size: 2rem;
     border-color:transparent;
     margin-left:0.5rem;
 }
 /*----------------------------------End of Nav menu---------------------------------------*/
 
-
+/*-----------------------------------Links style-------------------------------------------*/
 /* We want all the links in the site to have a more minimal style*/
 a 
 {
     text-decoration: none;
     color:var(--normal-text-color);
+    transition: 120ms;
+}
+a:hover
+{
+    text-decoration: underline;
+    font-weight: bold;
+    color:var(--normal-text-color);
+    transition: 120ms;
+}
+a:active
+{
+    color:var(--vibrant-color);
+    transition: 120ms;
 }
 
-/*When the links on the nav bar are hovered they change style*/
-a:active {
-    background-color: var(--dark-vibrant-color);
-    color:var(--vibrant-text-color);
+a:visited
+{
+    text-decoration: none;
+    color:var(--transparent-text-color );
 }
 
+/*-----------------------------------Links style-------------------------------------------*/
 main
 {
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
 
 } 
 
@@ -183,6 +209,10 @@ footer
     border-radius:1rem  1rem 0rem 0rem; /* Smooth corners only on the top part of the block*/
 }
 
+footer div a
+{
+    display:block; 
+}
 
 
 
@@ -194,19 +224,13 @@ ul {
     margin:0;
 }
 
-ol
-{
-    list-style-type: none;
-}
-
-
 /*---------------------------------- Table style --------------------------------*/
 
 /* We don't want to have borders inbetween contents for a more seamless style */
 table 
 {
     border-spacing: 0;/*default table style has a spacing between the border of contents and the table, we romove this*/
-    border: 0.1rem solid var(--secondary-page-color);
+    border: 0.1rem solid var(--table-color);
     border-radius: 0.9rem;/* Smooth corners on the entire table*/
     overflow: hidden;/*Parts like the tr and td that would otherwise clip the rounded corners of the table are hidden*/
 }
@@ -214,21 +238,14 @@ table
 
 /* Colors of each row inter change for better visibility */
 table tr:nth-of-type(2n+1){
-    background-color: var(--secondary-page-color);
+    background-color: var(--table-color);
 }
 
-/* table tr:nth-of-type(1){
-    
-    border-collapse: separate;
-    border-spacing: 0;
-    border: 0.1rem solid aliceblue;
-    border-radius: 0.9rem;
-    
-} */
 
 th
 {
     border:0;
+
 }
 
 /* text centered and padding added */
@@ -257,31 +274,48 @@ fieldset input
     width:40rem;
     height:2rem;
     margin: 0.5rem;
-    border-radius: 0.9rem;/*Smooth edges*/
+    border-radius: 1rem;/*Smooth edges*/
     border: 0.1rem solid var(--form-field-border-color); 
     background-color: var(--form-field-color);
 }
 
+fieldset input::placeholder, fieldset textarea::placeholder
+{
+    color:var(--transparent-text-color);
+    font-weight: bold;
+    padding:0.3rem;
+}
+
+fieldset input[type="text"]
+{
+    display: block;
+    color:var(--normal-text-color);
+    height:3rem;
+}
+
 fieldset textarea 
 {
+    display: block;
     border-radius: 0.9rem;/*Smooth edges*/
     border: 0.1rem solid var(--form-field-border-color); 
     background-color: var(--form-field-color);
+    width:40rem;
+    height:10rem;
 }
 
 
 
 /* We delete all previous styles from the pario buttons then add new size, color and a border*/
-    fieldset input[type = "radio"] {
-        appearance: none;
-        margin-bottom: 0rem; /*Overwrites the rule above (fieldset input)else text aside  the radio button is pushed down*/
-        color: var(--secondary-color);
-        width: 1.15rem; /*We make a square that is 1.15rem x 1.15rem */
-        height: 1.15rem;
-        border: 0.15em solid var(--form-field-border-color);
-        border-radius: 50%; /*check box is a circular field*/
-        transition: 120ms /*animation time for smooth Transition */
-    }
+fieldset input[type = "radio"] {
+    appearance: none;
+    margin-bottom: 0rem; /*Overwrites the rule above (fieldset input)else text aside  the radio button is pushed down*/
+    color: var(--secondary-color);
+    width: 1.15rem; /*We make a square that is 1.15rem x 1.15rem */
+    height: 1.15rem;
+    border: 0.15em solid var(--form-field-border-color);
+    border-radius: 50%; /*check box is a circular field*/
+    transition: 120ms /*animation time for smooth Transition */
+}
 
 fieldset input[type = "radio"]:checked
 {
@@ -297,21 +331,25 @@ fieldset input[type = "radio"]:checked
 The 2 buttons on the bottom of the form are set to have no default appearance */
 form input[type="submit"],form input[type="reset"]
 {
+    width:25%;
     margin: 1rem;
     padding:1rem;
-
+    width:15%;
     appearance: none;
-    position:absolute; /*This is needed since when the button is hovered when the padding gets bigger eveything around it moves */
+    display: block;
+    float:center;
+    /* position:absolute; This is needed since when the button is hovered when the padding gets bigger eveything around it moves */
     color:var(--normal-text-color); /*Text color change */
     background-color: var(--form-field-color);
     border: 0.2rem solid var(--form-field-border-color);
-    border-radius: 10%;
+    border-radius: 0.9rem;
     transition: 120ms;
 }
 
 form input[type="reset"]
 {
-    left:10%;/*We move the clear form button slightly to the left*/
+    right: 10%;
+/*We move the clear form button slightly to the left*/
 }
 
 form input[type="submit"]:hover ,form input[type="reset"]:hover
@@ -323,16 +361,16 @@ form input[type="submit"]:hover ,form input[type="reset"]:hover
 
 }
 
-/*---------------------------------- End ofForm style --------------------------------*/
+/*---------------------------------- End of Form style --------------------------------*/
 
 /*----------------------------------classified ads stle--------------------------------*/
 section article
 {
-    padding:3rem;
-    background-color: var(--secondary-page-color);
-    width:25%;
+    background-color: var(--table-color);
+    width:35%;
     margin:1rem;
     border-radius:0.9rem;
+    overflow: hidden;/*Parts like the tr and td that would otherwise clip the rounded corners of the table are hidden*/
 }
 
 section article header
@@ -341,19 +379,107 @@ section article header
 }
 
 
-section article img 
+.fill-block img 
 {
-    width: 75%;
+    width:100%;
     height:auto;
     
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.145), 0 6px 20px 0 rgba(0, 0, 0, 0.145);
 }
 
-section span
+.fill-block
+{
+    width:100%
+}
+article a p
 {
 
-    border-right: 0.2rem solid var(--vibrant-color);
     padding:0.3rem;
     margin :0.4rem;
     margin-top:0.6rem;
+}
+
+
+/*---------------------------end of classified ads style--------------------------------*/
+
+/*---------------------------specific ad style------------------------------------------*/
+#price
+{
+    font-size:3rem;
+}
+
+article h2
+{
+    font-size:4rem;
+    margin:1rem;
+}
+
+.transparent-text
+{
+    color:var(--transparent-text-color)
+}
+
+/*These elements float right with a small margin so they don't stick to the edge of the page*/
+.float-right
+{
+    clear:right;
+    float:right;
+    margin-right:2rem; 
+}
+
+main table 
+{
+    width:25%;
+}
+
+/*end*/
+
+aside
+{
+    float:right;
+    right:0%;
+    margin-right:2rem;
+    height: 100%;
+    padding-bottom:1.8rem;
+    padding-top:1rem;
+    background-color:var(--dark-vibrant-color);
+    border-radius:1rem;
+}
+
+aside nav a
+{
+    padding:2rem;
+    font-size:2rem;
+    margin:2rem;
+}
+
+/*We cancel the deafult link behaviour*/
+aside nav a:hover
+{
+    transition:120ms;
+    width:100%;
+    background-color: var(--form-field-color);
+    text-decoration: none;
+}
+aside nav a:active{
+
+    text-decoration: none;
+}
+aside nav a:visited
+{
+    text-decoration: none;
+}
+
+
+aside nav>ul>li>ul>li>a
+{
+    margin-left:4rem;
+}
+aside nav>ul>li>ul>li
+{
+    margin-top:1.6rem
+}
+aside nav>ul>li
+{
+    margin-top:1.6rem
 }
