@@ -96,7 +96,7 @@ header nav a:visited, header nav button:visited {
 /*----------------------------End of Nav Menu Links--------------------------------------*/
 
 header nav>ul>li{
-    display: inline-block;
+    /* display: inline-block; */ /*!DELETE*/
 }
 
 
@@ -111,7 +111,7 @@ header li>ul
 /*The dropdown menu block appears when the category li is hovered */
 header li:hover>ul
 {
-    display:block;
+    display:block;/*!DELETE*/
     position:absolute;/*the block has an absolute position over the other elements of the page*/
     background-color: var(--page-color);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);/*A shadow is added to seperate the block from the backgroud*/

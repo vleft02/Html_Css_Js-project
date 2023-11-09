@@ -1,3 +1,10 @@
+
+
+header
+{
+    grid-area: header;
+}
+
 header nav>ul
 {
     display:flex;
@@ -12,14 +19,38 @@ header nav>ul>li
 }
 
 /* To li pou exei mesa to img */
- #nav-image
+.logo-image
 { 
     margin-right:auto;
 } 
 
+body
+{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:"header header" 
+                        "title title"
+                        "content content"
+                        "footer footer";
+}
+main 
+main li article
+{
+    grid-area:content;
+}
+main>h2, main>h1
+{
+    grid-area:title;
+}
+
+main section
+{
+    grid-area:content;
+}
 
 footer 
 {
+    grid-area:footer;
     display:grid ;
     grid-template-columns: repeat(2,1fr);
     grid-template-areas: "links info"
@@ -30,6 +61,7 @@ footer
 
 .footer-logo
 {
+    width:100%;
     grid-area:image; 
     display:flex;
     flex-flow: row;
