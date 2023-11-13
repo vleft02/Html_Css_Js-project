@@ -69,16 +69,6 @@ header nav button
 }
 
 
-/*When the links on the nav bar are hovered they change style*/
-header nav a:hover, header nav button:hover, header input:hover{
-    text-decoration: none;
-    transition-duration: 120ms;/*animation time for smooth Transition */
-    padding:1rem;
-    background-color: var(--form-field-color);
-    border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
-    border-radius: 2rem;
-    color:var(--normal-text-color);
-}
 
 
 /*When the links on the nav bar are hovered they change style*/
@@ -114,8 +104,7 @@ header li:hover>ul
     display:block;
     position:absolute;/*the block has an absolute position over the other elements of the page*/
     background-color: var(--page-color);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.3);/*A shadow is added to seperate the block from the backgroud*/
-    border-radius: 1rem;
+     border-radius: 1rem;
     padding:0.3rem;
 } 
 
@@ -128,8 +117,11 @@ header li:hover>ul>li
 
 nav input[type="text"]
 {
-    background-color: var(--form-field-color);
-    border: 0.2rem solid var(--form-field-border-color); /* Smooth corners*/
+    background-color: var(--page-color);
+    /* border: 0.2rem solid var(--form-field-border-color); /* Smooth corners*/
+    border:none;
+    height:3rem;
+    box-shadow: rgba(0, 0, 0, 0.5)  0.3rem 0.3rem 0.5em 0.5rem inset;
     border-radius: 2rem;
     color:var(--normal-text-color);
     margin-left:0.5rem; 
@@ -175,6 +167,17 @@ a:visited
 {
     text-decoration: none;
     color:var(--transparent-text-color );
+}
+
+.button_style:hover
+{
+    text-decoration: none;
+    transition-duration: 200ms;/*animation time for smooth Transition */
+    padding:1rem;
+    background-color: var(--form-field-color);
+    border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
+    border-radius: 2rem;
+    color:var(--normal-text-color);
 }
 
 /*-----------------------------------Links style-------------------------------------------*/
@@ -352,14 +355,6 @@ form input[type="reset"]
 /*We move the clear form button slightly to the left*/
 }
 
-form input[type="submit"]:hover ,form input[type="reset"]:hover
-{
-    padding:1.5rem;
-    background-color: var(--vibrant-color);
-    border: 0rem solid var(--form-field-color);
-    transition: 120ms;/*animation time for smooth Transition */
-
-}
 
 /*---------------------------------- End of Form style --------------------------------*/
 
@@ -451,23 +446,6 @@ aside nav a
     padding:2rem;
     font-size:2rem;
     margin:2rem;
-}
-
-/*We cancel the deafult link behaviour*/
-aside nav a:hover
-{
-    transition:120ms;
-    width:100%;
-    background-color: var(--form-field-color);
-    text-decoration: none;
-}
-aside nav a:active{
-
-    text-decoration: none;
-}
-aside nav a:visited
-{
-    text-decoration: none;
 }
 
 
