@@ -1,6 +1,6 @@
 :root
 {
-    --page-color:rgb(24, 23, 23);
+    --page-color:rgb(34, 32, 32);
     --table-color:rgb(92, 78, 97);
     --secondary-page-color:rgb(49, 27, 57);
     --form-field-color:rgb(10, 10, 34);
@@ -22,6 +22,7 @@ html {
 
 /* Basic Style for all contents */
 body {
+    overflow-x: hidden; /*Hides bottom scrollbar by covering it with the body block*/
     font-size: 1.6rem;
     margin:0;
     padding:0;
@@ -183,22 +184,27 @@ a:visited
 /*-----------------------------------Links style-------------------------------------------*/
 main
 {
-    /* margin-top: 5rem; */
-
+    margin:1rem;
 } 
 p{
     margin:3rem;
-    width :50%;
+    width :auto;
     border-radius: 2rem;
     padding: 3rem;
-    font-style: italic;
-    text-indent:1rem;
+    /* font-style: italic; */
 }
 
-p.glow-block{
+em
+{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.glow-block{
     margin:2rem;
     width :50%;
-    box-shadow: 0 4px 8px 0 rgba(149, 17, 250, 0.145), 0 6px 20px 0 rgba(149, 17, 250, 0.145);
+    /* box-shadow: 0 4px 8px 0 rgba(149, 17, 250, 0.145), 0 6px 20px 0 rgba(149, 17, 250, 0.145); */
+    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px , rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
     border-radius: 2rem;
     padding: 3rem;
 }
@@ -208,9 +214,9 @@ main>section>p
     width :50%;
     border-radius: 2rem;
     padding: 3rem;
-    font-style: italic;
+    /* font-style: italic; */
 }
-p::selection, h::selection
+::selection
 {
     background-color:rgba(113, 5, 255, 0.452) ;
 }
@@ -372,13 +378,14 @@ form input[type="reset"]
 /*---------------------------------- End of Form style --------------------------------*/
 
 /*----------------------------------classified ads stle--------------------------------*/
-section  {
+/* section  {
     margin:1rem;
     padding:1rem;
-}
+} */
 section h3 {
     margin:1rem;
     padding:1rem;
+    width:fit-content;
     font-style: italic;
 }
 section h2 {
@@ -390,7 +397,6 @@ section img {
     border:1rem;
     margin:0.5rem;
     padding:1rem;
-    box-shadow: 0 4px 8px 0 rgba(140, 5, 194, 0.145), 0 6px 20px 0 rgba(112, 6, 199, 0.815);
 }
 section article
 {
@@ -411,26 +417,20 @@ section article header
 {
     width:100%;
     height:auto;
-    
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.145), 0 6px 20px 0 rgba(0, 0, 0, 0.145);
+    padding:0;
+    margin:0;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.145), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.145);
 }
 
 .fill-block
 {
     width:100%
 }
-article a h3{
-    padding:1rem;
-    margin :0.4rem;
-}
-article a p
+
+section h1, h1
 {
-
-    padding:0.3rem;
-    margin :0.4rem;
-    margin-top:0.6rem;
+    font-size:3.5rem;
 }
-
 h1{
     padding:0.3rem;
     margin :1rem;
@@ -455,6 +455,16 @@ article h2
 {
     color:var(--transparent-text-color)
 }
+.no-box-model-values
+{
+    margin:0;
+    padding:0;
+    border:0;
+}
+.margin-bottom
+{
+    margin-bottom: 2rem;
+}
 
 /*These elements float right with a small margin so they don't stick to the edge of the page*/
 .float-right
@@ -462,6 +472,42 @@ article h2
     clear:right;
     float:right;
     margin-right:2rem; 
+}
+
+
+.ad-style:hover
+{
+    box-shadow: 0 5rem 10rem 0 rgba(0, 0, 0, 0.733), 0 2.5rem 6rem 0 rgba(0, 0, 0, 0.814);
+    background-color: rgb(57, 12, 94);
+    transition: 250ms;
+}
+
+.ad-style:active
+{
+    background-color: rgb(57, 12, 94);
+    padding: 0.5rem;
+    transition:120ms;
+}
+.ad-style p
+{
+    padding:0.3rem;
+    margin :0.4rem;
+    margin-top:0.6rem;
+}
+
+.no-link-style:hover
+{
+    text-decoration: none;
+    font-weight: normal;
+}
+.no-link-style:active
+{
+    color:var(--normal-text-color);
+}
+
+.no-link-style:visited
+{
+    color:var(--normal-text-color);
 }
 
 main table 
@@ -503,3 +549,26 @@ aside nav>ul>li
 {
     margin-top:1.6rem
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 1rem;
+    height:1rem;
+    border-radius:0.5rem;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:rgb(15, 15, 15);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--vibrant-color);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--dark-vibrant-color);
+  }
