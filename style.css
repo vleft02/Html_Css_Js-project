@@ -186,16 +186,29 @@ main
     /* margin-top: 5rem; */
 
 } 
+p{
+    margin:3rem;
+    width :50%;
+    border-radius: 2rem;
+    padding: 3rem;
+    font-style: italic;
+    text-indent:1rem;
+}
 
-
-main>section>p
-{
+p.glow-block{
     margin:2rem;
     width :50%;
     box-shadow: 0 4px 8px 0 rgba(149, 17, 250, 0.145), 0 6px 20px 0 rgba(149, 17, 250, 0.145);
     border-radius: 2rem;
     padding: 3rem;
-
+}
+main>section>p
+{
+    margin:2rem;
+    width :50%;
+    border-radius: 2rem;
+    padding: 3rem;
+    font-style: italic;
 }
 p::selection, h::selection
 {
@@ -359,6 +372,26 @@ form input[type="reset"]
 /*---------------------------------- End of Form style --------------------------------*/
 
 /*----------------------------------classified ads stle--------------------------------*/
+section  {
+    margin:1rem;
+    padding:1rem;
+}
+section h3 {
+    margin:1rem;
+    padding:1rem;
+    font-style: italic;
+}
+section h2 {
+    margin:1rem;
+    padding:1rem;
+    text-decoration: underline;
+}
+section img {
+    border:1rem;
+    margin:0.5rem;
+    padding:1rem;
+    box-shadow: 0 4px 8px 0 rgba(140, 5, 194, 0.145), 0 6px 20px 0 rgba(112, 6, 199, 0.815);
+}
 section article
 {
     background-color: var(--table-color);
@@ -386,6 +419,10 @@ section article header
 {
     width:100%
 }
+article a h3{
+    padding:1rem;
+    margin :0.4rem;
+}
 article a p
 {
 
@@ -394,7 +431,12 @@ article a p
     margin-top:0.6rem;
 }
 
+h1{
+    padding:0.3rem;
+    margin :1rem;
+    margin-top:2rem;
 
+}
 /*---------------------------end of classified ads style--------------------------------*/
 
 /*---------------------------specific ad style------------------------------------------*/
