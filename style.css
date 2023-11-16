@@ -14,54 +14,233 @@
 }
 
 
+/* General Styles */
+
+
+/*root font size setup for responsiveness*/
 html {
-    /*root font size setup for responsiveness*/
     font-size: 62.5%;
 }
 
 
-/* Basic Style for all contents */
+/* All elements inside the Body:
+    1.Have a preset Background Color
+    2.have a font size of 1.6 rem
+    3.No margin and padding so that the page content sitcks to the edges of the window 
+    4.Font family & color
+    5.Overflow means the content of the body will flow over the bottom scrollbar effectively Hiding it 
+    */
 body {
-    overflow-x: hidden; /*Hides bottom scrollbar by covering it with the body block*/
+    background-color: var(--page-color);
     font-size: 1.6rem;
     margin:0;
     padding:0;
-    background-color: var(--page-color);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:var(--normal-text-color);
+    overflow-x: hidden; /*Hides bottom scrollbar by covering it with the body block*/
 }
 
-/*---------------------------------------------nav menu---------------------------------------*/
-header {
+/*For the Header element(As in the nav menu):
+    1.Has a Width of 100%
+    2.A Shadow is added to signify its edge
+    3.Padding added*/
+body>header {
     width: 100%;
-    border-bottom:0.5rem aliceblue;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    height:10rem;
+    box-shadow: 0 1rem 1rem 0 rgba(0, 0, 0, 0.4);
     padding: 2rem;
 }
 
-.logo-image
+
+/* The main element has a small margin so that text doesn't stick to the edges of the Window */
+main
+{
+    margin:1rem;
+} 
+
+/*All h1 elements:
+    1.Have a larger font size
+    2.Have a small margin and padding
+    3.Extra margin top for distance from the header */
+h1{
+    font-size:3.5rem;
+    padding:0.3rem;
+    margin :1rem;
+    margin-top:2rem;
+
+}
+
+/*All h2 and h3 elements:
+    1.Have a small margin and padding
+*/
+h3,h2 {
+    margin:1rem;
+    padding:1rem;
+}
+
+
+/* All paragraphs Have a small margin and padding */
+p{
+    margin: 2rem;
+    padding: 2rem;
+}
+
+/* em elements are shown in italics with bold weight for emphasis */
+em
+{
+    font-style:oblique;
+    font-weight: bold;
+}
+
+
+img {
+    border:1rem;
+    margin:0.5rem;
+    padding:1rem;
+}
+
+
+
+/* For all Links:
+    1.Any text decorations are removed (Default Underline)
+    2.Default blue color is overwritten
+    3.italics so They are seperable from the other text
+ */
+a 
+{
+    text-decoration: none;
+    color:var(--normal-text-color);
+    font-style: italic;
+}
+
+/* When any Link is Hovered:
+    1.text is Underlined
+    2.text becomes bolder
+    3.All over a set amount of time with the use of transition duration*/
+a:hover
+{
+    text-decoration: underline;
+    font-weight: bold;
+    transition-duration: 120ms;
+}
+/* When any Link is Pressed:
+    1.it changes color
+    2.over a set amount of time with the use of transition duration*/
+a:active
+{
+    color:var(--vibrant-color);
+    transition-duration: 120ms;
+}
+
+/*Visited Links look Grayed out*/
+a:visited
+{
+    color:var(--transparent-text-color );
+}
+
+/*For all tables:
+    1.Default table border spacing is removed for a more seamless style 
+    2.A small border is added 
+    3.Corners are smoothed out
+    4.All elemnents such as tr or th are hidden if the flow over the border of the table 
+    (this happens because the contents don't have smoothed out corners)*/
+table 
+{
+    border-spacing: 0;
+    border: 0.1rem solid var(--table-color);
+    border-radius: 0.9rem;
+    overflow: hidden;/*Parts like the tr and td that would otherwise clip the rounded corners of the table are hidden*/
+}
+
+
+/* Colors of odd (in number of appearance) rows change background color for better visibility */
+table tr:nth-of-type(2n+1){
+    background-color: var(--table-color);
+}
+
+
+/*For all table contents
+    1.Small Padding for table contents
+    2.text is centered*/
+td, th
+{
+    text-align: center;
+    padding:0.8rem;
+}
+
+
+/*the Footer element:
+    1.Has width of te entire page
+    2.Has a top margin for seperation with the page's main content
+    3.padding is added
+    4.The top two corners are smoothed out usin border radius*/
+footer
+{ 
+    width:100%;
+    margin-top: 10rem;
+    padding: 2rem;
+    background-color:var(--secondary-page-color);
+    border-radius:2rem 2rem;
+}
+
+/* All selected elements have purple color*/
+::selection
+{
+    background-color:rgba(113, 5, 255, 0.452) ;
+}
+
+
+/* For all input placeholders:
+    1.font is changed from default
+    2.color is changed
+    3.text is bold for better readability 
+    4.padding is added */
+::placeholder
+{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:var(--transparent-text-color);
+    font-weight:bold;
+    padding:0.7rem
+}
+
+
+input:focus
+{
+    outline:none;
+}
+
+
+input[type="text"]:focus,textarea:focus
+{
+    outline:0.2rem solid var(--vibrant-color) ;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.logo-image-container
 {
     margin-top: 1rem;
     padding :0.5rem;
 }
-.logo-image img
+.logo-image-container img
 {
     width:10rem;
     height:auto;
 }
 
-/*Site Header style (Since we have used headers in other instances we
-want to select only the ones that are a child of body)*/
-header>nav{
-    padding: 0em;
-    height: 7rem;
-}
 
 
 /*----------------------------Nav Menu Links--------------------------------------*/
-header nav a{ 
-    padding: 1rem;
-}
 
 header nav button
 {
@@ -69,15 +248,6 @@ header nav button
     border:none;
 }
 
-
-
-
-/*When the links on the nav bar are hovered they change style*/
-header nav a:active, header nav button:active {
-    background-color: var(--dark-vibrant-color);
-    color:var(--vibrant-text-color);
-    padding:0.8rem;
-}
 
 /*When the links on the nav bar are hovered they change style*/
 header nav a:visited, header nav button:visited {
@@ -103,9 +273,10 @@ header li>ul
 header li:hover>ul
 {
     display:block;
+    box-shadow: 0 5rem 5rem 5rem rgba(0, 0, 0, 0.250);
     position:absolute;/*the block has an absolute position over the other elements of the page*/
     background-color: var(--page-color);
-     border-radius: 1rem;
+    border-radius: 1rem;
     padding:0.3rem;
 } 
 
@@ -119,8 +290,6 @@ header li:hover>ul>li
 nav input[type="text"]
 {
     background-color: var(--page-color);
-    /* border: 0.2rem solid var(--form-field-border-color); /* Smooth corners*/
-    border:none;
     height:3rem;
     box-shadow: rgba(0, 0, 0, 0.5)  0.3rem 0.3rem 0.5em 0.5rem inset;
     border-radius: 2rem;
@@ -128,82 +297,14 @@ nav input[type="text"]
     margin-left:0.5rem; 
 }
 
-nav input[type="text"]::placeholder
-{
-    color:var(--transparent-text-color);
-    font-weight:bold;
-}
-
-nav input::selection
-{
-    background-color:var(--table-color);
-    block-size: 2rem;
-    border-color:transparent;
-    margin-left:0.5rem;
-}
 /*----------------------------------End of Nav menu---------------------------------------*/
 
 /*-----------------------------------Links style-------------------------------------------*/
-/* We want all the links in the site to have a more minimal style*/
-a 
-{
-    text-decoration: none;
-    color:var(--normal-text-color);
-    transition: 120ms;
-}
-a:hover
-{
-    text-decoration: underline;
-    font-weight: bold;
-    color:var(--normal-text-color);
-    transition: 120ms;
-}
-a:active
-{
-    color:var(--vibrant-color);
-    transition: 120ms;
-}
 
-a:visited
-{
-    text-decoration: none;
-    color:var(--transparent-text-color );
-}
-
-.button_style:hover
-{
-    text-decoration: none;
-    transition-duration: 200ms;/*animation time for smooth Transition */
-    padding:1rem;
-    background-color: var(--form-field-color);
-    border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
-    border-radius: 2rem;
-    color:var(--normal-text-color);
-}
-
-/*-----------------------------------Links style-------------------------------------------*/
-main
-{
-    margin:1rem;
-} 
-p{
-    margin:3rem;
-    width :auto;
-    border-radius: 2rem;
-    padding: 3rem;
-    /* font-style: italic; */
-}
-
-em
-{
-    font-style: italic;
-    font-weight: bold;
-}
 
 .glow-block{
     margin:2rem;
     width :50%;
-    /* box-shadow: 0 4px 8px 0 rgba(149, 17, 250, 0.145), 0 6px 20px 0 rgba(149, 17, 250, 0.145); */
     box-shadow: rgba(240, 46, 170, 0.4) -5px 5px , rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
     border-radius: 2rem;
     padding: 3rem;
@@ -214,22 +315,9 @@ main>section>p
     width :50%;
     border-radius: 2rem;
     padding: 3rem;
-    /* font-style: italic; */
-}
-::selection
-{
-    background-color:rgba(113, 5, 255, 0.452) ;
 }
 
-footer
-{ 
-    margin-top: 10em;
-    margin-left:0;
-    margin-right:0;
-    padding: 2em;
-    background-color:var(--secondary-page-color);
-    border-radius:1rem  1rem 0rem 0rem; /* Smooth corners only on the top part of the block*/
-}
+
 
 footer div a
 {
@@ -246,38 +334,6 @@ ul {
     margin:0;
 }
 
-/*---------------------------------- Table style --------------------------------*/
-
-/* We don't want to have borders inbetween contents for a more seamless style */
-table 
-{
-    border-spacing: 0;/*default table style has a spacing between the border of contents and the table, we romove this*/
-    border: 0.1rem solid var(--table-color);
-    border-radius: 0.9rem;/* Smooth corners on the entire table*/
-    overflow: hidden;/*Parts like the tr and td that would otherwise clip the rounded corners of the table are hidden*/
-}
-
-
-/* Colors of each row inter change for better visibility */
-table tr:nth-of-type(2n+1){
-    background-color: var(--table-color);
-}
-
-
-th
-{
-    border:0;
-
-}
-
-/* text centered and padding added */
-td
-{
-    text-align: center;/*Centered text*/
-    padding:0.8rem;
-    border:0;
-}
-/*--------------------------------End of Table style--------------------------------*/
 
 
 /*---------------------------------- Form style --------------------------------*/
@@ -301,16 +357,11 @@ fieldset input
     background-color: var(--form-field-color);
 }
 
-fieldset input::placeholder, fieldset textarea::placeholder
-{
-    color:var(--transparent-text-color);
-    font-weight: bold;
-    padding:0.3rem;
-}
 
 fieldset input[type="text"]
 {
     display: block;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:var(--normal-text-color);
     height:3rem;
 }
@@ -318,6 +369,7 @@ fieldset input[type="text"]
 fieldset textarea 
 {
     display: block;
+    color : var(--normal-text-color);
     border-radius: 0.9rem;/*Smooth edges*/
     border: 0.1rem solid var(--form-field-border-color); 
     background-color: var(--form-field-color);
@@ -334,16 +386,16 @@ fieldset input[type = "radio"] {
     color: var(--secondary-color);
     width: 1.15rem; /*We make a square that is 1.15rem x 1.15rem */
     height: 1.15rem;
-    border: 0.15em solid var(--form-field-border-color);
+    border: 0.15em solid var(--form-field-color);
     border-radius: 50%; /*check box is a circular field*/
-    transition: 120ms /*animation time for smooth Transition */
+    transition-duration: 120ms /*animation time for smooth Transition */
 }
 
 fieldset input[type = "radio"]:checked
 {
     background-color: var(--form-field-color);
-    border: 0.4rem solid var(--form-field-border-color);
-    transition: 120ms/*animation time for smooth Transition */
+    border: 0.4rem solid var(--vibrant-color);
+    transition-duration: 120ms/*animation time for smooth Transition */
 }
 
 
@@ -365,39 +417,18 @@ form input[type="submit"],form input[type="reset"]
     background-color: var(--form-field-color);
     border: 0.2rem solid var(--form-field-border-color);
     border-radius: 0.9rem;
-    transition: 120ms;
+    transition-duration: 120ms;
 }
 
 form input[type="reset"]
 {
     right: 10%;
-/*We move the clear form button slightly to the left*/
 }
 
 
 /*---------------------------------- End of Form style --------------------------------*/
 
 /*----------------------------------classified ads stle--------------------------------*/
-/* section  {
-    margin:1rem;
-    padding:1rem;
-} */
-section h3 {
-    margin:1rem;
-    padding:1rem;
-    width:fit-content;
-    font-style: italic;
-}
-section h2 {
-    margin:1rem;
-    padding:1rem;
-    text-decoration: underline;
-}
-section img {
-    border:1rem;
-    margin:0.5rem;
-    padding:1rem;
-}
 section article
 {
     background-color: var(--table-color);
@@ -427,16 +458,7 @@ section article header
     width:100%
 }
 
-section h1, h1
-{
-    font-size:3.5rem;
-}
-h1{
-    padding:0.3rem;
-    margin :1rem;
-    margin-top:2rem;
 
-}
 /*---------------------------end of classified ads style--------------------------------*/
 
 /*---------------------------specific ad style------------------------------------------*/
@@ -445,11 +467,6 @@ h1{
     font-size:3rem;
 }
 
-article h2
-{
-    font-size:4rem;
-    margin:1rem;
-}
 
 .transparent-text
 {
@@ -479,14 +496,14 @@ article h2
 {
     box-shadow: 0 5rem 10rem 0 rgba(0, 0, 0, 0.733), 0 2.5rem 6rem 0 rgba(0, 0, 0, 0.814);
     background-color: rgb(57, 12, 94);
-    transition: 250ms;
+    transition-duration: 250ms;
 }
 
 .ad-style:active
 {
     background-color: rgb(57, 12, 94);
     padding: 0.5rem;
-    transition:120ms;
+    transition-duration:120ms;
 }
 .ad-style p
 {
@@ -510,22 +527,19 @@ article h2
     color:var(--normal-text-color);
 }
 
-main table 
-{
-    width:25%;
-}
 
-/*end*/
 
 aside
 {
     float:right;
     right:0%;
-    margin-right:2rem;
+    margin-right:0;
     height: 100%;
-    padding-bottom:1.8rem;
+    width: 35rem;
     padding-top:1rem;
-    background-color:var(--dark-vibrant-color);
+    padding-bottom:2rem;
+    background-color:var(--page-color);
+    box-shadow: 0 5rem 5rem 0 rgba(0, 0, 0, 0.250), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.250); ;
     border-radius:1rem;
 }
 
@@ -549,6 +563,45 @@ aside nav>ul>li
 {
     margin-top:1.6rem
 }
+
+/* For all "Buttons" (as in links that look like buttons):
+    1.Without this the hover animation shows a transition from a white border to a purple border.
+    We want it to be purple from the start so we make it but keep the width to 0
+    2.padding is added*/
+.button_style
+{
+    border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
+    padding:1rem;
+}
+
+/* When a Button is Hovered over:
+    1.The text isn't underlined (default Link behaviour)
+    2.Padding is added to for a more clean spaced out look for the block
+    3.backgorund Color of the box is changed
+    4.A purple border appears
+    5.The corners of the block are smoothened out using border Radius
+    6.All the above happens over a set amount of time using transition-duration*/
+.button_style:hover
+{
+    text-decoration: none;
+    padding:1rem;
+    background-color: var(--form-field-color);
+    border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
+    border-radius: 2rem;
+    transition-duration: 200ms;/*animation time for smooth Transition */
+}
+
+/* When a Button is Pressed:
+    1. background Color of the box is changed to show the activation of the button
+    2. Text color is also changed
+    3.All the above happens over a set amount of time using transition-duration */
+.button_style:active
+{
+    background-color: var(--form-field-border-color);
+    color:var(--vibrant-text-color);
+    transition-duration: 200ms;/*animation time for smooth Transition */
+}
+
 
 
 /* width */
