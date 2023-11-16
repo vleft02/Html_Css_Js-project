@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="el">
+    
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <title>Αρχική Σελίδα</title>
+        <link rel="icon" href="res/logo-abbr.png">
+        <meta name="description" content="Online Markteplace">
+        <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
+        <meta name="author" content="co-authored by Evangelos Leftakis & Panagiotis niktarakis">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="constraint-validation.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <header>
+
+            <nav>
+                <ul>
+                    <li class="logo-image"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
+                    <li><a class="button_style" href="index.html">Αρχική Σελίδα</a></li>
+                        <li>
+                            <a class="button_style" href="categories.html">Κατήγοριες</a>
+                            <ul>
+                                <li><a class="button_style" href="#">Πωλήσεις Ακινήτων</a></li>
+                                <li><a class="button_style" href="#">Ενοικιάσεις Ακινήτων</a></li>
+                                <li><a class="button_style" href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
+                                <li><a class="button_style" href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
+                                <li><a class="button_style" href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
+                                <li><a class="button_style" href="#">Εργασία Μερική Απασχόληση</a></li>
+                                <li><a class="button_style" href="#">Εργασία Πλήρης Απασχόληση</a></li>
+                            </ul>
+                        </li>
+                    <li><a class="button_style" href="customer-support.html">Υποστήριξη</a></li>
+                    <li><a class="button_style" href="about-us.html">Ποιοί είμαστε;</a></li>
+                    <li><input type="text" placeholder="Αναζήτηση"></li>
+                    <li><button><span class="fa fa-search"></span></button>
+                </ul>
+            </nav>
+            
+        </header>
+        <main>    
+        <h1>Εγγραφή χρήστη</h1>
+            <form>
+                <fieldset>
+                    <legend>Προσωπικά στοιχεία</legend>
+                    <label for="name">Όνομα</label>
+                    <input type="text" name="name" id="name" size="50" placeholder="Ονοματεπώνυμο πχ. Γιάννης Δοε" required>
+            
+
+                    <label for="email">email</label>
+                    <input type="email" name="email" id="email" placeholder="Email πχ user@mail.com" required><br>
+                   
+                    <label for="address">Διεύθηνση Κατοικίας</label>
+                    <input type="text" name="address" id="address" placeholder="Διεύθηνση πχ Πολυκαστρου 12" required>
+                    <label for="postal-code">Τ.Κ.</label>
+                    <input type="text" name="postal-code" id="postal-code" placeholder="ΤΚ πχ 16432" required>
+                    <br>
+                
+                    <label for="tel">Τηλέφωνο επικοινωνίας</label>
+                    <input type="tel" name="tel" id="tel" placeholder="Τηλέφωνο επικοινωνίας" required><br>
+
+                    <label for="mobile-tel">Κινητό τηλέφωνο επικοινωνίας</label>
+                    <input type="tel" name="mobile-tel" id="mobile-tel" placeholder="Κινητό πχ +30 6979797979"><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Στοιχεία ταυτοποίησης χρήστη</legend>
+                        <label for="username">Όνομα χρήστη</label>
+                        <input type="text" name="username" id="username" placeholder="Όνομα χρήστη πχ giorgaras2005" required><br>
+                        <label for="password">Κωδικός</label>
+                        <input type="text" name="password" id="password" placeholder="Κωδικός" required><br>
+                        <label for="password-confirmation">Επιβεβαίωση κωδικού</label>
+                        <input type="text" name="password-confirmation" id="password-confirmation" placeholder="Ξαναγράψτε τον κωδικό" required><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Αποστολή ενημερώσεων</legend>
+                        <label for="sms-notify">SMS <span class="fa fa-mobile-phone"></span></label>
+                        <input type="checkbox" name="sms-notify" id="sms-notify"><br>
+                        <label for="email-notify">Email <span class="fa fa-mail-forward"></span></label>
+                        <input type="checkbox" name="email-notify" id="email-notify"><br>
+                        <label for="whatsapp-notify">WhatsApp <span class="fa fa-whatsapp"></span></label>
+                        <input type="checkbox" name="whatsapp-notify" id="whatsapp-notify"><br>
+                </fieldset>
+                <fieldset>
+                    <legend>Ερωτηματολόγιο</legend>
+                        <p class="no-box-model-values">1. Για ποιά απο τα παρακάτω είδη ενδιαφέρεστε;</p>
+                        <label for="interested-real-estate">Ακίνητα</label>
+                        <input type="checkbox" name="interested" id="interested-real-estate"><br>
+                        <label for="interested-car">Αυτοκίνητα</label>
+                        <input type="checkbox" name="interested" id="interested-car"><br>
+                        <label for="interested-house-appliances">Οικιακές Συσκευές</span></label>
+                        <input type="checkbox" name="interested" id="interested-house-appliances"><br>
+                        <label for="interested-work">Εργασία</label>
+                        <input type="checkbox" name="interested" id="interested-work"><br>
+                        
+                        <p class="no-box-model-values">2. Σε ποιόν τομέα εργάζεστε;</p>
+                        <label for="work">Εργασία</label>
+                        <select name="work" id="work">
+                            <option value="self-employed">Ελεύθερος επαγγελματίας</option>
+                            <option value="employee">Υπάλληλος</option>
+                            <option value="unemployed">Ψαχνω Για δουλειά</option>
+                            <option value="student">Φοιτητής</option>
+                        </select>
+                        <br>
+                        <br>
+                        <p class="no-box-model-values">3. Με τι μέσα πηγαίνετε στη δουλεια σας;</p>
+                        <label for="car">Αυτοκίνητο</label>
+                        <input type="checkbox" name="drives" id="car" value="car"><br>
+                        <label for="commute">Δημόσια Συγκοινωνία</label>
+                        <input type="checkbox" name="drives" id="commute"><br>
+                        <label for="bicycle"></span>Ποδήλατο</label>
+                        <input type="checkbox" name="drives" id="bicycle"><br>
+                        <label for="motorcycle">Μηχανάκι</label>
+                        <input type="checkbox" name="drives" id="motorcycle"><br>
+                        
+                        <p class="no-box-model-values">5. Θα προτείνατε αυτη την ιστοσελίδα σε ένα φίλο ή συνάδελφο σας;</p>
+                        <div class="margin-bottom">   
+                            <input type="radio" name="user-likes" id ="user-likes" value ="true">
+                            <label for="user-likes">Ναι</label><br>
+                        </div> 
+                        <div class="margin-bottom">  
+                            <input type="radio" name="opinion" id ="user-dislikes" value="false">
+                            <label for="user-dislikes">Οχι</label><br>
+                        </div>
+                       
+                </fieldset>
+                
+                <input class="button_style" type="submit" value="Εγγραφή">
+            </form>
+        </main>
+            
+        <footer>
+            <div>
+                <h3>Χρήσιμοι Σύνδεσμοι</h3>
+                <a href="about-us.html">Ποιοί είμαστε;</a>
+                <a href="customer-support.html">Υποστήριξη</a>
+                <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
+            </div>
+
+            <div>
+                <h3>Στοιχεία επικοινωνίας</h3>
+                    <address>
+                        Email:
+                        <a href="rentall@buisness.com">rentall@buisness.com</a>
+                        <br>
+                        Τηλέφωνο:
+                        <a href="tel:+1111111111">+30 1111</a>
+                        <br>
+                        Social:
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                    </address>
+            </div>
+            <div class="logo-image">
+                <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+            </div>
+        </footer>
+    </body>
+
+</html>
