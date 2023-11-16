@@ -18,7 +18,7 @@
 
             <nav>
                 <ul>
-                    <li class="logo-image"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
+                    <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
                     <li><a class="button_style" href="index.html">Αρχική Σελίδα</a></li>
                         <li>
                             <a class="button_style" href="categories.html">Κατήγοριες</a>
@@ -42,6 +42,42 @@
         </header>
         <main>
             <h1>Πωλήσεις Αυτοκινήτων</h1>
+            <aside class="filter-panel">
+                <form>
+                    <div class="filter-brand">
+                        <h4>Μάρκες</h4>
+                        <label class="form-check">Opel</label>
+                        <input class="form-check-input" type="checkbox" value="">
+
+                        <label class="form-check">Honda</label>
+                        <input class="form-check-input" type="checkbox" value="">
+
+                        <label class="form-check">Toyota</label>
+                        <input class="form-check-input" type="checkbox" value="">
+
+                        <label class="form-check">Seat</label>
+                        <input class="form-check-input" type="checkbox" value="">
+                    </div>
+
+                    <div class="filter-price">
+                        <h4>Τιμή</h4>             
+                        <div> 
+                            <label for="min-price">Απο</label>
+                            <input type="number" class="form-control" id="min-price" placeholder="0€">
+                        </div>
+                        <div>
+                            <label for="max-price">Εως</label>
+                            <input type="number" class="form-control" id="max-price" placeholder="10.000€">
+                        </div>
+                    </div>
+
+                    <div class="filter-range">
+                        <h4>Χιλιόμετρα</h4>
+                        <input type="range" id="mileage" name="mileage" min="0" max="400.000" />
+                        <label for="mileage">χλμ</label>
+                    </div>
+                </form>
+            </aside>
             <section>
                 <h2>Αγγελίες</h2>
                 <ul>
@@ -175,7 +211,7 @@
                         <a href="#" class="fa fa-facebook"></a>
                     </address>
             </div>
-            <div class="logo-image">
+            <div class="logo-image-container">
                 <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
             </div>
         </footer>
