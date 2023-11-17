@@ -17,22 +17,22 @@
 
             <nav>
                 <ul>
-                    <li><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
-                    <li><a href="index.html">Αρχική Σελίδα</a></li>
+                    <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
+                    <li><a class="button_style" href="index.html"><span class="fa fa-home"></span>Αρχική Σελίδα</a></li>
                         <li>
-                            <a href="categories.html">Κατήγοριες</a>
+                            <a class="button_style" href="categories.html"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
                             <ul>
-                                <li><a href="#">Πωλήσεις Ακινήτων</a></li>
-                                <li><a href="#">Ενοικιάσεις Ακινήτων</a></li>
-                                <li><a href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
-                                <li><a href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
-                                <li><a href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
-                                <li><a href="#">Εργασία Μερική Απασχόληση</a></li>
-                                <li><a href="#">Εργασία Πλήρης Απασχόληση</a></li>
+                                <li><a class="button_style" href="#">Πωλήσεις Ακινήτων</a></li>
+                                <li><a class="button_style" href="#">Ενοικιάσεις Ακινήτων</a></li>
+                                <li><a class="button_style" href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
+                                <li><a class="button_style" href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
+                                <li><a class="button_style" href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
+                                <li><a class="button_style" href="#">Εργασία Μερική Απασχόληση</a></li>
+                                <li><a class="button_style" href="#">Εργασία Πλήρης Απασχόληση</a></li>
                             </ul>
                         </li>
-                    <li><a href="customer-support.html">Υποστήριξη</a></li>
-                    <li><a href="about-us.html">Ποιοί είμαστε;</a></li>
+                    <li><a class="button_style" href="customer-support.html"><span class="fa fa-phone"></span>Υποστήριξη</a></li>
+                    <li><a class="button_style" href="about-us.html"><span class="fa fa-handshake-o"></span>Ποιοί είμαστε;</a></li>
                     <li><input type="text" placeholder="Αναζήτηση"></li>
                     <li><button><span class="fa fa-search"></span></button>
                 </ul>
@@ -43,20 +43,20 @@
             <a href="car-sales.html"><span class="fa fa-arrow-circle-left"></span> Επιστροφή στις Πωλήσεις Αυτοκινήτων</a>
             <article>
                 <div>
-                    <img src="res/car31.jpg"  width="400" height="400" alt ="Seat ibiza from the side classified ad">
-                    <img src="res/car30.jpg" width="400" height="400" alt ="Seat ibiza from the side classified ad">
+                    <img src="res/car31.png"  width="400" height="400" alt ="Seat ibiza from the side classified ad">
+                    <img src="res/car30.png" width="400" height="400" alt ="Seat ibiza from the side classified ad">
                     <img src="res/car32.png" width="400" height="400" alt ="Seat ibiza from the front classified ad">
                 </div>
-                <h2>Seat ibiza '05 <span>#3245</span></h2>
-                <p><span class="fa fa-eye"></span>: 25</p>
-                <p><strong>-10% <del>3000 €</del> 2700 € </strong></p>
-                <p>Ημερομηνία ανάρτησης: <time datetime="2022-11-18">18/11/22</time>
+                <h2>Seat ibiza '05 <span class="transparent-text">#3245</span></h2>
+                <p class="transparent-text float-right no-box-model-values">Ημερομηνία ανάρτησης: <time datetime="2022-11-18">18/11/22</time>
                     <br> Ημερομηνία τελευταίας επεξεργασίας:<time datetime="2022-12-30">30/12/22</time>
                 </p>
+                <p class="transparent-text float-right no-box-model-values"><span class="fa fa-eye"></span>: 25</p>
+                <p id = "price"><strong>-10% <del>3000 €</del> 2700 € </strong></p>
                 <h3>Περιγραφή αγγελίας</h3>
                 <p>Δευτερο χερι, το πουλαω γιατι θελω να παρω ενα οικογενειακο μηχανικά είναι σε πολυ καλη κατασταση εχει κανει πρόσφατα μεγαλο σερβις εχει περασεί ΚΤΕΟ και εχω πληρωμένα τα τέλη εχω το βιβλο σερβισ, καλοδιατηρημένο το είχα σε υπογειο γκαραζ </p>
                 
-                <table>
+                <table class="float-center">
                     <thead>
                         <tr>
                           <th colspan="2">Χαρακτηριστικά</th>
@@ -94,6 +94,7 @@
                 <h3>Χρήσιμοι Σύνδεσμοι</h3>
                 <a href="about-us.html">Ποιοί είμαστε;</a>
                 <a href="customer-support.html">Υποστήριξη</a>
+                <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
             </div>
 
             <div>
@@ -110,8 +111,8 @@
                         <a href="#" class="fa fa-facebook"></a>
                     </address>
             </div>
-            <div>
-            <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+            <div class="logo-image-container">
+                <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
             </div>
         </footer>
     </body>

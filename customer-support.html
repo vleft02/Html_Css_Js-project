@@ -19,22 +19,22 @@
 
             <nav>
                 <ul>
-                    <li><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
-                    <li><a href="index.html">Αρχική Σελίδα</a></li>
+                    <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
+                    <li><a class="button_style" href="index.html"><span class="fa fa-home"></span>Αρχική Σελίδα</a></li>
                         <li>
-                            <a href="categories.html">Κατήγοριες</a>
+                            <a class="button_style" href="categories.html"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
                             <ul>
-                                <li><a href="#">Πωλήσεις Ακινήτων</a></li>
-                                <li><a href="#">Ενοικιάσεις Ακινήτων</a></li>
-                                <li><a href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
-                                <li><a href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
-                                <li><a href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
-                                <li><a href="#">Εργασία Μερική Απασχόληση</a></li>
-                                <li><a href="#">Εργασία Πλήρης Απασχόληση</a></li>
+                                <li><a class="button_style" href="#">Πωλήσεις Ακινήτων</a></li>
+                                <li><a class="button_style" href="#">Ενοικιάσεις Ακινήτων</a></li>
+                                <li><a class="button_style" href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
+                                <li><a class="button_style" href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
+                                <li><a class="button_style" href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
+                                <li><a class="button_style" href="#">Εργασία Μερική Απασχόληση</a></li>
+                                <li><a class="button_style" href="#">Εργασία Πλήρης Απασχόληση</a></li>
                             </ul>
                         </li>
-                    <li><a href="customer-support.html">Υποστήριξη</a></li>
-                    <li><a href="about-us.html">Ποιοί είμαστε;</a></li>
+                    <li><a class="button_style" href="customer-support.html"><span class="fa fa-phone"></span>Υποστήριξη</a></li>
+                    <li><a class="button_style" href="about-us.html"><span class="fa fa-handshake-o"></span>Ποιοί είμαστε;</a></li>
                     <li><input type="text" placeholder="Αναζήτηση"></li>
                     <li><button><span class="fa fa-search"></span></button>
                 </ul>
@@ -45,17 +45,23 @@
         <h1>Επικοίνωνία με Τεχνική Υποστήριξη</h1>
             <form>
                 <fieldset>
-                    <legend>Τύπος Προβλήματος</legend>
-                    <p>    
-                        <input type="radio" name="problem" id ="technical" value ="technical">
-                        <label for="technical">Τεχνικό πρόβλημα</label><br>
-                        <input type="radio" name="problem" id ="outadated-advertisement" value="outadated-advertisement">
-                        <label for="outadated-advertisement">Αναφορά μη έγκυρης αγγελίας</label><br>
-                        <input type="radio" name="problem" id ="fraud" value ="fraud">
-                        <label for="fraud">Αναφορά Χρήστη/Απάτη</label><br>
-                        <input type="radio" name="problem" id ="other" value="other">
-                        <label for="other">Άλλο</label><br>
-                    </p>
+                        <legend>Τύπος Προβλήματος</legend>
+                        <div class="margin-bottom">   
+                            <input type="radio" name="problem" id ="technical" value ="technical">
+                            <label for="technical">Τεχνικό πρόβλημα</label><br>
+                        </div> 
+                        <div class="margin-bottom">  
+                            <input type="radio" name="problem" id ="outadated-advertisement" value="outadated-advertisement">
+                            <label for="outadated-advertisement">Αναφορά μη έγκυρης αγγελίας</label><br>
+                        </div>
+                        <div class="margin-bottom">  
+                            <input type="radio" name="problem" id ="fraud" value ="fraud">
+                            <label for="fraud">Αναφορά Χρήστη/Απάτη</label><br>
+                        </div>
+                        <div class="margin-bottom">  
+                            <input type="radio" name="problem" id ="other" value="other">
+                            <label for="other">Άλλο</label><br>
+                        </div>
                 </fieldset>
 
                 <fieldset>
@@ -79,8 +85,8 @@
                     <label for="problem-description">Περιγραφή</label>
                     <textarea  name="problem-description" id="problem-description" rows="4" placeholder="Περιγραφή προβλήματος" required></textarea><br>
                 </fieldset>
-                <input type="submit" value="Υποβολή">
-                <input type="reset" value="Καθαρισμός φόρμας">
+                <input class="button_style" type="submit" value="Υποβολή">
+                <input class="button_style" type="reset" value="Καθαρισμός φόρμας">
             </form>
         </main>
             
@@ -89,6 +95,7 @@
                 <h3>Χρήσιμοι Σύνδεσμοι</h3>
                 <a href="about-us.html">Ποιοί είμαστε;</a>
                 <a href="customer-support.html">Υποστήριξη</a>
+                <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
             </div>
 
             <div>
@@ -105,7 +112,7 @@
                         <a href="#" class="fa fa-facebook"></a>
                     </address>
             </div>
-            <div>
+            <div class="logo-image-container">
                 <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
             </div>
         </footer>
