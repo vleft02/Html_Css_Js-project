@@ -256,12 +256,13 @@ header nav button
 {
     background-color: var(--page-color);
     border:none;
+    margin-right:1rem;
 }
 
 
 
 header nav>ul>li{
-    display: inline;
+    /* display: inline; */
 }
 
 
@@ -271,7 +272,7 @@ header nav>ul>li{
 
 footer div a
 {
-    display:block; 
+    /* display:block;  */
 }
 
 
@@ -424,7 +425,7 @@ form input[type="reset"]
 
 aside
 {
-    float:right;
+    /* float:right; */
     right:0%;
     margin-right:0;
     height: 100%;
@@ -529,6 +530,8 @@ aside nav>ul>li
 {
     border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
     padding:1rem;
+    margin:0;
+    display:inline-block
 }
 
 /* When a Button is Hovered over:

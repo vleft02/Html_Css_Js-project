@@ -11,6 +11,7 @@
         <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
         <meta name="author" content="co-authored by Evangelos Leftakis & Panagiotis niktarakis">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="layout.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
@@ -45,8 +46,8 @@
         </header>
         <main>    
         <h1>Επικοίνωνία με Τεχνική Υποστήριξη</h1>
-            <form>
-                <fieldset>
+            <form class="fill-all-columns justify-center">
+                <fieldset class="fit-text">
                         <legend>Τύπος Προβλήματος</legend>
                         <div class="margin-bottom">   
                             <input type="radio" name="problem" id ="technical" value ="technical">
@@ -87,8 +88,10 @@
                     <label for="problem-description">Περιγραφή</label>
                     <textarea  name="problem-description" id="problem-description" rows="4" placeholder="Περιγραφή προβλήματος" required></textarea><br>
                 </fieldset>
+                <div class="flex-row justify-evenly">
                 <input class="button_style" type="submit" value="Υποβολή">
                 <input class="button_style" type="reset" value="Καθαρισμός φόρμας">
+                </div>
             </form>
         </main>
             
@@ -100,7 +103,7 @@
                 <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
             </div>
 
-            <div>
+            <div class="justify-center">
                 <h3>Στοιχεία επικοινωνίας</h3>
                     <address>
                         Email:
@@ -114,8 +117,11 @@
                         <a href="#" class="fa fa-facebook"></a>
                     </address>
             </div>
-            <div class="logo-image-container">
-                <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+            <div  class="justify-center">
+                <img src="res/award.png" width="120" height="120" alt="award">
+                </div>
+            <div id="footer-img" class="logo-image-container">
+            <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
             </div>
         </footer>
     </body>
