@@ -61,9 +61,11 @@ body>header {
     header nav input[type="text"]
     {
         background-color: var(--page-color);
-        height:3rem;
+        height:4rem;
+        padding:0.2rem;
         box-shadow: rgba(0, 0, 0, 0.5)  0.3rem 0.3rem 0.5em 0.5rem inset;
         border-radius: 2rem;
+        border: 0.1rem solid rgb(77, 67, 67);
         color:var(--normal-text-color);
         margin-left:0.5rem;/*CHECK*/
     }
@@ -235,7 +237,9 @@ input[type="text"]:focus,textarea:focus
 
 }
 
-
+aside ul{
+    padding:0;
+}
 
 .logo-image-container
 {
@@ -297,16 +301,25 @@ fieldset input
     width:40rem;
     height:2rem;
     margin: 0.5rem;
-    border-radius: 1rem;/*Smooth edges*/
-    border: 0.1rem solid var(--form-field-border-color); 
-    background-color: var(--form-field-color);
+    border-radius: 0.7rem;/*Smooth edges*/
+    border: 0.1rem solid rgb(77, 67, 67); 
+    background-color: var(--page-color);
+    box-shadow: rgba(0, 0, 0, 0.3)  0.3rem 0.3rem 0.5em 0.5rem inset;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
+
+
+select
+{
+    background-color: var(--vibrant-text-color);
+    box-shadow: 0 5rem 5rem 0 rgba(0, 0, 0, 0.250), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.250);
+    color:var(--normal-text-color);
+}
 
 fieldset input[type="text"]
 {
     display: block;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color:var(--normal-text-color);
     height:3rem;
 }
@@ -315,11 +328,13 @@ fieldset textarea
 {
     display: block;
     color : var(--normal-text-color);
-    border-radius: 0.9rem;/*Smooth edges*/
-    border: 0.1rem solid var(--form-field-border-color); 
-    background-color: var(--form-field-color);
+    border-radius: 0.7rem;/*Smooth edges*/
     width:40rem;
     height:10rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 0.1rem solid rgb(77, 67, 67); 
+    background-color: var(--page-color);
+    box-shadow: rgba(0, 0, 0, 0.3)  0.3rem 0.3rem 0.5em 0.5rem inset;
 }
 
 
@@ -349,7 +364,7 @@ fieldset input[type = "radio"]:checked
 /* The 2 buttons on the bottom of the form are set to have no default appearance */
 form input[type="submit"],form input[type="reset"]
 {
-    width:25%;
+    width:fit-content;
     margin: 1rem;
     padding:1rem;
     width:15%;
@@ -362,10 +377,8 @@ form input[type="submit"],form input[type="reset"]
     transition-duration: 120ms;
 }
 
-form input[type="reset"]
-{
-    right: 10%;
-}
+
+
 
 .no-box-model-values
 {
