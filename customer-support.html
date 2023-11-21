@@ -11,6 +11,7 @@
         <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
         <meta name="author" content="co-authored by Evangelos Leftakis & Panagiotis niktarakis">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="layout.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 
@@ -18,6 +19,7 @@
         <header>
 
             <nav>
+<<<<<<< HEAD
                 <ul>
                     <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
                     <li><a class="button_style" href="index.html">Αρχική Σελίδα</a></li>
@@ -32,9 +34,27 @@
                                 <li><a class="button_style" href="#">Εργασία Μερική Απασχόληση</a></li>
                                 <li><a class="button_style" href="#">Εργασία Πλήρης Απασχόληση</a></li>
                             </ul>
+=======
+                <ul class="no-list-style">
+                    <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
+                    <li><a class="button-interactive" href="index.html"><span class="fa fa-home"></span>Αρχική Σελίδα</a></li>
+                        <li class="dropdown-container">
+                            <a class="button-interactive" href="categories.html"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
+                            <div class="dropdown">
+                                <ul class="no-list-style spaced-out-list">
+                                    <li><a class="button-interactive" href="#">Πωλήσεις Ακινήτων</a></li>
+                                    <li><a class="button-interactive" href="#">Ενοικιάσεις Ακινήτων</a></li>
+                                    <li><a class="button-interactive" href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
+                                    <li><a class="button-interactive" href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
+                                    <li><a class="button-interactive" href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
+                                    <li><a class="button-interactive" href="#">Εργασία Μερική Απασχόληση</a></li>
+                                    <li><a class="button-interactive" href="#">Εργασία Πλήρης Απασχόληση</a></li>
+                                </ul>
+                            </div>
+>>>>>>> 723d69ae70138129057def319b62dd403f67dbc2
                         </li>
-                    <li><a class="button_style" href="customer-support.html">Υποστήριξη</a></li>
-                    <li><a class="button_style" href="about-us.html">Ποιοί είμαστε;</a></li>
+                    <li><a class="button-interactive" href="customer-support.html"><span class="fa fa-phone"></span>Υποστήριξη</a></li>
+                    <li><a class="button-interactive" href="about-us.html"><span class="fa fa-handshake-o"></span>Ποιοί είμαστε;</a></li>
                     <li><input type="text" placeholder="Αναζήτηση"></li>
                     <li><button><span class="fa fa-search"></span></button>
                 </ul>
@@ -43,8 +63,8 @@
         </header>
         <main>    
         <h1>Επικοίνωνία με Τεχνική Υποστήριξη</h1>
-            <form>
-                <fieldset>
+            <form class="fill-all-columns justify-center">
+                <fieldset id="radio-fieldset">
                         <legend>Τύπος Προβλήματος</legend>
                         <div class="margin-bottom">   
                             <input type="radio" name="problem" id ="technical" value ="technical">
@@ -85,8 +105,10 @@
                     <label for="problem-description">Περιγραφή</label>
                     <textarea  name="problem-description" id="problem-description" rows="4" placeholder="Περιγραφή προβλήματος" required></textarea><br>
                 </fieldset>
-                <input class="button_style" type="submit" value="Υποβολή">
-                <input class="button_style" type="reset" value="Καθαρισμός φόρμας">
+                <div class="flex-row justify-evenly">
+                <input class="button-interactive" type="submit" value="Υποβολή">
+                <input class="button-interactive" type="reset" value="Καθαρισμός φόρμας">
+                </div>
             </form>
         </main>
             
@@ -98,7 +120,7 @@
                 <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
             </div>
 
-            <div>
+            <div class="justify-center">
                 <h3>Στοιχεία επικοινωνίας</h3>
                     <address>
                         Email:
@@ -112,8 +134,16 @@
                         <a href="#" class="fa fa-facebook"></a>
                     </address>
             </div>
+<<<<<<< HEAD
             <div class="logo-image-container">
                 <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+=======
+            <div  class="justify-center">
+                <img src="res/award.png" width="120" height="120" alt="award">
+                </div>
+            <div id="footer-img" class="logo-image-container">
+            <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+>>>>>>> 723d69ae70138129057def319b62dd403f67dbc2
             </div>
         </footer>
     </body>

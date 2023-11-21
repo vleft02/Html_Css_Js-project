@@ -4,7 +4,7 @@
     --table-color:rgb(92, 78, 97);
     --secondary-page-color:rgb(49, 27, 57);
     --form-field-color:rgb(10, 10, 34);
-    --form-field-border-color:rgb(80, 2, 151);
+    --form-field-border-color:rgb(111, 0, 214);
     --vibrant-color:rgb(115, 30, 237);
     --hover-color:rgba(108, 23, 177, 0.603);
     --dark-vibrant-color:rgb(57, 12, 94);
@@ -35,7 +35,7 @@ body {
     font-size: 1.6rem;
     margin:0;
     padding:0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Fira-Sans;
     color:var(--normal-text-color);
     overflow-x: hidden; /*Hides bottom scrollbar by covering it with the body block*/
 }
@@ -51,6 +51,25 @@ body>header {
     padding: 2rem;
 }
 
+/* We select the input of type text inside of nav elements
+(this corresponds only to the search bar):
+    1.background color is changed
+    2.height is set to a bigger size
+    3.An inset shadow is added to give deph
+    4.Corners are smoothed out
+    5.Small margin left is added*/
+    header nav input[type="text"]
+    {
+        background-color: var(--page-color);
+        height:4rem;
+        padding:0.2rem;
+        box-shadow: rgba(0, 0, 0, 0.5)  0.3rem 0.3rem 0.5em 0.5rem inset;
+        border-radius: 2rem;
+        border: 0.1rem solid rgb(77, 67, 67);
+        color:var(--normal-text-color);
+        margin-left:0.5rem;/*CHECK*/
+    }
+    
 
 /* The main element has a small margin so that text doesn't stick to the edges of the Window */
 main
@@ -197,35 +216,30 @@ footer
     4.padding is added */
 ::placeholder
 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Fira-Sans;
     color:var(--transparent-text-color);
     font-weight:bold;
     padding:0.7rem
 }
 
-
+/*When an input item is focused we don't want any style
+(This is so that the outline won't appear for radial, checkboxes etc.)*/
 input:focus
 {
     outline:none;
 }
 
-
+/* When a text input or a textarea are clicked they 
+have a vibrant outline */
 input[type="text"]:focus,textarea:focus
 {
-    outline:0.2rem solid var(--vibrant-color) ;
+    outline:0.1rem solid var(--vibrant-color) ;
 
 }
 
-
-
-
-
-
-
-
-
-
-
+aside ul{
+    padding:0;
+}
 
 .logo-image-container
 {
@@ -246,93 +260,28 @@ header nav button
 {
     background-color: var(--page-color);
     border:none;
+    margin-right:1rem;
 }
 
 
-/*When the links on the nav bar are hovered they change style*/
-header nav a:visited, header nav button:visited {
-    color:var(--normal-text-color)
-}
-
-/*----------------------------End of Nav Menu Links--------------------------------------*/
 
 header nav>ul>li{
-    display: inline-block;
+    /* display: inline; */
 }
 
 
 
-header li>ul
-{
-    margin-top: 1rem;
-    display:none;
-    border-radius: 1rem;/* Smooth corners*/
-}
-
-/*The dropdown menu block appears when the category li is hovered */
-header li:hover>ul
-{
-    display:block;
-    box-shadow: 0 5rem 5rem 5rem rgba(0, 0, 0, 0.250);
-    position:absolute;/*the block has an absolute position over the other elements of the page*/
-    background-color: var(--page-color);
-    border-radius: 1rem;
-    padding:0.3rem;
-} 
-
-/*Style for the li items inside the dropdown menu*/
-header li:hover>ul>li
-{
-    padding :0.2rem;
-    margin-bottom:2rem;
-} 
-
-nav input[type="text"]
-{
-    background-color: var(--page-color);
-    height:3rem;
-    box-shadow: rgba(0, 0, 0, 0.5)  0.3rem 0.3rem 0.5em 0.5rem inset;
-    border-radius: 2rem;
-    color:var(--normal-text-color);
-    margin-left:0.5rem; 
-}
-
-/*----------------------------------End of Nav menu---------------------------------------*/
-
-/*-----------------------------------Links style-------------------------------------------*/
-
-
-.glow-block{
-    margin:2rem;
-    width :50%;
-    box-shadow: rgba(240, 46, 170, 0.4) -5px 5px , rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
-    border-radius: 2rem;
-    padding: 3rem;
-}
-main>section>p
-{
-    margin:2rem;
-    width :50%;
-    border-radius: 2rem;
-    padding: 3rem;
-}
 
 
 
 footer div a
 {
-    display:block; 
+    /* display:block;  */
 }
 
 
 
 
-/*We don't want bullets in our lists*/
-ul {
-    list-style: none;
-    padding:0;
-    margin:0;
-}
 
 
 
@@ -352,11 +301,21 @@ fieldset input
     width:40rem;
     height:2rem;
     margin: 0.5rem;
-    border-radius: 1rem;/*Smooth edges*/
-    border: 0.1rem solid var(--form-field-border-color); 
-    background-color: var(--form-field-color);
+    border-radius: 0.7rem;/*Smooth edges*/
+    border: 0.1rem solid rgb(77, 67, 67); 
+    background-color: var(--page-color);
+    box-shadow: rgba(0, 0, 0, 0.3)  0.3rem 0.3rem 0.5em 0.5rem inset;
+    font-family:Fira-Sans;
 }
 
+
+
+select
+{
+    background-color: var(--vibrant-text-color);
+    box-shadow: 0 5rem 5rem 0 rgba(0, 0, 0, 0.250), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.250);
+    color:var(--normal-text-color);
+}
 
 fieldset input[type="text"]
 {
@@ -370,11 +329,13 @@ fieldset textarea
 {
     display: block;
     color : var(--normal-text-color);
-    border-radius: 0.9rem;/*Smooth edges*/
-    border: 0.1rem solid var(--form-field-border-color); 
-    background-color: var(--form-field-color);
+    border-radius: 0.7rem;/*Smooth edges*/
     width:40rem;
     height:10rem;
+    font-family:Fira-Sans ;
+    border: 0.1rem solid rgb(77, 67, 67); 
+    background-color: var(--page-color);
+    box-shadow: rgba(0, 0, 0, 0.3)  0.3rem 0.3rem 0.5em 0.5rem inset;
 }
 
 
@@ -401,18 +362,17 @@ fieldset input[type = "radio"]:checked
 
 
 
-/* 
-The 2 buttons on the bottom of the form are set to have no default appearance */
+/* The 2 buttons on the bottom of the form are set to have no default appearance */
 form input[type="submit"],form input[type="reset"]
 {
-    width:25%;
+    width:6rem;
     margin: 1rem;
     padding:1rem;
+    padding-right:4rem;
     width:15%;
+    font-family:Fira-Sans ;
     appearance: none;
     display: block;
-    float:center;
-    /* position:absolute; This is needed since when the button is hovered when the padding gets bigger eveything around it moves */
     color:var(--normal-text-color); /*Text color change */
     background-color: var(--form-field-color);
     border: 0.2rem solid var(--form-field-border-color);
@@ -420,75 +380,27 @@ form input[type="submit"],form input[type="reset"]
     transition-duration: 120ms;
 }
 
-form input[type="reset"]
+
+.font-large
 {
-    right: 10%;
+    font-size:large
 }
 
-
-/*---------------------------------- End of Form style --------------------------------*/
-
-/*----------------------------------classified ads stle--------------------------------*/
-section article
-{
-    background-color: var(--table-color);
-    width:35%;
-    margin:1rem;
-    border-radius:0.9rem;
-    overflow: hidden;/*Parts like the tr and td that would otherwise clip the rounded corners of the table are hidden*/
-}
-
-section article header
-{
-    font-size:2rem ;
-}
-
-
-.fill-block img 
-{
-    width:100%;
-    height:auto;
-    padding:0;
-    margin:0;
-    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.145), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.145);
-}
-
-.fill-block
-{
-    width:100%
-}
-
-
-/*---------------------------end of classified ads style--------------------------------*/
-
-/*---------------------------specific ad style------------------------------------------*/
-#price
-{
-    font-size:3rem;
-}
-
-
-.transparent-text
-{
-    color:var(--transparent-text-color)
-}
 .no-box-model-values
 {
     margin:0;
     padding:0;
     border:0;
 }
-.margin-bottom
-{
-    margin-bottom: 2rem;
-}
 
-/*These elements float right with a small margin so they don't stick to the edge of the page*/
-.float-right
+
+.ad-style
 {
-    clear:right;
-    float:right;
-    margin-right:2rem; 
+    background-color: var(--table-color);
+    width:90%;
+    margin:1rem;
+    border-radius:0.9rem;
+    overflow: hidden;
 }
 
 
@@ -507,9 +419,9 @@ section article header
 }
 .ad-style p
 {
+    display:inline-block;
     padding:0.3rem;
-    margin :0.4rem;
-    margin-top:0.6rem;
+    margin :0.3rem;
 }
 
 .no-link-style:hover
@@ -527,11 +439,18 @@ section article header
     color:var(--normal-text-color);
 }
 
+.button
+{
+    padding:0.5rem;
+    background-color: var(--form-field-color);
+    border-radius: 1rem;
+    border: 0.5rem solid var(--form-field-border-color) !important
+}
 
 
 aside
 {
-    float:right;
+    /* float:right; */
     right:0%;
     margin-right:0;
     height: 100%;
@@ -603,6 +522,185 @@ aside nav>ul>li
 }
 
 
+
+
+
+
+
+
+/*All blocks with this class:
+    1.padding is a addeed
+    2.multiple shadows with incremented offset and purple color are used to give a glow effect 
+    3.corners are smoothened*/
+    .glow-block{
+        box-shadow: rgba(240, 46, 170, 0.4) -5px 5px , rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+        border-radius: 2rem;
+        padding: 3rem;
+    }
+
+/*the image that should fill the space: 
+    1.takes up 100% of the block's width
+    2.height is auto as to not deform the image
+    3.padding and margin are 0 so that it sticks to the edges
+    4.shadow is set*/
+.fill-block img 
+{
+    width:100%;
+    height:auto;
+    padding:0;
+    margin:0;
+    box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.145), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.145);
+}
+/*the container that should be filled takes up 100% of the block's width*/
+.fill-block
+{
+    width:100%
+}
+    
+
+/* small margin bottom*/
+.margin-bottom
+{
+    margin-bottom: 2rem;
+}
+
+
+/* Price of ads should Have larger text*/
+#price
+{
+    font-size:3rem;
+}
+
+
+/*These elements float right with a small margin so they don't stick to the edge of the page*/
+.float-right
+{
+    clear:right;
+    float:right;
+    margin-right:2rem; 
+}
+
+/* this is used for text that should be grayed out*/
+.transparent-text
+{
+    color:var(--transparent-text-color)
+}
+
+/* For all "Buttons" (as in links that look like buttons):
+    1.Without this the hover animation shows a transition from a white border to a purple border.
+    We want it to be purple from the start so we make it but keep the width to 0
+    2.padding is added*/
+.button-interactive
+{
+    border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
+    padding:1rem;
+    margin:0;
+    display:inline-block
+}
+
+/* When a Button is Hovered over:
+    1.The text isn't underlined (default Link behaviour)
+    2.Padding is added to for a more clean spaced out look for the block
+    3.backgorund Color of the box is changed
+    4.A purple border appears
+    5.The corners of the block are smoothened out using border Radius
+    6.All the above happens over a set amount of time using transition-duration*/
+.button-interactive:hover
+{
+    text-decoration: none;
+    padding:1rem;
+    background-color: var(--form-field-color);
+    border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
+    border-radius: 2rem;
+    transition-duration: 200ms;/*animation time for smooth Transition */
+}
+
+/* When a Button is Pressed:
+    1. background Color of the box is changed to show the activation of the button
+    2. Text color is also changed
+    3.All the above happens over a set amount of time using transition-duration */
+.button-interactive:active
+{
+    background-color: var(--form-field-border-color);
+    color:var(--vibrant-text-color);
+    transition-duration: 200ms;/*animation time for smooth Transition */
+}
+
+/* For all "Buttons" (as in links that look like buttons):
+    1.Without this the hover animation shows a transition from a white border to a purple border.
+    We want it to be purple from the start so we make it but keep the width to 0
+    2.padding is added*/
+    .button-interactive
+    {
+        border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
+        padding:1rem;
+    }
+    
+    /* When a Button is Hovered over:
+        1.The text isn't underlined (default Link behaviour)
+        2.Padding is added to for a more clean spaced out look for the block
+        3.backgorund Color of the box is changed
+        4.A purple border appears
+        5.The corners of the block are smoothened out using border Radius
+        6.All the above happens over a set amount of time using transition-duration*/
+    .button-interactive:hover
+    {
+        text-decoration: none;
+        padding:1rem;
+        background-color: var(--form-field-color);
+        border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
+        border-radius: 2rem;
+        transition-duration: 200ms;/*animation time for smooth Transition */
+    }
+    
+    /* When a Button is visited it shouldn't be greyed out like the default links so
+    color is set to normal*/
+    .button-interactive:visited
+    {
+        color:var(--normal-text-color)
+    }
+
+/*bullets or other default styles are removed from lists*/
+.no-list-style
+{
+    list-style: none;
+}
+
+
+/*list items have an extra margin*/
+.spaced-out-list li
+{
+   margin: 2rem;
+}
+
+
+
+/* Style for dropdown menus:
+    1.Display is set to none so that the menu remains hidden
+    2.Position is set to absolute so as not to displace other items in the menu
+    3.width is set to 100% because postion absolute is very unresponsive for different screen resolutions
+    4.Corners are smoothed with norder radius 
+    5.Background color is changed
+    6.small padding is added
+    7.shadow is added to imply that the menu is in front of the rest of the content
+   */
+   .dropdown
+   {
+       display:none;
+       position:absolute;
+       width:100%;
+       border-radius: 1rem;
+       box-shadow: 0 5rem 5rem 5rem rgba(0, 0, 0, 0.250);
+       background-color: var(--page-color);
+       padding:0.5rem;
+   }
+   
+   /* When the dropdown container is hovered its display is set to block
+   so that it appears (previously display:none) */
+   .dropdown-container:hover .dropdown
+   {
+       display:block;
+   }
 
 /* width */
 ::-webkit-scrollbar {

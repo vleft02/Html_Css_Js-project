@@ -11,29 +11,32 @@
         <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
         <meta name="author" content="co-authored by Evangelos Leftakis & Panagiotis niktarakis">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="layout.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <header>
 
             <nav>
-                <ul>
+                <ul class="no-list-style">
                     <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
-                    <li><a class="button_style" href="index.html">Αρχική Σελίδα</a></li>
-                        <li>
-                            <a class="button_style" href="categories.html">Κατήγοριες</a>
-                            <ul>
-                                <li><a class="button_style" href="#">Πωλήσεις Ακινήτων</a></li>
-                                <li><a class="button_style" href="#">Ενοικιάσεις Ακινήτων</a></li>
-                                <li><a class="button_style" href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
-                                <li><a class="button_style" href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
-                                <li><a class="button_style" href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
-                                <li><a class="button_style" href="#">Εργασία Μερική Απασχόληση</a></li>
-                                <li><a class="button_style" href="#">Εργασία Πλήρης Απασχόληση</a></li>
-                            </ul>
+                    <li><a class="button-interactive" href="index.html"><span class="fa fa-home"></span>Αρχική Σελίδα</a></li>
+                        <li class="dropdown-container">
+                            <a class="button-interactive" href="categories.html"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
+                            <div class="dropdown">
+                                <ul class="no-list-style spaced-out-list">
+                                    <li><a class="button-interactive" href="#">Πωλήσεις Ακινήτων</a></li>
+                                    <li><a class="button-interactive" href="#">Ενοικιάσεις Ακινήτων</a></li>
+                                    <li><a class="button-interactive" href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
+                                    <li><a class="button-interactive" href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
+                                    <li><a class="button-interactive" href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
+                                    <li><a class="button-interactive" href="#">Εργασία Μερική Απασχόληση</a></li>
+                                    <li><a class="button-interactive" href="#">Εργασία Πλήρης Απασχόληση</a></li>
+                                </ul>
+                            </div>
                         </li>
-                    <li><a class="button_style" href="customer-support.html">Υποστήριξη</a></li>
-                    <li><a class="button_style" href="about-us.html">Ποιοί είμαστε;</a></li>
+                    <li><a class="button-interactive" href="customer-support.html"><span class="fa fa-phone"></span>Υποστήριξη</a></li>
+                    <li><a class="button-interactive" href="about-us.html"><span class="fa fa-handshake-o"></span>Ποιοί είμαστε;</a></li>
                     <li><input type="text" placeholder="Αναζήτηση"></li>
                     <li><button><span class="fa fa-search"></span></button>
                 </ul>
@@ -44,35 +47,35 @@
         <main>
             <aside>
                 <nav>
-                    <ul>
+                    <ul class="no-list-style">
                         <li>
-                            <a class="button_style" href="#real-estate">Ακίνητα</a>
-                            <ul>
-                                <li><a class="button_style" href="#house-rentals">Ενοικιάσεις</a></li>
-                                <li><a class="button_style" href="#house-sales">Πωλήσεις</a></li>
+                            <a class="button-interactive" href="#real-estate">Ακίνητα</a>
+                            <ul class="no-list-style">
+                                <li><a class="button-interactive" href="#house-rentals">Ενοικιάσεις</a></li>
+                                <li><a class="button-interactive" href="#house-sales">Πωλήσεις</a></li>
                                 <!--Na valoume kenes selides -->
                             </ul>
                         </li>
                         <li>
-                            <a class="button_style" href="#cars">Αυτοκίνητα</a>
-                            <ul>
-                                <li><a class="button_style" href="#car-rentals">Ενοικιάσεις</a></li>
-                                <li><a class="button_style" href="#car-sales">Πωλήσεις</a></li>
+                            <a class="button-interactive" href="#cars">Αυτοκίνητα</a>
+                            <ul class="no-list-style">
+                                <li><a class="button-interactive" href="#car-rentals">Ενοικιάσεις</a></li>
+                                <li><a class="button-interactive" href="#car-sales">Πωλήσεις</a></li>
                                 <!--Na valoume kenes selides -->
                             </ul>
                         </li>
                         <li>
-                            <a class="button_style" href="#house-apps">Οικιακές Συσκευές</a>
-                            <ul>
-                                <li><a class="button_style" href="#house-appliances-sales">Πωλήσεις</a></li>
+                            <a class="button-interactive" href="#house-apps">Οικιακές Συσκευές</a>
+                            <ul class="no-list-style">
+                                <li><a class="button-interactive" href="#house-appliances-sales">Πωλήσεις</a></li>
                                 <!--Na valoume kenes selides -->
                             </ul>
                         </li>
                         <li>
-                            <a class="button_style" href="#employment">Εργασία</a>
-                            <ul>
-                                <li><a class="button_style" href="#work-part-time">Μερική Απασχόληση</a></li>
-                                <li><a class="button_style" href="#work-full-time">Πλήρης Απασχόληση</a></li>
+                            <a class="button-interactive" href="#employment">Εργασία</a>
+                            <ul class="no-list-style">
+                                <li><a class="button-interactive" href="#work-part-time">Μερική Απασχόληση</a></li>
+                                <li><a class="button-interactive" href="#work-full-time">Πλήρης Απασχόληση</a></li>
                                 <!--Na valoume kenes selides -->
                             </ul>
                         </li>
@@ -85,11 +88,11 @@
             <section id="real-estate">
                 <h2>Ακίνητα</h2>
                 
-                <ul>
+                <ul class="no-list-style">
                     <li>
                         <section id="house-rentals">                 
                             <h3>Ενοικιάσεις</h3>
-                            <ul>
+                            <ul class="no-list-style">
                                 <li>
                                     <a class="no-link-style" href="#">
                                         <div>
@@ -162,7 +165,7 @@
 
             <section id="cars">
                 <h2>Αυτοκίνητα</h2>
-                <ul>
+                <ul class="no-list-style">
                     <li>
                         <section id="car-rentals">                 
                             
@@ -200,7 +203,7 @@
             <section id="house-apps">
                 <h2>Οικιακές συσκευές</h2>
                 <section id="house-appliances-sales">                 
-                    <ul>
+                    <ul class="no-list-style">
                         <li>
                             <a  class="no-link-style" href="house-appliances-sales.html">
                                 <div>
@@ -220,7 +223,7 @@
             </section>
             <section id="employment">
                 <h2>Εργασία</h2>
-                <ul>
+                <ul class="no-list-style">
                     <li>
                         <section id="work-part-time">                 
                             <a  class="no-link-style" href="#">
@@ -258,7 +261,7 @@
                 <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
             </div>
 
-            <div>
+            <div class="justify-center">
                 <h3>Στοιχεία επικοινωνίας</h3>
                     <address>
                         Email:
@@ -272,8 +275,16 @@
                         <a href="#" class="fa fa-facebook"></a>
                     </address>
             </div>
+<<<<<<< HEAD
             <div class="logo-image-container">
                 <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+=======
+            <div  class="justify-center">
+                <img src="res/award.png" width="120" height="120" alt="award">
+                </div>
+            <div id="footer-img" class="logo-image-container">
+            <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+>>>>>>> 723d69ae70138129057def319b62dd403f67dbc2
             </div>
         </footer>
     </body>
