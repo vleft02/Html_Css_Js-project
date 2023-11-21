@@ -442,8 +442,8 @@ aside
     margin-right:0;
     height: 100%;
     width: 35rem;
-    padding-top:1rem;
-    padding-bottom:2rem;
+    padding-top:2rem;
+    padding-bottom:3rem;
     background-color:var(--page-color);
     box-shadow: 0 5rem 5rem 0 rgba(0, 0, 0, 0.250), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.250); ;
     border-radius:1rem;
@@ -451,9 +451,9 @@ aside
 
 aside nav a
 {
-    padding:2rem;
+    padding:5rem;
     font-size:2rem;
-    margin:2rem;
+    margin:1.5rem;
 }
 
 
@@ -463,11 +463,11 @@ aside nav>ul>li>ul>li>a
 }
 aside nav>ul>li>ul>li
 {
-    margin-top:1.6rem
+    margin-top:2rem
 }
 aside nav>ul>li
 {
-    margin-top:1.6rem
+    margin-top:2rem
 }
 
 
@@ -481,7 +481,7 @@ aside nav>ul>li
     2.multiple shadows with incremented offset and purple color are used to give a glow effect 
     3.corners are smoothened*/
     .glow-block{
-        box-shadow: rgba(240, 46, 170, 0.4) -5px 5px , rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+        box-shadow: rgba(80, 2, 151, 0.4) -5px 5px , rgba(80, 2, 151, 0.3) -10px 10px, rgba(80, 2, 151, 0.2) -15px 15px, rgba(80, 2, 151, 0.1) -20px 20px, rgba(80, 2, 151, 0.05) -25px 25px;
         border-radius: 2rem;
         padding: 3rem;
     }
