@@ -4,7 +4,7 @@
     --table-color:rgb(92, 78, 97);
     --secondary-page-color:rgb(49, 27, 57);
     --form-field-color:rgb(10, 10, 34);
-    --form-field-border-color:rgb(80, 2, 151);
+    --form-field-border-color:rgb(111, 0, 214);
     --vibrant-color:rgb(115, 30, 237);
     --hover-color:rgba(108, 23, 177, 0.603);
     --dark-vibrant-color:rgb(57, 12, 94);
@@ -35,7 +35,7 @@ body {
     font-size: 1.6rem;
     margin:0;
     padding:0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Fira-Sans;
     color:var(--normal-text-color);
     overflow-x: hidden; /*Hides bottom scrollbar by covering it with the body block*/
 }
@@ -216,7 +216,7 @@ footer
     4.padding is added */
 ::placeholder
 {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Fira-Sans;
     color:var(--transparent-text-color);
     font-weight:bold;
     padding:0.7rem
@@ -285,7 +285,6 @@ footer div a
 
 
 
-
 /*---------------------------------- Form style --------------------------------*/
 
 fieldset
@@ -306,7 +305,7 @@ fieldset input
     border: 0.1rem solid rgb(77, 67, 67); 
     background-color: var(--page-color);
     box-shadow: rgba(0, 0, 0, 0.3)  0.3rem 0.3rem 0.5em 0.5rem inset;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Fira-Sans;
 }
 
 
@@ -332,7 +331,7 @@ fieldset textarea
     border-radius: 0.7rem;/*Smooth edges*/
     width:40rem;
     height:10rem;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Fira-Sans ;
     border: 0.1rem solid rgb(77, 67, 67); 
     background-color: var(--page-color);
     box-shadow: rgba(0, 0, 0, 0.3)  0.3rem 0.3rem 0.5em 0.5rem inset;
@@ -365,10 +364,12 @@ fieldset input[type = "radio"]:checked
 /* The 2 buttons on the bottom of the form are set to have no default appearance */
 form input[type="submit"],form input[type="reset"]
 {
-    width:fit-content;
+    width:6rem;
     margin: 1rem;
     padding:1rem;
+    padding-right:4rem;
     width:15%;
+    font-family:Fira-Sans ;
     appearance: none;
     display: block;
     color:var(--normal-text-color); /*Text color change */
@@ -379,7 +380,10 @@ form input[type="submit"],form input[type="reset"]
 }
 
 
-
+.font-large
+{
+    font-size:large
+}
 
 .no-box-model-values
 {
@@ -392,7 +396,7 @@ form input[type="submit"],form input[type="reset"]
 .ad-style
 {
     background-color: var(--table-color);
-    width:35%;
+    width:90%;
     margin:1rem;
     border-radius:0.9rem;
     overflow: hidden;
@@ -434,6 +438,13 @@ form input[type="submit"],form input[type="reset"]
     color:var(--normal-text-color);
 }
 
+.button
+{
+    padding:0.5rem;
+    background-color: var(--form-field-color);
+    border-radius: 1rem;
+    border: 0.5rem solid var(--form-field-border-color) !important
+}
 
 
 aside
@@ -539,7 +550,7 @@ aside nav>ul>li
     1.Without this the hover animation shows a transition from a white border to a purple border.
     We want it to be purple from the start so we make it but keep the width to 0
     2.padding is added*/
-.button_style
+.button-interactive
 {
     border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
     padding:1rem;
@@ -554,7 +565,7 @@ aside nav>ul>li
     4.A purple border appears
     5.The corners of the block are smoothened out using border Radius
     6.All the above happens over a set amount of time using transition-duration*/
-.button_style:hover
+.button-interactive:hover
 {
     text-decoration: none;
     padding:1rem;
@@ -568,7 +579,7 @@ aside nav>ul>li
     1. background Color of the box is changed to show the activation of the button
     2. Text color is also changed
     3.All the above happens over a set amount of time using transition-duration */
-.button_style:active
+.button-interactive:active
 {
     background-color: var(--form-field-border-color);
     color:var(--vibrant-text-color);
@@ -579,7 +590,7 @@ aside nav>ul>li
     1.Without this the hover animation shows a transition from a white border to a purple border.
     We want it to be purple from the start so we make it but keep the width to 0
     2.padding is added*/
-    .button_style
+    .button-interactive
     {
         border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
         padding:1rem;
@@ -592,7 +603,7 @@ aside nav>ul>li
         4.A purple border appears
         5.The corners of the block are smoothened out using border Radius
         6.All the above happens over a set amount of time using transition-duration*/
-    .button_style:hover
+    .button-interactive:hover
     {
         text-decoration: none;
         padding:1rem;
@@ -604,7 +615,7 @@ aside nav>ul>li
     
     /* When a Button is visited it shouldn't be greyed out like the default links so
     color is set to normal*/
-    .button_style:visited
+    .button-interactive:visited
     {
         color:var(--normal-text-color)
     }
