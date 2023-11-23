@@ -140,3 +140,63 @@ padding-left:0;
 {
     justify-content: space-evenly;
 }
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    body
+    {
+        width:100vw;
+    }
+    
+    main {
+        grid-template-areas: "header left-menu" 
+                             "content content"
+                             "content content";
+    }
+}
+
+/* Additional styling for mobile */
+@media only screen and (max-width: 767px) {
+    
+    body
+    {
+        font-size:1.8rem;
+        width:100vw;
+    }
+
+    body>header
+    {
+        height: 40rem;
+        margin-bottom:5rem;
+    }
+
+    header nav>ul
+    {
+    display:flex;
+    flex-flow:column;
+    justify-content:left;
+    align-items:flex-start;
+    }
+    
+
+    header nav>ul>li:nth-child(2)
+    {
+        margin-left:0;
+    }
+
+
+    header nav>ul button
+    {
+        display:none
+    }
+
+    .logo-image-container
+    {
+        width:100%;
+    }
+    main {
+        grid-template-areas: "header" 
+                            "leftmenu"
+                            "content";
+    }
+}
