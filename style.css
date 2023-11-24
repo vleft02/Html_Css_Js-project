@@ -31,6 +31,7 @@ html {
     5.Overflow means the content of the body will flow over the bottom scrollbar effectively Hiding it 
     */
 body {
+    width:100vw;
     background-color: var(--page-color);
     font-size: 1.6rem;
     width:100vw;
@@ -109,15 +110,22 @@ aside ul{
 }
 
 
+/* for the li items inside the aside nav:
+    1. font-size is made bigger
+    2.padding and margin is added for correct placement */
+aside nav>ul>li>ul>li
+{
+    margin-left:4rem;
+    font-size:2rem;
+}
 /* for the links inside the aside nav:
     1. font-size is made bigger
     2.padding and margin is added for correct placement */
-aside nav>ul>li>ul>li>a
-{
-    margin-left:4rem;
-    padding:5rem;
-    font-size:2rem;
-}
+    aside nav>ul>li>a
+    {
+        padding:5rem;
+        font-size:2rem;
+    }
 
 /* margin-top is given so that the objects are adequately spaced out */
 aside nav>ul>li>ul>li

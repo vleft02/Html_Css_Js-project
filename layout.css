@@ -179,34 +179,48 @@ items are centered with the use of place-items:center*/
 /* Layout for tablet*/
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
-    
+    /* We switch to a 2 column layout for the main content*/
+    main {
+        grid-template-areas: "header header" 
+                                "left-menu left-menu"
+                                "content content";
+    }
+
+    /* aside menus are placed over the content and are set to fit-content */
     aside
     {
         width:100%;
         margin-bottom:2rem;
         height: fit-content;
     }
-    main {
-        grid-template-areas: "header header" 
-                             "left-menu left-menu"
-                             "content content";
-    }
+
 }
 
 /*Layout for mobile */
 @media only screen and (max-width: 767px) {
     
+    /* font-size is larger for better readability */
     body
     {
         font-size:1.8rem;
     }
 
+    /* We switch to a 1 column layout for the main content*/
+    main {
+        grid-template-areas: "header" 
+                            "left-menu"
+                            "content";
+    }
+
+    /* the style of tghe menu changes so the height is changed i order to fit the nav menu
+    in a column */
     body>header
     {
         height: 40rem;
         margin-bottom:5rem;
     }
 
+    /* The nav menu is displayed in a flex box column aligned to flex start (the left in our case) */
     header nav>ul
     {
     display:flex;
@@ -216,39 +230,27 @@ items are centered with the use of place-items:center*/
     }
 
 
+    /* the margin we previously set for the desktop veersion is overwritten */
     header nav>ul>li:nth-child(2)
     {
         margin-left:0;
     }
 
-
+    /* nav menu search buton is hidden for better style */
     header nav>ul button
     {
         display:none
     }
 
-    .logo-image-container
-    {
-        width:100%;
-    }
-
+    /* The side menu is hidden for the mobile version */
     aside{
         display: none;
     }
+
+    /* the filter panels in the ads pages have a width of the whole page and are a block*/
     .filter-panel
     {
         width: 100%;
         display:block;
-    }
-    main {
-        grid-template-areas: "header" 
-                            "left-menu"
-                            "content";
-    }
-
-    #featured-panel
-    {
-        display:grid;
-        grid-template-columns: 1fr;
     }
 }
