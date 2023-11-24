@@ -1,3 +1,7 @@
+
+/* The whole content of the page is placed in a grid 
+    that consists of a header area a content area and a footer area
+    Also height is set to 100% of the viewport height*/
 body{
     height:100vh;
     display:grid;
@@ -6,39 +10,17 @@ body{
                         "footer"
 }
 
-@font-face {
-    font-family:Fira-Sans ;
-    src: url(res/FiraSansCondensed-Regular.ttf);
-}
 
+/* the top level header is assigned to the "header" gird area */
 header
 {
     grid-area: header;
 }
 
-aside{
-    grid-area:leftmenu;
-}
-header nav>ul
-{
-    display:flex;
-    flex-flow: row;
-    justify-content:left;
-    align-items:center;
-}
-
-header nav>ul>li:nth-child(2)
-{
-    margin-left:auto;
-}
-
-h1
-{
-    grid-area:header;
-}
-
-
-
+/*main is assigned to the "content" gird area 
+ + the elements inside the main are set to be displayed in a grid as well
+ the template of the grid is as stated below
+ + Small Grid Gap */
 main
 {
     grid-area:content;
@@ -49,23 +31,43 @@ main
     grid-gap:0.5rem;
 
 }
-aside
-{
-    grid-area:left-menu;
-}
-header nav ul
-{
-    margin-top:0;
-}
 
-
-
+/*footer is assigned to the "footer" gird area 
+ + the elements inside the footer are set to be displayed in a grid of 3 columns */
 footer
 {
     grid-area:footer;
     display:grid;
     grid-template-columns: repeat(3,auto);
 }
+
+/* the items inside the ul  of the nav menu
+    1.are set to be displayed with flex box 
+    2.flex-flow is set to row for horizontal style
+    3.items are set to the left of the nav menu  with justify content 
+    4.items are aligned to the center of the flex box*/
+header nav>ul
+{
+    display:flex;
+    flex-flow: row;
+    justify-content:left;
+    align-items:center;
+}
+
+/* The second item of the nav list of links(right after the logo)
+have a margin left set to auto to distance the rest of the menu from the logo */
+header nav>ul>li:nth-child(2)
+{
+    margin-left:auto;
+}
+
+
+
+/* divs inside the footer 
+    1.have margins to the left and right 
+    2.items inside are displayed as flex in a column
+    3.content is centered with justify
+    */
 footer div{
     margin-left:1rem;
     margin-right:1rem;
@@ -74,10 +76,9 @@ footer div{
     justify-content: center;
 }
 
-footer div h3{
-margin-left:0;
-padding-left:0;
-}
+
+/* the logo in the footer takes up all of the grid columns
+flow is set to row */
 #footer-img
 {
     grid-column: 1/-1;
@@ -85,6 +86,38 @@ padding-left:0;
 }
 
 
+/* With the use of font face rule an external font is 
+    imported in the project*/
+@font-face {
+    font-family:Fira-Sans ;
+    src: url(res/FiraSansCondensed-Regular.ttf);
+}
+
+
+/* aside elements which are inside the main element
+ are place in the "leftmenu" grid area */
+ aside
+ {
+     grid-area:left-menu;
+ }
+
+/* h1 elements which are inside main
+ are place in the "header" grid area */
+h1
+{
+    grid-area:header;
+}
+
+
+/* margin-top is removed from the list of links for better layout */
+header nav ul
+{
+    margin-top:0;
+}
+
+
+/* featured panel is a 2 column grid containing informatons about products offered
+items are centered with the use of place-items:center*/
 #featured-panel
 {
     display:grid;
@@ -92,51 +125,47 @@ padding-left:0;
     place-items: center;
 }
 
-.grid-col-2{
-    grid-column: 1/3;
-}
-
-.justify-right
-{
-    justify-self: right;
-}
-.justify-center
-{
-    justify-self: center;
-}
+/* This class is used to have a grid element take up a whole row */
 .fill-all-columns
 {
     grid-column:1/-1;
 }
+
+/* this class is used to make specific containers display their contetnts as with flexbox as a row  */
 .flex-row
 {
     display:flex;
     flex-flow:row
 }
-
+/* this class is used to make specific containers display their contetnts as with flexbox as a row  */
 .flex-column
 {
     display:flex;
     flex-flow:column
 }
 
+/* Elements of this class are justified to the center of the felxbox they are contained in */
+.justify-self-center
+{
+    justify-self: center;
+}
+
+
+/* used along with flex-row aand flex-column in order to center items */
 .flex-center
 {
     justify-content: center;
     align-items: center;
 }
 
-.align-center
-{
-    align-items: center;
-}
-
-#radio-fieldset
-{
-    width: 42rem;
-}
-
+/* justifies flexbox contents to space evenly */
 .justify-evenly
 {
     justify-content: space-evenly;
+}
+
+/* This is used specifically for the fieldset of the form in order to give it more space */
+#radio-fieldset
+{
+    width: 42rem;
 }

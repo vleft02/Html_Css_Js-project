@@ -295,11 +295,6 @@ input[type="text"]:focus,textarea:focus
 }
 
 
-/* Links inside a footer div are block so that they appear one after another */
-footer div a
-{
-    /* display:block;  */
-}
 
 
 
@@ -420,25 +415,6 @@ fieldset input[type = "radio"]:checked
 
 
 
-/**/
-form input[type="submit"],form input[type="reset"]
-{
-    width:6rem;
-    margin: 1rem;
-    padding:1rem;
-    padding-right:4rem;
-    width:15%;
-    font-family:Fira-Sans ;
-    appearance: none;
-    display: block;
-    color:var(--normal-text-color); /*Text color change */
-    background-color: var(--form-field-color);
-    border: 0.2rem solid var(--form-field-border-color);
-    border-radius: 0.9rem;
-    transition-duration: 120ms;
-}
-
-
 .font-large
 {
     font-size:large
@@ -510,8 +486,12 @@ form input[type="submit"],form input[type="reset"]
     color:var(--normal-text-color);
 }
 
+
+/* Gives the block the look of the pages default button(style button)*/
 .button
-{
+{ 
+    color:var(--normal-text-color);
+    font-family:Fira-Sans ;
     padding:0.5rem;
     background-color: var(--form-field-color);
     border-radius: 1rem;
