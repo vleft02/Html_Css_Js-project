@@ -31,8 +31,10 @@ html {
     5.Overflow means the content of the body will flow over the bottom scrollbar effectively Hiding it 
     */
 body {
+    width:100vw;
     background-color: var(--page-color);
     font-size: 1.6rem;
+    width:100vw;
     margin:0;
     padding:0;
     font-family:Fira-Sans;
@@ -51,6 +53,13 @@ body>header {
     padding: 2rem;
 }
 
+
+/*This selects the items of the main nav menu and changes their display to inline*/
+header nav>ul>li{
+    display: inline;
+}
+
+
 /* We select the input of type text inside of nav elements
 (this corresponds only to the search bar):
     1.background color is changed
@@ -58,19 +67,76 @@ body>header {
     3.An inset shadow is added to give deph
     4.Corners are smoothed out
     5.Small margin left is added*/
-    header nav input[type="text"]
-    {
-        background-color: var(--page-color);
-        height:4rem;
-        padding:0.2rem;
-        box-shadow: rgba(0, 0, 0, 0.5)  0.3rem 0.3rem 0.5em 0.5rem inset;
-        border-radius: 2rem;
-        border: 0.1rem solid rgb(77, 67, 67);
-        color:var(--normal-text-color);
-        margin-left:0.5rem;/*CHECK*/
-    }
-    
+header nav input[type="text"]
+{
+    background-color: var(--page-color);
+    height:4rem;
+    padding:0.2rem;
+    box-shadow: rgba(0, 0, 0, 0.5)  0.3rem 0.3rem 0.5em 0.5rem inset;
+    border-radius: 2rem;
+    border: 0.1rem solid rgb(77, 67, 67);
+    color:var(--normal-text-color);
+    margin-left:0.5rem;/*CHECK*/
+}
 
+
+/* all side nav menus or filter panels:
+    1.float right
+    2.Are stuck to the right side of the page with the use of right:0%;
+    3. height is set to 100% to take up all the available space
+    4. width is set to 35 rem
+    5. several paddings are added for better style
+    6.default page color is set
+    7.shadow is added to seperate the content from the rest of the page
+    8. corners are rounded
+    */
+aside
+{
+    float:right;
+    right:0%;
+    margin-right:0;
+    height: 100%;
+    width: 35rem;
+    padding-top:2rem;
+    padding-bottom:3rem;
+    background-color:var(--page-color);
+    box-shadow: 0 5rem 5rem 0 rgba(0, 0, 0, 0.250), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.250); ;
+    border-radius:1rem;
+}
+
+
+aside ul{
+    padding:0;
+}
+
+
+/* for the li items inside the aside nav:
+    1. font-size is made bigger
+    2.padding and margin is added for correct placement */
+aside nav>ul>li>ul>li
+{
+    margin-left:4rem;
+    font-size:2rem;
+}
+/* for the links inside the aside nav:
+    1. font-size is made bigger
+    2.padding and margin is added for correct placement */
+    aside nav>ul>li>a
+    {
+        padding:5rem;
+        font-size:2rem;
+    }
+
+/* margin-top is given so that the objects are adequately spaced out */
+aside nav>ul>li>ul>li
+{
+    margin-top:2rem
+}
+aside nav>ul>li
+{
+    margin-top:2rem
+}
+    
 /* The main element has a small margin so that text doesn't stick to the edges of the Window */
 main
 {
@@ -237,15 +303,18 @@ input[type="text"]:focus,textarea:focus
 
 }
 
-aside ul{
-    padding:0;
-}
 
+
+
+
+
+/*This helps center the logo-image of the nav menu*/
 .logo-image-container
 {
     margin-top: 1rem;
     padding :0.5rem;
 }
+/*an appropriate width is set for the logo in the nav menu*/
 .logo-image-container img
 {
     width:10rem;
@@ -253,55 +322,40 @@ aside ul{
 }
 
 
-
-/*----------------------------Nav Menu Links--------------------------------------*/
-
+/* The search button get a default backgorund and has no border to fit the style of the other nav items  */
 header nav button
 {
     background-color: var(--page-color);
     border:none;
-    margin-right:1rem;
 }
 
 
 
-header nav>ul>li{
-    /* display: inline; */
-}
-
-
-
-
-
-
-footer div a
-{
-    /* display:block;  */
-}
-
-
-
-
-
-
-
-/*---------------------------------- Form style --------------------------------*/
-
+/* for all fieldsets:
+    1.corners are smoothed and a small border is added
+    2. width is set to 50% of the page
+    3.padding is given for the field set content*/
 fieldset
 {
-    border-spacing: 0;
     border: 0.1rem solid var(--dark-vibrant-color);
     border-radius: 0.9rem;/* Smooth corners for the fieldset block*/
     width:50%;
     padding : 0.8rem;
 }
 
+
+/* for all inputs inside a fieldset:
+    1.width and height are changed
+    2.corners are smoothed out and a small border is placed
+    3.font is changed cause it doesn;t inherit from the body
+    4.inset shadow is added to gie depth to the input field 
+    */
 fieldset input
 {
     width:40rem;
-    height:2rem;
+    height:3rem;
     margin: 0.5rem;
-    border-radius: 0.7rem;/*Smooth edges*/
+    border-radius: 0.7rem;
     border: 0.1rem solid rgb(77, 67, 67); 
     background-color: var(--page-color);
     box-shadow: rgba(0, 0, 0, 0.3)  0.3rem 0.3rem 0.5em 0.5rem inset;
@@ -309,7 +363,7 @@ fieldset input
 }
 
 
-
+/* colors are changed + shadow added for select elements*/
 select
 {
     background-color: var(--page-color);
@@ -317,18 +371,22 @@ select
     color:var(--normal-text-color);
 }
 
-fieldset input[type="text"], fieldset input[type="email"], fieldset input[type="tel"] ,fieldset input[type="password"]
+fieldset input[type="text"], fieldset input[type="email"], fieldset input[type="tel"] ,fieldset input[type="password"], fieldset textarea
 {
     display: block;
     font-family: Fira-Sans;
     color:var(--normal-text-color);
-    height:3rem;
 }
 
+/* textareas
+    1.width and height are changed
+    2.corners are smoothed out and a small border is placed
+    3.font is changed cause it doesn;t inherit from the body
+    4.inset shadow is added to gie depth to the input field 
+    5.background color is changed
+    */
 fieldset textarea 
 {
-    display: block;
-    color : var(--normal-text-color);
     border-radius: 0.7rem;/*Smooth edges*/
     width:40rem;
     height:10rem;
@@ -353,7 +411,7 @@ input:invalid
 }
 
 
-/* We delete all previous styles from the pario buttons then add new size, color and a border*/
+/* We delete all previous styles from the radio buttons then add new size, color and a border*/
 fieldset input[type = "radio"] {
     appearance: none;
     margin-bottom: 0rem; /*Overwrites the rule above (fieldset input)else text aside  the radio button is pushed down*/
@@ -365,6 +423,7 @@ fieldset input[type = "radio"] {
     transition-duration: 120ms /*animation time for smooth Transition */
 }
 
+/* By making the border bigger it makes a shape fo the radio button look filled*/
 fieldset input[type = "radio"]:checked
 {
     background-color: var(--form-field-color);
@@ -373,25 +432,6 @@ fieldset input[type = "radio"]:checked
 }
 
 
-
-
-/* The 2 buttons on the bottom of the form are set to have no default appearance */
-form input[type="submit"],form input[type="reset"]
-{
-    width:6rem;
-    margin: 1rem;
-    padding:1rem;
-    padding-right:4rem;
-    width:15%;
-    font-family:Fira-Sans ;
-    appearance: none;
-    display: block;
-    color:var(--normal-text-color); /*Text color change */
-    background-color: var(--form-field-color);
-    border: 0.2rem solid var(--form-field-border-color);
-    border-radius: 0.9rem;
-    transition-duration: 120ms;
-}
 
 
 .font-large
@@ -407,6 +447,10 @@ form input[type="submit"],form input[type="reset"]
 }
 
 
+
+/* For all ads:
+    1.overflow is hidden so that the image's corner contained inside are hidden beneath the 
+    smoothed out corners of the box*/
 .ad-style
 {
     background-color: var(--table-color);
@@ -416,20 +460,27 @@ form input[type="submit"],form input[type="reset"]
     overflow: hidden;
 }
 
-
+/* When ads are hovered:
+    1.shadow appears to imply the action
+    2.color is changed
+    3.transition time set so the is an animation*/
 .ad-style:hover
 {
     box-shadow: 0 5rem 10rem 0 rgba(0, 0, 0, 0.733), 0 2.5rem 6rem 0 rgba(0, 0, 0, 0.814);
     background-color: rgb(57, 12, 94);
     transition-duration: 250ms;
 }
-
+/* When ads are clicked:
+    1.padding is added to imply activation
+    2.transition time set so the is an animation*/
 .ad-style:active
 {
-    background-color: rgb(57, 12, 94);
     padding: 0.5rem;
     transition-duration:120ms;
 }
+
+/* all text elements inside of the ad: 
+    1.are set to be inline blocks */
 .ad-style p
 {
     display:inline-block;
@@ -437,6 +488,8 @@ form input[type="submit"],form input[type="reset"]
     margin :0.3rem;
 }
 
+
+/* default link style is overwritten for visited, active and hover pseudoclasses */
 .no-link-style:hover
 {
     text-decoration: none;
@@ -452,88 +505,17 @@ form input[type="submit"],form input[type="reset"]
     color:var(--normal-text-color);
 }
 
+
+/* Gives the block the look of the pages default button(style button)*/
 .button
-{
+{ 
+    color:var(--normal-text-color);
+    font-family:Fira-Sans ;
     padding:0.5rem;
     background-color: var(--form-field-color);
     border-radius: 1rem;
     border: 0.5rem solid var(--form-field-border-color) !important
 }
-
-
-aside
-{
-    /* float:right; */
-    right:0%;
-    margin-right:0;
-    height: 100%;
-    width: 35rem;
-    padding-top:1rem;
-    padding-bottom:2rem;
-    background-color:var(--page-color);
-    box-shadow: 0 5rem 5rem 0 rgba(0, 0, 0, 0.250), 0 1.2rem 5rem 0 rgba(0, 0, 0, 0.250); ;
-    border-radius:1rem;
-}
-
-aside nav a
-{
-    padding:2rem;
-    font-size:2rem;
-    margin:2rem;
-}
-
-
-aside nav>ul>li>ul>li>a
-{
-    margin-left:4rem;
-}
-aside nav>ul>li>ul>li
-{
-    margin-top:1.6rem
-}
-aside nav>ul>li
-{
-    margin-top:1.6rem
-}
-
-/* For all "Buttons" (as in links that look like buttons):
-    1.Without this the hover animation shows a transition from a white border to a purple border.
-    We want it to be purple from the start so we make it but keep the width to 0
-    2.padding is added*/
-.button_style
-{
-    border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
-    padding:1rem;
-}
-
-/* When a Button is Hovered over:
-    1.The text isn't underlined (default Link behaviour)
-    2.Padding is added to for a more clean spaced out look for the block
-    3.backgorund Color of the box is changed
-    4.A purple border appears
-    5.The corners of the block are smoothened out using border Radius
-    6.All the above happens over a set amount of time using transition-duration*/
-.button_style:hover
-{
-    text-decoration: none;
-    padding:1rem;
-    background-color: var(--form-field-color);
-    border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
-    border-radius: 2rem;
-    transition-duration: 200ms;/*animation time for smooth Transition */
-}
-
-/* When a Button is Pressed:
-    1. background Color of the box is changed to show the activation of the button
-    2. Text color is also changed
-    3.All the above happens over a set amount of time using transition-duration */
-.button_style:active
-{
-    background-color: var(--form-field-border-color);
-    color:var(--vibrant-text-color);
-    transition-duration: 200ms;/*animation time for smooth Transition */
-}
-
 
 
 
@@ -546,7 +528,7 @@ aside nav>ul>li
     2.multiple shadows with incremented offset and purple color are used to give a glow effect 
     3.corners are smoothened*/
     .glow-block{
-        box-shadow: rgba(240, 46, 170, 0.4) -5px 5px , rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
+        box-shadow: rgba(80, 2, 151, 0.4) -5px 5px , rgba(80, 2, 151, 0.3) -10px 10px, rgba(80, 2, 151, 0.2) -15px 15px, rgba(80, 2, 151, 0.1) -20px 20px, rgba(80, 2, 151, 0.05) -25px 25px;
         border-radius: 2rem;
         padding: 3rem;
     }
@@ -607,7 +589,7 @@ aside nav>ul>li
 {
     border: 0rem solid var(--form-field-border-color); /* Smooth corners*/
     padding:1rem;
-    margin:0;
+    margin:0.5rem;
     display:inline-block
 }
 
@@ -622,6 +604,7 @@ aside nav>ul>li
 {
     text-decoration: none;
     padding:1rem;
+    margin:0;
     background-color: var(--form-field-color);
     border: 0.5rem solid var(--form-field-border-color); /* Smooth corners*/
     border-radius: 2rem;
