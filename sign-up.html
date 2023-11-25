@@ -5,7 +5,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
-        <title>Αρχική Σελίδα</title>
+        <title>Εγγραφή χρήστη</title>
         <link rel="icon" href="res/logo-abbr.png">
         <meta name="description" content="Online Markteplace">
         <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
@@ -48,22 +48,38 @@
         </header>
         <main>    
         <h1>Εγγραφή χρήστη</h1>
-            <form id="signUpForm" class="fill-all-columns justify-center"> 
+            <form id="signUpForm" class="fill-all-columns justify-self-center"> 
                 <fieldset>
                     <legend>Προσωπικά στοιχεία</legend>
                     <label for="name">Όνομα</label>
-                    <input type="text" name="name" id="name" maxlength="20" minlength="4" pattern="^[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+\s+[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+(?: [A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+)*$" placeholder="Ονοματεπώνυμο πχ. Γιάννης Δοε" title="Πληκτρλογήστε ένα έγκυρο όνοματεπώνυμο με όχι λιγοτερους απο 4 λατινικούς ή ελληνικούς χαρακτήρες."required>
-            
+                    <input type="text" list="names" name="name" id="name" maxlength="20" minlength="4" pattern="^[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+\s+[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+(?: [A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+)*$" placeholder="Ονοματεπώνυμο πχ. Γιάννης Δοε" title="Πληκτρλογήστε ένα έγκυρο όνοματεπώνυμο με όχι λιγοτερους απο 4 λατινικούς ή ελληνικούς χαρακτήρες."  autocomplete="off" required>
+                    <datalist id="names">
+                        <option value="Kostas Dinos">
+                        <option value="Μαρια ανθη">
+                        <option value="Γιαννης Κωστας Γιαννης">
+                    </datalist>
 
                     <label for="email">email</label>
-                    <input type="email" name="email" id="email" placeholder="Email πχ user@mail.com" required><br>
-                   
+                    <input type="email" name="email" id="email" minlength="5" maxlength="20" placeholder="Email πχ user@mail.com" title="Παραχωρήστε έγκυρο email" required><br>
+
+
                     <label for="address">Διεύθηνση Κατοικίας</label>
-                    <input type="text" name="address" id="address"  pattern="^[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+\s+[0-9]+$"placeholder="Διεύθηνση πχ Πολυκαστρου 12" required>
+                    <input type="text" list="addresses" name="address" id="address"  pattern="^[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+\s+[0-9]+$"placeholder="Διεύθηνση πχ Πολυκαστρου 12" required>
+                    <datalist id="addresses">
+                        <option value="Πολυκαστρου 48">
+                        <option value="4th Ave.">
+                    </datalist>
                     <label for="postal-code">Τ.Κ.</label>
                     <input type="text" name="postal-code" id="postal-code" placeholder="ΤΚ πχ 16432" minlength="5" pattern="^[0-9]+$" title="Πληκτρολογίστε έγκυρο ΤΚ πέντε ψηφίων" required>
                     <br>
-                
+                    
+                    <label for="birthday">Ημερομηνία γέννησης</label>
+                    <input list="dates" type="date" id="birthday" name="birthday">
+                    <datalist id="dates">
+                        <option value="10-22-1999">
+                        <option value="01-10-500">
+                    </datalist><br>
+
                     <label for="tel">Τηλέφωνο επικοινωνίας</label>
                     <input type="tel" name="tel" id="tel" placeholder="Τηλέφωνο επικοινωνίας" minlength="10" pattern="^[0-9]+$" title="Πληκτρολογίστε έγκυρο τηλεφωνικό αριθμό" required><br>
 
@@ -93,24 +109,24 @@
                         <p class="no-box-model-values">1. Για ποιά απο τα παρακάτω είδη ενδιαφέρεστε;</p>
                         <div class="flex-row">
                             <label for="interested-real-estate">Ακίνητα</label>
-                            <input type="checkbox" name="interested" id="interested-real-estate"><br>
+                            <input type="checkbox" name="interested-in" id="interested-real-estate" title="Επιλεξτε τουλάχιστον ένα"><br>
                         </div>
                         <div class="flex-row">
                             <label for="interested-car">Αυτοκίνητα</label>
-                            <input type="checkbox" name="interested" id="interested-car"><br>
+                            <input type="checkbox" name="interested-in" id="interested-car"><br>
                         </div>
                         <div class="flex-row">
                         <label for="interested-house-appliances">Οικιακές Συσκευές</span></label>
-                        <input type="checkbox" name="interested" id="interested-house-appliances"><br>
+                        <input type="checkbox" name="interested-in" id="interested-house-appliances"><br>
                         </div>
                         <div class="flex-row">
                         <label for="interested-work">Εργασία</label>
-                        <input type="checkbox" name="interested" id="interested-work"><br>
+                        <input type="checkbox" name="interested-in" id="interested-work"><br>
                         </div>
                         
                         <p class="no-box-model-values">2. Σε ποιόν τομέα εργάζεστε;</p>
                         <label for="work">Εργασία</label>
-                        <select name="work" id="work">
+                        <select name="work" id="work" required>
                             <option value="self-employed">Ελεύθερος επαγγελματίας</option>
                             <option value="employee">Υπάλληλος</option>
                             <option value="unemployed">Ψαχνω Για δουλειά</option>
@@ -121,28 +137,28 @@
                         <p class="no-box-model-values">3. Με τι μέσα πηγαίνετε στη δουλεια σας;</p>
                         <div class="flex-row">
                         <label for="car">Αυτοκίνητο</label>
-                        <input type="checkbox" name="drives" id="car" value="car"><br>
+                        <input type="checkbox" name="drives" id="car" value="car" title="επιλέξτε τουλάχιστον ένα"><br>
                         </div>
                         <div class="flex-row">
                         <label for="commute">Δημόσια Συγκοινωνία</label>
-                        <input type="checkbox" name="drives" id="commute"><br>
+                        <input type="checkbox" name="drives" id="commute" value="commute" ><br>
                         </div>
                         <div class="flex-row"> 
                         <label for="bicycle"></span>Ποδήλατο</label>
-                        <input type="checkbox" name="drives" id="bicycle"><br>
+                        <input type="checkbox" name="drives" id="bicycle" value="bicycle"><br>
                         </div>
                         <div class="flex-row">
                         <label for="motorcycle">Μηχανάκι</label>
-                        <input type="checkbox" name="drives" id="motorcycle"><br>
+                        <input type="checkbox" name="drives" id="motorcycle" value="motorcycle"><br>
                         </div>
 
                         <p class="no-box-model-values">4. Πες λίγα Λόγια για τον εαυτό σου (Οχι πολύ λίγα)</p>
-                        <textarea name="aboutme" id="customer-info" placeholder="Μου αρεσουν οι Πεταλουδες"></textarea><br>
+                        <textarea name="aboutme" id="customer-info" minlength="15" placeholder="Μου αρεσουν οι Πεταλουδες" required></textarea><br>
                         
                         <p class="no-box-model-values">5. Θα προτείνατε αυτη την ιστοσελίδα σε ένα φίλο ή συνάδελφο σας;</p>
                         <div class="flex-row margin-bottom">  
                             <label for="user-likes">Ναι</label>
-                            <input type="radio" name="user-likes" id ="user-likes" value ="true"><br>
+                            <input type="radio" name="user-likes" id ="user-likes" value ="true" title="Μην ντρέπεστε" required><br>
 
                         </div> 
                         <div class="flex-row margin-bottom">  
@@ -153,20 +169,20 @@
                        
                 </fieldset>
                 <div class="flex-row">
-                <input class="button_style justify-center" type="submit" value="Εγγραφή">
+                <input class="button button-interactive justify-self-center" type="submit" value="Εγγραφή">
                 </div>
             </form>
         </main>
             
         <footer>
             <div>
-                <h3>Χρήσιμοι Σύνδεσμοι</h3>
+                <h3 class="no-box-model-values margin-bottom">Χρήσιμοι Σύνδεσμοι</h3>
                 <a href="about-us.html">Ποιοί είμαστε;</a>
                 <a href="customer-support.html">Υποστήριξη</a>
                 <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
             </div>
 
-            <div>
+            <div class="justify-self-center">
                 <h3>Στοιχεία επικοινωνίας</h3>
                     <address>
                         Email:
@@ -180,8 +196,11 @@
                         <a href="#" class="fa fa-facebook"></a>
                     </address>
             </div>
-            <div class="logo-image">
-                <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+            <div  class="justify-self-center">
+                <img src="res/award.png" width="120" height="120" alt="award">
+                </div>
+            <div id="footer-img" class="logo-image-container">
+            <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
             </div>
         </footer>
     </body>

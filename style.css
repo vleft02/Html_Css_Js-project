@@ -290,23 +290,25 @@ footer
 
 /*When an input item is focused we don't want any style
 (This is so that the outline won't appear for radial, checkboxes etc.)*/
-input:focus
+/* input:focus
 {
     outline:none;
-}
+} */
 
 /* When a text input or a textarea are clicked they 
 have a vibrant outline */
-input[type="text"]:focus,textarea:focus
+input:focus , textarea:focus
 {
-    outline:0.1rem solid var(--vibrant-color) ;
+    outline:0.2rem solid var(--vibrant-color) ;
 
 }
 
 
-
-
-
+/* text color is changed for the birth day input field */
+input[type="date"]
+{
+    color:var(--normal-text-color)
+}
 
 /*This helps center the logo-image of the nav menu*/
 .logo-image-container
@@ -404,11 +406,10 @@ input[type="checkbox"]
     justify-self: right;
 
 }
-
-input:invalid
-{
-    outline : red !important;
+input.invalid {
+    border: 0.2rem solid red;
 }
+
 
 
 /* We delete all previous styles from the radio buttons then add new size, color and a border*/
