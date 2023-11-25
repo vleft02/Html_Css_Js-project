@@ -64,7 +64,7 @@
 
 
                     <label for="address">Διεύθηνση Κατοικίας</label>
-                    <input type="text" list="addresses" name="address" id="address"  pattern="^[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+\s+[0-9]+$"placeholder="Διεύθηνση πχ Πολυκαστρου 12" required>
+                    <input type="text" list="addresses" name="address" id="address"  pattern="^[A-Za-zΑ-Ωα-ωίϊΐόάέύϋΰήώ]+\s+[0-9]+$" placeholder="Διεύθηνση πχ Πολυκαστρου 12" required>
                     <datalist id="addresses">
                         <option value="Πολυκαστρου 48">
                         <option value="4th Ave.">
@@ -74,11 +74,7 @@
                     <br>
                     
                     <label for="birthday">Ημερομηνία γέννησης</label>
-                    <input list="dates" type="date" id="birthday" name="birthday">
-                    <datalist id="dates">
-                        <option value="10-22-1999">
-                        <option value="01-10-500">
-                    </datalist><br>
+                    <input type="date" id="birthday" name="birthday">
 
                     <label for="tel">Τηλέφωνο επικοινωνίας</label>
                     <input type="tel" name="tel" id="tel" placeholder="Τηλέφωνο επικοινωνίας" minlength="10" pattern="^[0-9]+$" title="Πληκτρολογίστε έγκυρο τηλεφωνικό αριθμό" required><br>
@@ -89,11 +85,11 @@
                 <fieldset>
                     <legend>Στοιχεία ταυτοποίησης χρήστη</legend>
                         <label for="username">Όνομα χρήστη</label>
-                        <input type="text" name="username" id="username" minlength="5" maxlength="16" pattern="^[A-Za-z0-9]+$" title="Πληκτρολογίστε έγκυρο όνομα χρήστη με 5-16 λατινικούς χαρακτήρες και αριθμούς " placeholder="Όνομα χρήστη πχ giorgaras2005" required><br>
+                        <input type="text" name="username" id="username" minlength="5" maxlength="16" pattern="^[A-Za-z0-9]+$" title="Πληκτρολογίστε έγκυρο όνομα χρήστη με 5-16 λατινικούς χαρακτήρες και αριθμούς " placeholder="Όνομα χρήστη πχ giorgaras2005" required ><br>
                         <label for="password">Κωδικός</label>
-                        <input type="password" name="password" id="password" minlength="8" maxlength="16" pattern="^[A-Za-z0-9\d@$!%*?&]+$" placeholder="Κωδικός" title="Πληκτρολογίστε έγκυρο εγκυρο κωδικό 8-16 χαρακτήρων με τουλάχιστον ενα Κεφαλαιο γράμμα ενα μικρο και ενα αριθμο"required><br>
+                        <input type="password" name="password" id="password" minlength="8" maxlength="16" pattern="^[A-Za-z0-9\d@$!%*?&]+$" placeholder="Κωδικός" title="Πληκτρολογίστε έγκυρο εγκυρο κωδικό 8-16 χαρακτήρων με τουλάχιστον ενα Κεφαλαιο γράμμα ενα μικρο και ενα αριθμο" required ><br>
                         <label for="password-confirmation">Επιβεβαίωση κωδικού</label>
-                        <input type="password" name="password-confirmation" id="password-confirmation" minlength="8" maxlength="16" pattern="^[A-Za-z0-9\d@$!%*?&]+$" placeholder="Ξαναγράψτε τον κωδικό" required><br>
+                        <input type="password" name="password-confirmation" id="password-confirmation" minlength="8" maxlength="16" pattern="^[A-Za-z0-9\d@$!%*?&]+$" placeholder="Ξαναγράψτε τον κωδικό" required ><br>
                 </fieldset>
                 <fieldset>
                     <legend>Αποστολή ενημερώσεων</legend>
@@ -116,7 +112,7 @@
                             <input type="checkbox" name="interested-in" id="interested-car"><br>
                         </div>
                         <div class="flex-row">
-                        <label for="interested-house-appliances">Οικιακές Συσκευές</span></label>
+                        <label for="interested-house-appliances">Οικιακές Συσκευές</label>
                         <input type="checkbox" name="interested-in" id="interested-house-appliances"><br>
                         </div>
                         <div class="flex-row">
@@ -126,7 +122,7 @@
                         
                         <p class="no-box-model-values">2. Σε ποιόν τομέα εργάζεστε;</p>
                         <label for="work">Εργασία</label>
-                        <select name="work" id="work" required>
+                        <select name="work" id="work">
                             <option value="self-employed">Ελεύθερος επαγγελματίας</option>
                             <option value="employee">Υπάλληλος</option>
                             <option value="unemployed">Ψαχνω Για δουλειά</option>
@@ -144,7 +140,7 @@
                         <input type="checkbox" name="drives" id="commute" value="commute" ><br>
                         </div>
                         <div class="flex-row"> 
-                        <label for="bicycle"></span>Ποδήλατο</label>
+                        <label for="bicycle">Ποδήλατο</label>
                         <input type="checkbox" name="drives" id="bicycle" value="bicycle"><br>
                         </div>
                         <div class="flex-row">
