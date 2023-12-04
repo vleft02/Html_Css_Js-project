@@ -21,7 +21,6 @@ window.addEventListener('load', function validateForm()
                     checkMaxInput(10, this.value.length,event)
                 });
             }
-
         }
 
         document.getElementById('customer-info').addEventListener('keypress', function(event)
