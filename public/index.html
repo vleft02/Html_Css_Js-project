@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="el">
     
+    
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
-        <title>Αρχική Σελίδα</title>
+        <title>Κατηγορίες Αγγελιών</title>
         <link rel="icon" href="res/logo-abbr.png">
         <meta name="description" content="Online Markteplace">
         <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
@@ -12,14 +13,15 @@
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js" type="text/javascript"></script>
+        <script src="js/categories.js" type="text/javascript"></script>
     </head>
-    
     <body>
         <header>
 
             <nav>
                 <ul class="no-list-style">
-                    <li class="logo-image-container justify-left"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
+                    <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
                     <li><a class="button-interactive" href="index.html"><span class="fa fa-home"></span>Αρχική Σελίδα</a></li>
                         <li class="dropdown-container">
                             <a class="button-interactive" href="categories.html"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
@@ -45,61 +47,25 @@
             
         </header>
 
-        <main>
-            <section class="fill-all-columns">
-                <h1>Καλως Ορίσατε στον Ιστοτοπο μας!</h1>
-                <p class="glow-block">Είμαστε μια καινοτόμα <a href="about-us.html">ομάδα</a> που αφιερώνεται στον χώρο των αγοραπωλησιών και ενοικιάσεων ακινήτων και αυτοκινήτων. Στοχεύουμε στη δημιουργία ενός δικτύου που ενώνει ιδιοκτήτες με ενδιαφερόμενους ενοικιαστές και αγοραστές Η αποστολή μας είναι να προσφέρουμε μια ολοκληρωμένη εμπειρία στους πελάτες μας, παρέχοντας όχι μόνο αξιόπιστες υπηρεσίες, αλλά και δημιουργώντας ένα κοινωνικό πλαίσιο που ενθαρρύνει την αλληλεπίδραση και την επικοινωνία.
-                    
-                    Με αφοσίωση στην καινοτομία, αξίες όπως η διαφάνεια, η εμπιστοσύνη και η υπευθυνότητα καθοδηγούν το έργο μας. Δίνουμε έμφαση στη δημιουργία μιας πλατφόρμας που υπερβαίνει τα συνηθισμένα, επιτρέποντας σε ιδιοκτήτες και ενοικιαστές να βρίσκουν και να προσφέρουν τα καλύτερα στον κόσμο των ακινήτων και των αυτοκινήτων.Με αφοσίωση στην καινοτομία, αξίες όπως η διαφάνεια, η εμπιστοσύνη και η υπευθυνότητα καθοδηγούν το έργο μας. Δίνουμε έμφαση στη δημιουργία μιας πλατφόρμας που υπερβαίνει τα συνηθισμένα, επιτρέποντας σε ιδιοκτήτες και ενοικιαστές να βρίσκουν και να προσφέρουν τα καλύτερα στον κόσμο των ακινήτων και των αυτοκινήτων.
+        <main class="extra-border-spacing">
 
-                    Με την υποστήριξη της τεχνολογίας και της καινοτομίας, παραδίδουμε μια ανανεωμένη εμπειρία πελατών, προσφέροντας ευέλικτες λύσεις και προσαρμοσμένες επιλογές.
-                    
-                    Συνδεθείτε μαζί μας και επιτρέψτε μας να σας καταστήσουμε το ταξίδι σας στον κόσμο των ακινήτων και των αυτοκινήτων μια μοναδική, αξέχαστη εμπειρία.</p>
-            </section>
-            <section>
-                <div class="flex-column flex-center">
-                  <h2>Τι προσφέρουμε;</h2>
-                  <p>Με μεγαλύτερο από 100,000 αγγελίες στη διάθεσή σας, πιθανόν να εντοπίσετε με ευκολία αυτό που αναζητάτε. Ανακαλύψτε μια πληθώρα επιλογών και επιλέξτε αυτό που σας ταιριάζει καλύτερα. Με την ευρεία γκάμα μας, παρέχουμε μια εξαιρετική εμπειρία ψαξίματος, επιτρέποντάς σας να βρείτε εύκολα και γρήγορα το προϊόν ή την υπηρεσία που επιθυμείτε. Εξερευνήστε τις αγγελίες μας σήμερα και κατακτήστε το αναζητούμενο σας με άνεση και αξιοπιστία.</p>
-                  <a href="categories.html" class="button button-interactive">Eξερεύνησε Τώρα</a>
-                </div>
-            </section>
-            <section>
-                <div id="featured-panel">
-                    <div>
-                        <span class="fa fa-home fa-2x button"></span>
-                        <h3>Ακινητα</h3>
-                        <p>Τεράσται γκάμα ακινήτων σε ολη την Ελλαδα</p>
+            <script id="category-template" type="text/x-handlebars-template">
+                {{#each ad_categories}}
+                    <div class="flex-column flex-center">
+                        <div>
+                            <h3>{{this.title}}</h3>
+                            <a href="category.html?category={{this.id}}"><img src="{{this.image_url}}" alt="image"></img></a>
+                        </div>
+                        <div class="flex-column flex-center">
+                        {{#each this.subCategories}}
+                            <a href="">{{this.title}}</a>
+                        {{/each}}
+                        </div>
                     </div>
-          
-                    <div>
-                        <span class="fa fa-car fa-2x button"></span>
-                        <h3>Αυτοκινητα</h3>
-                        <p>Τεράστια γκάμα αυτοκινήτων σε ολη την Ελλαδα</p>
-                    </div>
-                    
-                    <div>
-                        <span class="fa fa-archive fa-2x button"></span>
-                        <h3>Οικιακές Συσκευές</h3>
-                        <p>Τεράσταια γκάμα οικιακών συσκευών σε ολη την Ελλαδα</p>
-                    </div>
+                {{/each}}
+            </script>
 
-                    <div>
-                        <span class="fa fa-suitcase fa-2x button"></span>
-                        <h3>Εργασία</h3>
-                        <p>Τεράσταια γκάμα θέσεων εργασίας σε ολη την Ελλαδα</p>
-                    </div>
-                </div>
-            </section>
-            <section>
-                <h2>Τι μας κάνει ξεχωριστούς;</h2>
-                <p class="glow-block">
-                    Στον τομέα των ενοικιάσεων, παρέχουμε μια <em><a href="categories.html"> γκάμα από επιλογές</a> </em>σε ακίνητα και αυτοκίνητα που καλύπτουν όλες τις ανάγκες σας. Στηριζόμαστε στην τεχνολογία για να διευκολύνουμε την αναζήτηση και τη σύγκριση επιλογών.
-                    Αν αναζητάτε να αγοράσετε ένα νέο σπίτι ή να ανταλλάξετε το υπάρχον αυτοκίνητό σας, δεν χρειάζεται να ψάχνετε περισσότερο. Η πλατφόρμα μας προσφέρει μια πλούσια γκάμα από επιλογές που καλύπτουν το φάσμα από πολυτελείς κατοικίες έως οικονομικά αυτοκίνητα.
-                    Στηριζόμαστε στην αξιοπιστία και την εξυπηρέτηση πελατών ως τα βασικά μας αξιώματα. Το μεράκι μας είναι να σας βοηθήσουμε να βρείτε το ιδανικό ακίνητο ή αυτοκίνητο που σας ταιριάζει.
-                </p>
-            </section>
         </main>
-       
         <footer>
             <div>
                 <h3 class="no-box-model-values margin-bottom">Χρήσιμοι Σύνδεσμοι</h3>
@@ -130,5 +96,7 @@
             </div>
         </footer>
     </body>
+
+
 
 </html>
