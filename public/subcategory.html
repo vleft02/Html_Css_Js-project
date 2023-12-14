@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="el">
+    
+    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <title>Πωλήσεις αυτοκινήτων</title>
+        <link rel="icon" href="res/logo-abbr.png">
+        <meta name="description" content="Online Markteplace">
+        <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
+        <meta name="author" content="co-authored by Evangelos Leftakis & Panagiotis niktarakis">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/layout.css">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js" type="text/javascript"></script>
+        <script src="js/categories-menu.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <header>
+
+            <nav>
+                <ul class="no-list-style">
+                    <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
+                    <li><a class="button-interactive" href="index.html"><span class="fa fa-home"></span>Αρχική Σελίδα</a></li>
+                        <li class="dropdown-container">
+                            <a class="button-interactive" href="#"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
+                            <div class="dropdown">
+                                <ul id="dropdown-menu" class="no-list-style spaced-out-list">
+                                    <script id="dropdown-template" type="text/x-handlebars-template" >
+                                            {{#each ad_categories}}
+                                                <li><a class="button-interactive font-large" href="category.html?category={{this.id}}">{{this.title}}</a></li>
+                                            {{/each}}
+                                    </script>
+                                </ul>
+                            </div>
+                        </li>
+                    <li><a class="button-interactive" href="customer-support.html"><span class="fa fa-phone"></span>Υποστήριξη</a></li>
+                    <li><a class="button-interactive" href="about-us.html"><span class="fa fa-handshake-o"></span>Ποιοί είμαστε;</a></li>
+                    <li><a class="button-interactive" href="sign-up.html"><span class="fa fa-male"></span>Σύνδεση</a></li>
+                    <li><input type="text" placeholder="Αναζήτηση"></li>
+                    <li><button><span class="fa fa-search"></span></button>
+                </ul>
+            </nav>
+            
+        </header>
+        <main>
+            <h1>Πωλήσεις Αυτοκινήτων</h1>
+                <ul id="featured-panel" class="no-list-style">
+                    <li>
+                        <article class="ad-style"> 
+                            <a class="no-link-style" href="#">
+                                <div class="fill-block">
+                                <img src="res/car2.png"
+                                srcset="res/car2.png 1025w,
+                                res/car2_smaller.png 769w,
+                                res/car2_smallest.png 256w"
+                                sizes="(min-width: 1025px) 1024px,
+                                      (min-width: 768px) 512px,
+                                       256px" alt="picture of a car">
+                                </div>
+                                <h3 class="no-box-model-values"><span class="transparent-text">#2000</span> πωλείται Πεζό μεταχιρσιμένο εκανε το μεγαλο σερβις πριν δυο μήνες</h3>
+                                <p>Χιλιόμετρα: 50.000 km</p>
+                                <p>Χρονολογία:  <time datetime="2010">2010</time></p>
+                                <p>Κυβικά: 1400cc</p>
+                                <p>Τιμή: 8000 €</p>
+                                <p>Αναρτήθηκε: <time datetime="2022-09-25"> 25/9/22</time></p>
+                            </a>
+                        </article>
+                    </li>
+                 
+                </ul>
+        </main>
+        <footer>
+            <div>
+                <h3 class="no-box-model-values margin-bottom">Χρήσιμοι Σύνδεσμοι</h3>
+                <a href="about-us.html">Ποιοί είμαστε;</a>
+                <a href="customer-support.html">Υποστήριξη</a>
+                <a href="https://developer.mozilla.org/en-US/">MDN web Docs</a>
+            </div>
+
+            <div class="justify-self-center">
+                <h3>Στοιχεία επικοινωνίας</h3>
+                    <address>
+                        Email:
+                        <a href="rentall@buisness.com">rentall@buisness.com</a>
+                        <br>
+                        Τηλέφωνο:
+                        <a href="tel:+1111111111">+30 1111</a>
+                        <br>
+                        Social:
+                        <a href="#" class="fa fa-twitter"></a>
+                        <a href="#" class="fa fa-facebook"></a>
+                    </address>
+            </div>
+            <div  class="justify-self-center">
+                <img src="res/award.png" width="120" height="120" alt="award">
+                </div>
+            <div id="footer-img" class="logo-image-container">
+            <img src="res/logo.png" width="40" height="40" alt="rentall-logo">
+            </div>
+        </footer>
+    </body>
+
+</html>

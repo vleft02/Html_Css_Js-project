@@ -125,7 +125,7 @@ window.addEventListener('load',function()
     })
     .then(function()
     {
-        main = document.getElementsByTagName("main")[0]
+        let main = document.getElementsByTagName("main")[0]
         categories.forEach(item => console.log(item));
         category_template = document.getElementById("category-template").textContent
         let compiledTemplate = Handlebars.compile(category_template)
@@ -135,5 +135,7 @@ window.addEventListener('load',function()
         })
         main.innerHTML = content
     })
-
+    .catch(error => {
+        console.error('Error ', error);
+    });
 })

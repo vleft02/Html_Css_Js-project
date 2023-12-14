@@ -13,7 +13,9 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/layout.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js" type="text/javascript"></script>
         <script src="js/constraint-validation.js" type="text/javascript"></script>
+        <script src="js/categories-menu.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -23,17 +25,15 @@
                 <ul class="no-list-style">
                     <li class="logo-image-container"><img src="res/logo.png" width="40" height="40" alt="rentall-logo"></li>
                     <li><a class="button-interactive" href="index.html"><span class="fa fa-home"></span>Αρχική Σελίδα</a></li>
-                        <li class="dropdown-container">
-                            <a class="button-interactive" href="categories.html"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
+                               <li class="dropdown-container">
+                            <a class="button-interactive" href="#"><span class="fa fa-shopping-basket"></span>Κατήγοριες</a>
                             <div class="dropdown">
-                                <ul class="no-list-style spaced-out-list">
-                                    <li><a class="button-interactive" href="#">Πωλήσεις Ακινήτων</a></li>
-                                    <li><a class="button-interactive" href="#">Ενοικιάσεις Ακινήτων</a></li>
-                                    <li><a class="button-interactive" href="car-sales.html">Πωλήσεις Αυτοκινήτων</a></li>
-                                    <li><a class="button-interactive" href="#">Ενοικιάσεις Αυτοκινήτων</a></li>
-                                    <li><a class="button-interactive" href="house-appliances-sales.html">Πωλήσεις Οικιακών Συσκευών</a></li>
-                                    <li><a class="button-interactive" href="#">Εργασία Μερική Απασχόληση</a></li>
-                                    <li><a class="button-interactive" href="#">Εργασία Πλήρης Απασχόληση</a></li>
+                                <ul id="dropdown-menu" class="no-list-style spaced-out-list">
+                                    <script id="dropdown-template" type="text/x-handlebars-template" >
+                                            {{#each ad_categories}}
+                                                <li><a class="button-interactive font-large" href="category.html?category={{this.id}}">{{this.title}}</a></li>
+                                            {{/each}}
+                                    </script>
                                 </ul>
                             </div>
                         </li>
