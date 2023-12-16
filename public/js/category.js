@@ -1,6 +1,6 @@
 
 let myheaders = new Headers()
-myheaders.append('Accept', 'application/json')
+myheaders.append('Accept', 'application/json, image/*')
 
 let init = {
     method: "GET",
