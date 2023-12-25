@@ -1,11 +1,19 @@
 
-let myheaders = new Headers()
-myheaders.append('Accept', 'application/json, image/*')
+let imageHeaders = new Headers()
+let jsonHeaders = new Headers()
+jsonHeaders.append('Accept', 'application/json')
+imageHeaders.append('Accept', 'image/*')
 
-let init = {
+let jsonInit = {
     method: "GET",
-    headers:myheaders
+    headers:jsonHeaders
 }
+
+let imageInit = {
+    method: "GET",
+    headers:imageHeaders
+}
+
 let advertisements=[]
 let subCategories=[]
 let subCategoryTitle;
@@ -13,23 +21,22 @@ let subCategoryTitle;
 window.addEventListener('load',function()
 {  
     const subCategory = new URLSearchParams(window.location.search).get('id');
-    fetch ('https://wiki-ads.onrender.com/subcategories',init)
+    fetch ('https://wiki-ads.onrender.com/subcategories',jsonInit)
     .then(subcategories=>subcategories.json())
     .then(subcategories=>
     {   
         subcategories.forEach(subcategoryJson => 
             {
-                console.log(subcategoryJson)
+               
                 if(subcategoryJson.id == subCategory)
                 {
                     subCategoryTitle = subcategoryJson.title
-                    console.log(subCategoryTitle)
                 }
             })
     })
     .then(ads=>
     {
-        return fetch('https://wiki-ads.onrender.com/ads?subcategory='+subCategory,init)
+        return fetch('https://wiki-ads.onrender.com/ads?subcategory='+subCategory,jsonInit)
     })
     .then(response=>response.json())
     .then(function (adsJson) {
@@ -63,7 +70,6 @@ window.addEventListener('load',function()
     .then(function()
     {
         let main = document.getElementsByTagName("main")[0] 
-        console.log(advertisements)
         ads_template = document.getElementById("ads-template").textContent
         let compiledTemplate = Handlebars.compile(ads_template)
         let content = compiledTemplate({

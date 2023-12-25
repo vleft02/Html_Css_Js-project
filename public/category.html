@@ -51,6 +51,7 @@
         <main>
             <script id="ads-template" type="text/x-handlebars-template">
                 <h1>{{categorytitle}}</h1>
+
                 <aside class="filter-panel">
                     <form>
                         <div class="filter-brand flex-column">
@@ -59,6 +60,19 @@
                             {{/each}}
                         </div>
                     </form>
+                    <div >
+                        <form class="flex-column flex-center">
+                            <legend>Login</legend>
+                            <fieldset class="side-panel-fieldset">
+                                <label for="username">Όνομα χρήστη</label>
+                                <input class="side-panel-input" type="text" name="username" id="username" minlength="5" maxlength="16" pattern="^[A-Za-z0-9]+$" title="Πληκτρολογίστε έγκυρο όνομα χρήστη με 5-16 λατινικούς χαρακτήρες και αριθμούς " placeholder="Όνομα χρήστη πχ giorgaras2005" required ><br>
+                                <label for="password">Κωδικός</label>
+                                <input class="side-panel-input"type="password" name="password" id="password" minlength="8" maxlength="16" pattern="^[A-Za-z0-9\d@$!%*?&]+$" placeholder="Κωδικός" title="Πληκτρολογίστε έγκυρο εγκυρο κωδικό 8-16 χαρακτήρων με τουλάχιστον ενα Κεφαλαιο γράμμα ενα μικρο και ενα αριθμο" required ><br>  
+                            </fieldset>
+                            <input class="button button-interactive" type="submit" value="Υποβολή">
+                        </form>
+                    </div>
+                    
                 </aside>
 
                 <ul id="featured-panel" class="no-list-style">
@@ -68,7 +82,7 @@
                             <article class="ad-style almost-full-height">
                                 
                                     <div class="fill-block container">
-                                        <a class="no-link-style" href="#"><img src="{{this.images.[0]}}"</img></a>
+                                        <a class="no-link-style" href="#"><img src="https://wiki-ads.onrender.com/{{this.images.[0]}}"</img></a>
                                     </div>
                                     <a class="no-link-style" href="#">
                                         <h3 class="no-box-model-values"><span class="transparent-text">#{{this.id}}</span>  {{this.title}}</h3>

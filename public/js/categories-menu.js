@@ -13,7 +13,6 @@ window.addEventListener('load',function()
     .then(cats=>
     {
         dropdown_categories.push(...cats)
-        console.log(dropdown_categories)
     })
     .then(function()
     {

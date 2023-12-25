@@ -11,6 +11,7 @@
     --vibrant-text-color: rgb(153, 32, 255);
     --normal-text-color :aliceblue;
     --transparent-text-color :rgba(155, 161, 165,0.6);
+    --table-color-darker:rgb(60, 51, 63);
 }
 
 
@@ -457,7 +458,7 @@ fieldset input[type = "radio"]:checked
     smoothed out corners of the box*/
 .ad-style
 {
-    background-color: var(--table-color);
+    background-color: var(--table-color-darker);
     width:90%;
     margin:1rem;
     border-radius:0.9rem;
@@ -757,4 +758,42 @@ fieldset input[type = "radio"]:checked
   .display-left
   {
     left:0%
+  }
+
+  .side-panel-fieldset
+  {
+    width:92%
+  }
+  .side-panel-input
+  {
+    width:95%
+  }
+
+  .subcategory-ad
+  {
+    display:grid;
+    align-content: center;
+    grid-template-columns: repeat(2,1fr);
+    width:30%;
+    grid-gap:0;
+  }
+
+  .subcategory-image
+  {
+    width:10rem;
+  }
+  .maxwidth
+  {
+    width:100%
+  }
+
+  .subcategory-table
+  {
+    margin-left:auto;
+    width:30%
+  }
+
+  .subcategory-table tr, th
+  {
+    font-size: 1rem;
   }

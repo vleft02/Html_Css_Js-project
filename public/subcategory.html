@@ -49,25 +49,25 @@
         <main>
             <script id="ads-template" type="text/x-handlebars-template">
                 <h1>{{subcategorytitle}}</h1>
-                <ul id="featured-panel" class="no-list-style">
+                <ul id="featured-panel fill-all-columns" class="no-list-style">
                     {{#each advertisements}}
                         
-                        <li class="place-center full-height">
-                            <article class="ad-style almost-full-height">
+                        <li class="place-center fill-all-columns maxwidth">
+                            <article class="ad-style almost-full-height flex-row maxwidth">
                                 
-                                    <div class="fill-block container">
+                                    <div class="container subcategory-ad ">
                                         {{#each this.images}}
-                                            <a class="no-link-style" href="#"><img src="{{this}}"</img></a>
+                                            <a class="no-link-style maxwidth" href="#"><img class=" subcategory-image" src="https://wiki-ads.onrender.com/{{this}}"</img></a>
                                         {{/each}}
                                     </div>
                                     <a class="no-link-style" href="#">
-                                        <div class="flex-row">
+                                        <div class="flex-row flex-center">
                                             <div>
                                                 <h3 class="no-box-model-values"><span class="transparent-text">#{{this.id}}</span>  {{this.title}}</h3>
                                                 <p>Περιγραφή: {{this.description}}</p>
                                                 <p class="font-extra-large">{{this.cost}}€</p>
                                             </div>
-                                            <div>
+                                            <div class="subcategory-table">
                                                 <table>
                                                     <thead>
                                                         <tr>

@@ -1,14 +1,22 @@
+let imageHeaders = new Headers()
+let jsonHeaders = new Headers()
 
+jsonHeaders.append('Accept', 'application/json')
+imageHeaders.append('Accept', 'image/png')
 
-let myheaders = new Headers()
-myheaders.append('Accept', 'application/json')
+let jsonInit = {
+    method: "GET",
+    headers:jsonHeaders
+}
 
+let imageInit = {
+    method: "GET",
+    headers:imageHeaders,
+
+}
 let categories = []
 let subcategories = []
-let init = {
-    method: "GET",
-    headers:myheaders
-}
+
  
 // class Category 
 // {
@@ -105,28 +113,39 @@ let init = {
 
 
 window.addEventListener('load',function()
-{  
+{
         
-    fetch('https://wiki-ads.onrender.com/categories',init)
+    fetch('https://wiki-ads.onrender.com/categories',jsonInit)
     .then(response=>response.json())
     .then(function (categoriesJson) {
         const categoryPromises = categoriesJson.map(category => {
-            return fetch(`https://wiki-ads.onrender.com/categories/${category.id}/subcategories`, init)
+            return fetch(`https://wiki-ads.onrender.com/categories/${category.id}/subcategories`, jsonInit)
                 .then(response => response.json())
                 .then(responseSubCategories => {
                 category.subCategories = responseSubCategories;
                 return category;  // Return the modified category
-                });
             });
+        });
         return Promise.all(categoryPromises);
     })
+    // .then(function(updatedCategories){
+    //     const imagePromises = updatedCategories.map(category => {
+    //         return fetch(`http://127.0.0.1:5000/https://wiki-ads.onrender.com/${category.img_url}`, imageInit)
+    //         .then(response => response.blob() )
+    //         .then(blob => {
+    //             const imageUrl = URL.createObjectURL(blob);
+    //             category.img_url = imageUrl
+    //             return category
+    //         });
+    //     })
+    //     return Promise.all(imagePromises);
+    // })
     .then(updatedCategories => {
         categories.push(...updatedCategories);
     })
     .then(function()
     {
         let main = document.getElementsByTagName("main")[0]
-        categories.forEach(item => console.log(item));
         category_template = document.getElementById("category-template").textContent
         let compiledTemplate = Handlebars.compile(category_template)
         let content = compiledTemplate({
