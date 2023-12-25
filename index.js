@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const uuid = require('uuid')
 const app = express()
 const port = 8080
 
@@ -50,6 +51,11 @@ app.get('/category.html', function(req, res){
     res.sendFile('index.html', options, function(err){
         console.log(err)
     })
+})
+
+app.post('/category.html', function(req, res){
+
+
 })
 
 app.get('/subcategory.html', function(req, res){
