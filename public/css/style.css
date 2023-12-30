@@ -463,6 +463,9 @@ fieldset input[type = "radio"]:checked
     margin:1rem;
     border-radius:0.9rem;
     overflow: hidden;
+    min-height:1rem;
+    display: flex;
+    flex-direction: column;
 }
 
 /* When ads are hovered:
@@ -796,4 +799,36 @@ fieldset input[type = "radio"]:checked
   .subcategory-table tr, th
   {
     font-size: 1rem;
+  }
+
+  .add-to-favorites-button
+  {
+    background-color: transparent;
+    color:var();
+    border:none;
+    font-size:3rem;
+    margin-top:auto;
+    /* display:flex;
+    align-self:right; */
+  }
+
+
+  
+  .add-to-favorites-button:active
+  {
+    background-color: transparent;
+    color:var(--vibrant-color)
+  }
+
+  .image-container
+  {
+    width:70rem;
+    height:80rem;
+  }
+
+
+  .category-description
+  {
+    min-width:70rem;
+    max-width:70rem;
   }

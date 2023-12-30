@@ -3,7 +3,7 @@ const uuid = require('uuid');
 class UserDAO {
     findAll() {}
 
-    findById(id) {}
+    find(username,password) {}
 
     save(user) {}
 
@@ -18,20 +18,21 @@ class MemoryDAO extends UserDAO {
         super();
         if (data !== undefined)
         {
-            this.data = data;
+            this.users = data;
         }
         else
         {
-            this.data = []
+            this.users = []
         }
+        this.favorites = []
     }
 
     findAll() {
-        return this.data;
+        return this.users;
     }
 
-    findById(id) {
-        return this.data.find(user => user.id === id);
+    find(username,password) {
+        return this.users.find(user => user.userName === username && user.passWord === password);
     }
 
     save(user) {
@@ -54,7 +55,7 @@ class MongoDBDAO extends UserDAO {
         return this.collection.find({}).toArray();
     }
 
-    findById(id) {
+    find(username,password) {
         return this.collection.findOne({ _id: id });
     }
 
@@ -71,14 +72,13 @@ class MongoDBDAO extends UserDAO {
     }
 }
 
-class UserFavorite
+class User
 {
-    constructor(username, password, ad)
+    constructor(username, password)
     {
         this.id = uuid.v4();
         this.username = username;
         this.password = password;
-        this.ad = ad;
     }
 
     get userName()
@@ -99,4 +99,11 @@ class UserFavorite
         this.password =value;
     }
 
+}
+
+module.exports = 
+{
+    MemoryDAO,
+    MongoDBDAO,
+    User
 }

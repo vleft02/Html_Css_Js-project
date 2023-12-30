@@ -1,6 +1,9 @@
 const express = require('express')
 const path = require('path')
 const uuid = require('uuid')
+const { MemoryDAO, MongoDBDAO, User } = require('./models/users');
+const userRepository = new MemoryDAO([new User("vleft","190102ab"),new User("vleftakis","190102ab")]);  
+const favorites = require('./models/favorites')
 const app = express()
 const port = 8080
 
@@ -53,9 +56,21 @@ app.get('/category.html', function(req, res){
     })
 })
 
-app.post('/category.html', function(req, res){
+app.post(/^\/category\.html(?:\?.*|)$/, function(req, res){
+    console.log(req.body)
+    const username = req.body.username;
+    const password = req.body.password;
 
-
+    // Replace this with your actual authentication logic
+    const user = userRepository.find(username, password);
+  
+    if (user) {
+      console.log("Success")
+      sessionUniqueId = uuid.v4();
+      res.json({sessionId:sessionUniqueId});
+    } else {
+      res.status(401).json({ success: false, message: 'Invalid credentials' });
+    }
 })
 
 app.get('/subcategory.html', function(req, res){

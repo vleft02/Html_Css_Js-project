@@ -1,21 +1,14 @@
-
-let imageHeaders = new Headers()
-let jsonHeaders = new Headers()
-jsonHeaders.append('Accept', 'application/json')
-imageHeaders.append('Accept', 'image/*')
-   
-let jsonInit = {
+const jsonInit = {
     method: "GET",
-    headers:jsonHeaders
+    headers :{
+        'Accept': 'application/json'
+    }
 }
 
-let imageInit = {
-    method: "GET",
-    headers:imageHeaders
-}
 let advertisements=[]
 let subCategories=[]
 let categoryTitle;
+let sessionId;
 
 window.addEventListener('load',function()
 {  
@@ -62,9 +55,69 @@ window.addEventListener('load',function()
            subcategories : subCategories
         })
         main.innerHTML = content
-    })    
+    })
+    .then(function()
+    {
+        document.getElementById("login").addEventListener("click",function(event)
+        {
+            event.preventDefault();
+            let username = document.getElementById("username");
+            let password = document.getElementById("password");
+            console.log(username.value)
+            console.log(password.value)
+            LoginRequest(username.value,password.value);
+        })
+    }
+    )  
+    .then(()=>
+    {
+        favoriteButtons = document.getElementsByClassName("add-to-favorites-button");
+        favoriteButtons.forEach(button=>button.addEventListener("click",function()
+        {
+            button.style.color = "purple";
+        }))
+    })
     .catch(error => {
         console.error('Error ', error);
     });
 
 })
+
+function LoginRequest(username,password)
+{
+    if (sessionId === undefined)
+    {
+        fetch("http://localhost:8080/category.html",{method: "POST",
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        'Access-Control-Allow-Origin': '*'
+                                                    },
+                                                    body: JSON.stringify({username,password})})
+        .then(response=>
+            {
+                if (!response.ok) {
+                    throw new Error('There was an Error while signing in');
+                }
+                return response.json();
+            })
+        .then(json=>
+            {
+                sessionId = json;
+                loginMessage = document.getElementById("login-text")
+                loginMessage.style.display = "block"
+                loginMessage.style.color = "green";
+                loginMessage.innerHTML = "Η σύνδεση εγινε επιτυχώς";
+            })
+        .catch(error => {
+            console.error('Error ', error);
+            loginMessage = document.getElementById("login-text")
+            loginMessage.style.display = "block"
+            loginMessage.style.color = "red";
+            loginMessage.innerHTML = "Η σύνδεση απέτυχε";
+        });
+    }
+    else 
+    {
+        console.log("already signed in")
+    }
+}
