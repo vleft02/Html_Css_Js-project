@@ -1,0 +1,328 @@
+body{
+    height:100vh;
+    display:grid;
+    grid-template-areas: "header"
+                        "content"
+                        "footer"
+}
+
+
+/* the top level header is assigned to the "header" gird area */
+header
+{
+    grid-area: header;
+}
+
+/*main is assigned to the "content" gird area 
+ + the elements inside the main are set to be displayed in a grid as well
+ the template of the grid is as stated below
+ + Small Grid Gap */
+main
+{
+    grid-area:content;
+    display:grid;
+    grid-template-areas:"header header header" 
+                        "left-menu content right-menu "
+                        "left-menu content right-menu ";
+    grid-gap:0.5rem;
+
+}
+
+/*footer is assigned to the "footer" gird area 
+ + the elements inside the footer are set to be displayed in a grid of 3 columns */
+footer
+{
+    grid-area:footer;
+    display:grid;
+    grid-template-columns: repeat(3,auto);
+}
+
+/* the items inside the ul  of the nav menu
+    1.are set to be displayed with flex box 
+    2.flex-flow is set to row for horizontal style
+    3.items are set to the left of the nav menu  with justify content 
+    4.items are aligned to the center of the flex box*/
+header nav>ul
+{
+    display:flex;
+    flex-flow: row;
+    justify-content:left;
+    align-items:center;
+}
+
+/* The second item of the nav list of links(right after the logo)
+have a margin left set to auto to distance the rest of the menu from the logo */
+header nav>ul>li:nth-child(2)
+{
+    margin-left:auto;
+}
+
+
+
+/* divs inside the footer 
+    1.have margins to the left and right 
+    2.items inside are displayed as flex in a column
+    3.content is centered with justify
+    */
+footer div{
+    margin-left:1rem;
+    margin-right:1rem;
+    display:flex;
+    flex-flow:column;
+    justify-content: center;
+}
+
+
+/* the logo in the footer takes up all of the grid columns
+flow is set to row */
+#footer-img
+{
+    grid-column: 1/-1;
+    flex-flow:row;
+}
+
+
+/* With the use of font face rule an external font is 
+    imported in the project*/
+@font-face {
+    font-family:Fira-Sans ;
+    src: url(FiraSansCondensed-Regular.ttf);
+}
+
+
+/* aside elements which are inside the main element
+ are place in the "leftmenu" grid area */
+ aside
+ {
+     grid-area:left-menu;
+ }
+
+/* h1 elements which are inside main
+ are place in the "header" grid area */
+h1
+{
+    grid-area:header;
+}
+
+
+/* margin-top is removed from the list of links for better layout */
+header nav ul
+{
+    margin-top:0;
+}
+
+.subcategory-ad
+{
+    display: flex;
+    flex-flow: row;
+}
+
+
+/* featured panel is a 2 column grid containing informatons about products offered
+items are centered with the use of place-items:center*/
+#featured-panel
+{
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    place-items: center;
+}
+
+/* This class is used to have a grid element take up a whole row */
+.fill-all-columns
+{
+    grid-column:1/-1;
+}
+
+/* this class is used to make specific containers display their contetnts as with flexbox as a row  */
+.flex-row
+{
+    display:flex;
+    flex-flow:row
+}
+/* this class is used to make specific containers display their contetnts as with flexbox as a row  */
+.flex-column
+{
+    display:flex;
+    flex-flow:column
+}
+
+/* Elements of this class are justified to the center of the felxbox they are contained in */
+.justify-self-center
+{
+    justify-self: center;
+}
+
+
+/* used along with flex-row aand flex-column in order to center items */
+.flex-center
+{
+    justify-content: center;
+    align-items: center;
+}
+
+/* justifies flexbox contents to space evenly */
+.justify-evenly
+{
+    justify-content: space-evenly;
+}
+
+/* This is used specifically for the fieldset of the form in order to give it more space */
+#radio-fieldset
+{
+    width: 42rem;
+}
+
+
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+    /* We switch to a 2 column layout for the main content*/
+    main {
+        grid-template-areas: "header header" 
+                                "left-menu left-menu"
+                                "content content";
+    }
+
+    /* aside menus are placed over the content and are set to fit-content */
+    aside
+    {
+        width:100%;
+        margin-bottom:2rem;
+        height: fit-content;
+    }
+    #featured-panel{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .image-container
+    {
+      width:70rem;
+      height:70rem;
+    }
+  
+  
+    .category-description
+    {
+      min-width:70rem;
+      max-width:70rem;
+    }
+
+    .filter-panel
+    {
+        margin-bottom: 3rem;
+    }
+
+    .subcategory-table
+    {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .subcategory-table>table
+    {
+        margin-left:0;
+    }
+
+    .subcategory-ad
+    {
+        display: flex;
+        flex-flow: column;
+    }
+}
+
+/*Layout for mobile */
+@media only screen and (max-width: 767px) {
+    
+    /* font-size is larger for better readability */
+    body
+    {
+        font-size:1.8rem;
+        width:100vw;
+    }
+
+    /* We switch to a 1 column layout for the main content*/
+    main {
+        grid-template-areas: "header" 
+                            "left-menu"
+                            "content";
+    }
+    #featured-panel{
+        grid-template-columns: repeat(1,1fr);
+    }
+    /* the style of tghe menu changes so the height is changed i order to fit the nav menu
+    in a column */
+    body>header
+    {
+        height: 40rem;
+        margin-bottom:5rem;
+    }
+
+    /* The nav menu is displayed in a flex box column aligned to flex start (the left in our case) */
+    header nav>ul
+    {
+    display:flex;
+    flex-flow:column;
+    justify-content:left;
+    align-items:flex-start;
+    }
+
+
+    /* the margin we previously set for the desktop veersion is overwritten */
+    header nav>ul>li:nth-child(2)
+    {
+        margin-left:0;
+    }
+
+    /* nav menu search buton is hidden for better style */
+    header nav>ul button
+    {
+        display:none
+    }
+
+    /* The side menu is hidden for the mobile version */
+    aside{
+        display: none;
+    }
+
+    /* the filter panels in the ads pages have a width of the whole page and are a block*/
+    .filter-panel
+    {
+        width: 100%;
+        display:block;
+        margin-bottom:3rem
+    }
+    .image-container
+    {
+      width:50rem;
+      height:50rem;
+    }
+  
+  
+    .category-description
+    {
+      min-width:50rem;
+      max-width:50rem;
+    }
+
+    .subcategory-ad-description
+    {
+        min-width:35rem;
+        max-width:35rem;
+    }
+    .subcategory-ad
+    {
+        display: flex;
+        flex-flow: column;
+    }
+    .subcategory-table
+    {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .subcategory-table>table
+    {
+        margin-left:0;
+    }
+}

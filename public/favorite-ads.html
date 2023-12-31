@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="el">
     
-    
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
-        <title>Κατηγορίες Αγγελιών</title>
+        <title>Αγαπημένα</title>
         <link rel="icon" href="res/logo-abbr.png">
         <meta name="description" content="Online Markteplace">
         <meta name="keywords" content="used cars, apartments,car sales,used appliances ">
@@ -14,9 +13,9 @@
         <link rel="stylesheet" type="text/css" href="css/layout.css">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js" type="text/javascript"></script>
-        <script src="js/categories.js" type="text/javascript"></script>
         <script src="js/categories-menu.js" type="text/javascript"></script>
     </head>
+    
     <body>
         <header>
 
@@ -37,7 +36,7 @@
                             </div>
                         </li>
                     <li><a class="button-interactive" href="customer-support.html"><span class="fa fa-phone"></span>Υποστήριξη</a></li>
-                     <li><a class="button-interactive" href="favorite-ads.html"><span class="fa fa-heart"></span>Αγαπημένα</a></li>
+                    <li><a class="button-interactive" href="favorite-ads.html"><span class="fa fa-heart"></span>Αγαπημένα</a></li>
                     <li><a class="button-interactive" href="sign-up.html"><span class="fa fa-male"></span>Σύνδεση</a></li>
                     <li><input type="text" placeholder="Αναζήτηση"></li>
                     <li><button><span class="fa fa-search"></span></button>
@@ -45,25 +44,8 @@
             </nav>
             
         </header>
-
-        <main class="extra-border-spacing">
-
-            <script id="category-template" type="text/x-handlebars-template">
-                {{#each ad_categories}}
-                    <div class="flex-column flex-center">
-                        <div>
-                            <h3>{{this.title}}</h3>
-                            <a href="category.html?category={{this.id}}"><img src="https://wiki-ads.onrender.com/{{this.img_url}}" alt="image"></img></a>
-                        </div>
-                        <div class="flex-column flex-center">
-                        {{#each this.subCategories}}
-                            <a href="subcategory.html?id={{this.id}}">{{this.title}}</a>
-                        {{/each}}
-                        </div>
-                    </div>
-                {{/each}}
-            </script>
-
+        <main>            
+           
         </main>
         <footer>
             <div>
@@ -95,7 +77,5 @@
             </div>
         </footer>
     </body>
-
-
 
 </html>

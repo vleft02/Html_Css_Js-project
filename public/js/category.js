@@ -9,6 +9,7 @@ let advertisements=[]
 let subCategories=[]
 let categoryTitle;
 let sessionId;
+let username;
 
 window.addEventListener('load',function()
 {  
@@ -25,7 +26,7 @@ window.addEventListener('load',function()
                 }
             })
     })
-    .then(ads=>
+    .then(()=>
     {
         return fetch('https://wiki-ads.onrender.com/ads?category='+category,jsonInit)
     })
@@ -72,10 +73,23 @@ window.addEventListener('load',function()
     .then(()=>
     {
         favoriteButtons = document.getElementsByClassName("add-to-favorites-button");
-        favoriteButtons.forEach(button=>button.addEventListener("click",function()
+        for(let button of favoriteButtons)
         {
-            button.style.color = "purple";
-        }))
+            button.addEventListener("click",function()
+            {
+                if(button.style.color === "purple")
+                {
+                    button.style.color = "black";
+                    console.log("removed")
+                }
+                else
+                {
+                    button.style.color = "purple";
+                    console.log("added")
+                }
+
+            });
+        }
     })
     .catch(error => {
         console.error('Error ', error);
@@ -103,6 +117,7 @@ function LoginRequest(username,password)
         .then(json=>
             {
                 sessionId = json;
+                this.username = username
                 loginMessage = document.getElementById("login-text")
                 loginMessage.style.display = "block"
                 loginMessage.style.color = "green";

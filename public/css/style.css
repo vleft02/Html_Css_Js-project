@@ -483,7 +483,7 @@ fieldset input[type = "radio"]:checked
     2.transition time set so the is an animation*/
 .ad-style:active
 {
-    padding: 0.5rem;
+    
     transition-duration:120ms;
 }
 
@@ -772,7 +772,7 @@ fieldset input[type = "radio"]:checked
     width:95%
   }
 
-  .subcategory-ad
+  .subcategory-ad-images
   {
     display:grid;
     align-content: center;
@@ -783,7 +783,10 @@ fieldset input[type = "radio"]:checked
 
   .subcategory-image
   {
-    width:10rem;
+    max-width:20rem;
+    min-width:20rem;
+    max-height:20rem;
+    min-height:20rem;
   }
   .maxwidth
   {
@@ -792,10 +795,15 @@ fieldset input[type = "radio"]:checked
 
   .subcategory-table
   {
+    width:100%
+  } 
+  .subcategory-table>table
+  {
+    width: 30rem;
+    margin-right:1rem;
     margin-left:auto;
-    width:30%
-  }
-
+  } 
+  
   .subcategory-table tr, th
   {
     font-size: 1rem;
@@ -808,27 +816,40 @@ fieldset input[type = "radio"]:checked
     border:none;
     font-size:3rem;
     margin-top:auto;
-    /* display:flex;
-    align-self:right; */
+    transition: 120ms;
   }
-
-
-  
-  .add-to-favorites-button:active
+  .add-to-favorites-button:hover
   {
     background-color: transparent;
-    color:var(--vibrant-color)
+    color:purple;
+    border:none;
+    font-size:3rem;
+    margin-top:auto;
+    transition: 120ms;
   }
+
 
   .image-container
   {
-    width:70rem;
-    height:80rem;
+    width:60rem;
+    height:60rem;
   }
-
+  .collage-image
+  {
+    max-width:20rem;
+    min-width:20rem;
+    max-height:20rem;
+    min-height:20rem;
+  }
 
   .category-description
   {
-    min-width:70rem;
-    max-width:70rem;
+    min-width:60rem;
+    max-width:60rem;
+  }
+
+  .subcategory-ad-description
+  {
+    min-width:60rem;
+    max-width:60rem;
   }
