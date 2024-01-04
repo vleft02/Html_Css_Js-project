@@ -795,18 +795,19 @@ fieldset input[type = "radio"]:checked
 
   .subcategory-table
   {
-    width:100%
+    width:100%;
   } 
   .subcategory-table>table
   {
     width: 30rem;
     margin-right:1rem;
     margin-left:auto;
+    justify-self:center;
   } 
   
   .subcategory-table tr, th
   {
-    font-size: 1rem;
+    font-size: 2rem;
   }
 
   .add-to-favorites-button

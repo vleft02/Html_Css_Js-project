@@ -82,16 +82,21 @@
                         <li class="place-center full-height">
                             <article class="ad-style almost-full-height">
                                 
-                                    <div class="fill-block image-container">
-                                        <a class="no-link-style" href="#"><img src="https://wiki-ads.onrender.com/{{this.images.[0]}}"</img></a>
-                                    </div>
+                                        <div class="fill-block image-container">
+                                            <a class="no-link-style" href="#"><img src="https://wiki-ads.onrender.com/{{this.images.[0]}}"</img></a>
+                                        </div>
 
                                         <h3 class="no-box-model-values"><span class="transparent-text">#{{this.id}}</span>  {{this.title}}</h3>
                                         <p class="category-description">Περιγραφή: {{this.description}}</p>
                                         <p class="font-extra-large">{{this.cost}}€</p>
-                                        <button class="add-to-favorites-button"><span class="fa fa-heart"></span></button>
-  
-                                
+                                        <button class="add-to-favorites-button" 
+                                        data-id="{{this.id}}"
+                                        data-title="{{this.title}}"
+                                        data-description="{{this.description}}" 
+                                        data-cost="{{this.cost}}"
+                                        data-img="{{this.images.[0]}}">
+                                            <span class="fa fa-heart"></span>
+                                        </button>
                             </article>   
                         </li>
                     {{/each}}

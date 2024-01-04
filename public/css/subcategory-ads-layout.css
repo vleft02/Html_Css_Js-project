@@ -1,0 +1,11 @@
+main
+{
+    grid-template-areas:"header" 
+                        "content" !important;
+    grid-gap:2rem;
+}
+
+main article
+{
+    margin-right:5rem !important
+}

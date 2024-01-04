@@ -8,8 +8,9 @@ const jsonInit = {
 let advertisements=[]
 let subCategories=[]
 let categoryTitle;
+let userLoggedIn = false;
 let sessionId;
-let username;
+let sessionUsername;
 
 window.addEventListener('load',function()
 {  
@@ -75,20 +76,23 @@ window.addEventListener('load',function()
         favoriteButtons = document.getElementsByClassName("add-to-favorites-button");
         for(let button of favoriteButtons)
         {
-            button.addEventListener("click",function()
-            {
-                if(button.style.color === "purple")
-                {
-                    button.style.color = "black";
-                    console.log("removed")
-                }
-                else
-                {
-                    button.style.color = "purple";
-                    console.log("added")
-                }
-
-            });
+            button.addEventListener("click",function(){
+                    const id = button.getAttribute('data-id');
+                    const title = button.getAttribute('data-title');
+                    const description = button.getAttribute('data-description');
+                    const cost =  button.getAttribute('data-cost');
+                    const img_url = button.getAttribute('data-img');
+                    if(button.style.color === "purple") {
+                        button.style.color = "black";
+                        console.log("removed")
+                    }
+                    else
+                    {
+                        button.style.color = "purple";
+                        console.log("added")
+                    }
+                    addToFavorites(id, title, description, cost, img_url)
+            })
         }
     })
     .catch(error => {
@@ -97,11 +101,45 @@ window.addEventListener('load',function()
 
 })
 
+
+function addToFavorites(id,title,description,cost,img_url)
+{
+    if(userLoggedIn)
+    {
+        ad = {
+            sessionId:sessionId,
+            username:sessionUsername,
+            id:id,
+            title:title,
+            description:description,
+            cost:cost,
+            img_url:img_url
+        }
+
+        fetch("http://localhost:8080/category.html/add-to-favorites",{method: "POST",
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                        'Access-Control-Allow-Origin': '*'
+                                                    },
+                                                    body: JSON.stringify(ad)})
+        .then(response=>
+        {
+            if (!response.ok) {
+            throw new Error('Ad was not added to favorites');
+            }
+        })
+        .catch(error => {
+            console.error('Error ', error);
+        });
+    }
+    
+}
+
 function LoginRequest(username,password)
 {
-    if (sessionId === undefined)
+    if (!userLoggedIn)
     {
-        fetch("http://localhost:8080/category.html",{method: "POST",
+        fetch("http://localhost:8080/category.html/login",{method: "POST",
                                                     headers: {
                                                         'Content-Type': 'application/json',
                                                         'Access-Control-Allow-Origin': '*'
@@ -116,12 +154,13 @@ function LoginRequest(username,password)
             })
         .then(json=>
             {
-                sessionId = json;
-                this.username = username
+                sessionId = json.sessionId;
+                sessionUsername = username
                 loginMessage = document.getElementById("login-text")
                 loginMessage.style.display = "block"
                 loginMessage.style.color = "green";
                 loginMessage.innerHTML = "Η σύνδεση εγινε επιτυχώς";
+                userLoggedIn = true;
             })
         .catch(error => {
             console.error('Error ', error);

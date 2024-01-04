@@ -1,30 +1,33 @@
-const uuid = require('uuid');
-
-class UserDAO {
-    findAll() {}
-
-    find(username,password) {}
-
-    save(user) {}
-
-    remove(id) {
+class User
+{
+    constructor(username, password)
+    {
+        this._username = username;
+        this._password = password;
     }
-}
 
-class MemoryDAO extends UserDAO {
-    
-    
-    constructor(data) {
-        super();
-        if (data !== undefined)
-        {
-            this.users = data;
-        }
-        else
-        {
-            this.users = []
-        }
-        this.favorites = []
+    get username()
+    {
+        return this._username;
+    }
+    get password()
+    {
+        return this._password;
+    }
+
+    set username(value){
+        this._username = value;
+    }
+
+    set password(value)
+    {
+        this._password =value;
+    }
+
+}
+class UsersMemoryDAO {
+    constructor() {
+        this.users = []
     }
 
     findAll() {
@@ -32,21 +35,23 @@ class MemoryDAO extends UserDAO {
     }
 
     find(username,password) {
-        return this.users.find(user => user.userName === username && user.passWord === password);
+        return this.users.find(user => user.username === username && user.password === password);
     }
 
     save(user) {
-        this.data.push(user);
+        this.users.push(user);
     }
-
-    remove(id) {
-        this.data = this.data.filter(user => user.id !== id);
+ 
+    remove(username) { 
+        this.users = this.users.filter(user => user.username !== username);
+    }
+    removeAll(){
+        this.users = [];
     }
 }
 
-class MongoDBDAO extends UserDAO {
+class UsersMongoDBDAO {
     constructor(db) {
-        super();
         this.db = db;
         this.collection = db.collection('users');
     }
@@ -56,7 +61,8 @@ class MongoDBDAO extends UserDAO {
     }
 
     find(username,password) {
-        return this.collection.findOne({ _id: id });
+        //extra logic for matching the password to user 
+        return this.collection.findOne({ _username: username });
     }
 
     save(user) {
@@ -65,45 +71,40 @@ class MongoDBDAO extends UserDAO {
         this.collection.insertOne(user);
     }
 
-    remove(id) {
+    remove(username) {
         // Implementation for removing from MongoDB
         // For example, use MongoDB's delete method
-        this.collection.deleteOne({ _id: id });
+        this.collection.deleteOne({ _username: username});
     }
 }
 
-class User
+class UsersDAOFactory {
+    static createUsersDAO(databaseType) {
+      switch (databaseType) {
+        case 'Memory':
+          return new UsersMemoryDAO();
+        case 'MongoDB':
+          return new UsersMongoDBDAO();
+        default:
+          throw new Error('Unsupported database type');
+      }
+    }
+  }
+  
+class Initializer 
 {
-    constructor(username, password)
+    static deleteAll(dao)
     {
-        this.id = uuid.v4();
-        this.username = username;
-        this.password = password;
+        dao.removeAll()
     }
-
-    get userName()
+    static prepareData(dao)
     {
-        return this.username;
+        dao.save(new User("vleft","190102ab"))
+        dao.save(new User("vleftakis","190102ab"))
     }
-    get passWord()
-    {
-        return this.password;
-    }
-
-    set userName(value){
-        this.username = value;
-    }
-
-    set passWord(value)
-    {
-        this.password =value;
-    }
-
 }
-
 module.exports = 
 {
-    MemoryDAO,
-    MongoDBDAO,
-    User
+    UsersDAOFactory,
+    Initializer
 }
