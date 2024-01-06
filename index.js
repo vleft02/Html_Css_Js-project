@@ -121,7 +121,17 @@ app.get('/favorite-ads.html' , function(req, res){
     })
 })
 app.get('/favorite-ads.html/favorites' , function(req, res){
-
+    const sessionId = req.query.sessionId;
+    const username = req.query.username;
+    console.log(username,sessionId)
+    if (sessionRepository.find(username,sessionId) === undefined)
+    {
+        res.status(401).json({success:false, message:'Invalid Session'})
+    }
+    favorites = favoritesRepository.findByUser(username);
+    favorites=favorites.map(favorite=>favorite.ad)
+    console.log(favorites);
+    res.json(favorites)
 })
 
 app.get('/subcategory.html', function(req, res){

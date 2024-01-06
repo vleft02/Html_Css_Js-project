@@ -95,11 +95,11 @@ class FavoritesMemoryDAO
 
     find(username, id)
     {
-        return this.favorites.find(favorite => favorite.username === username && favorite.id === id);
+        return this.favorites.find(favorite => favorite.username === username && favorite.ad.id === id);
     }
 
     findByUser(username) {
-        return this.favorites.find(favorite => favorite.username === username);
+        return this.favorites.filter(favorite => favorite.username === username);
     }
 
     save(username,id, title, description,cost,img_url) {

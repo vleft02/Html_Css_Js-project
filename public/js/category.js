@@ -5,16 +5,20 @@ const jsonInit = {
     }
 }
 
-let advertisements=[]
-let subCategories=[]
+let advertisements=[];
+let subCategories=[];
+let filters=[];
 let categoryTitle;
 let userLoggedIn = false;
 let sessionId;
 let sessionUsername;
+let categoryId
 
 window.addEventListener('load',function()
 {  
+
     const category = new URLSearchParams(window.location.search).get('category');
+    categoryId = category;
     fetch ('https://wiki-ads.onrender.com/categories',jsonInit)
     .then(categories=>categories.json())
     .then(categories=>
@@ -57,6 +61,24 @@ window.addEventListener('load',function()
            subcategories : subCategories
         })
         main.innerHTML = content
+    })
+    .then(()=>
+    {
+        checkboxes = document.getElementsByClassName("filter-button");
+        for(let checkbox of checkboxes)
+        {
+            checkbox.addEventListener("change", function() {
+                if (checkbox.checked) {
+                  filters.push(checkbox.getAttribute('value'))
+                  console.log("subcategory-id: "+checkbox.getAttribute('value'))
+                  console.log(filters)
+                } else {
+                  filters = filters.filter(subcategoryIds => subcategoryIds !== checkbox.getAttribute('value'));
+                    console.log(filters)
+                }
+                UpdateShownAds(filters)
+            })
+        }
     })
     .then(function()
     {
@@ -154,9 +176,15 @@ function LoginRequest(username,password)
             })
         .then(json=>
             {
-                sessionId = json.sessionId;
-                sessionUsername = username
-                loginMessage = document.getElementById("login-text")
+                const sessionId = json.sessionId;
+                const sessionUsername = username
+                document.getElementById('favorites-url').setAttribute('href',`/favorite-ads.html?username=${username}&sessionId=${sessionId}`)
+                const loginMessage = document.getElementById("login-text");
+                const loginForm = document.getElementsByClassName("login-form");
+                console.log(loginForm)
+                if (loginForm.length > 0) {
+                    loginForm[0].style.display = "none";
+                }
                 loginMessage.style.display = "block"
                 loginMessage.style.color = "green";
                 loginMessage.innerHTML = "Η σύνδεση εγινε επιτυχώς";
@@ -164,7 +192,7 @@ function LoginRequest(username,password)
             })
         .catch(error => {
             console.error('Error ', error);
-            loginMessage = document.getElementById("login-text")
+            let loginMessage = document.getElementById("login-text")
             loginMessage.style.display = "block"
             loginMessage.style.color = "red";
             loginMessage.innerHTML = "Η σύνδεση απέτυχε";
@@ -173,5 +201,21 @@ function LoginRequest(username,password)
     else 
     {
         console.log("already signed in")
+    }
+}
+
+function UpdateShownAds(activeFilters)
+{
+    let ads = document.getElementsByClassName("ad-container");
+
+    // Loop through ads and show/hide based on the subcategory ID
+    for (ad of ads) {
+      let adSubcategory = ad.children[0].getAttribute('data-subcategory-id');
+
+      if (activeFilters.length===0 || activeFilters.includes(adSubcategory)) {
+        ad.style.display = "block";
+      } else {
+        ad.style.display = "none";
+      }
     }
 }

@@ -16,15 +16,15 @@ window.addEventListener('load',function()
 {  
     const sessionId = new URLSearchParams(window.location.search).get('sessionId');
     const username = new URLSearchParams(window.location.search).get('username');
-    fetch ('http://localhost:8080/favorites.html/favorites',{method: "GET",
+    fetch (`http://localhost:8080/favorite-ads.html/favorites?username=${username}&sessionId=${sessionId}`,{method: "GET",
                                                             headers: {
-                                                                'Accept':'application/json',
-                                                                'Content-Type': 'application/json',
-                                                                'Access-Control-Allow-Origin': '*'
-                                                            },
-                                                            body: JSON.stringify({sessionId, username})})
+                                                                'Accept':'application/json'
+                                                                    }
+                                                                }
+    )
     .then(response=>response.json())
     .then(function (ads) {
+        console.log(ads)
         ads.forEach(ad=>advertisements.push(ad));
     })     
     .then(function()

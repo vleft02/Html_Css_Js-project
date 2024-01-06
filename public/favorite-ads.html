@@ -37,7 +37,7 @@
                             </div>
                         </li>
                     <li><a class="button-interactive" href="customer-support.html"><span class="fa fa-phone"></span>Υποστήριξη</a></li>
-                    <li><a class="button-interactive" href="favorite-ads.html"><span class="fa fa-heart"></span>Αγαπημένα</a></li>
+                    <li><a class="button-interactive" href="#"><span class="fa fa-heart"></span>Αγαπημένα</a></li>
                     <li><a class="button-interactive" href="sign-up.html"><span class="fa fa-male"></span>Σύνδεση</a></li>
                     <li><input type="text" placeholder="Αναζήτηση"></li>
                     <li><button><span class="fa fa-search"></span></button>
@@ -48,32 +48,18 @@
         <main>
             <script id="ads-template" type="text/x-handlebars-template">
                 <h1>Αγαπημένες αγγελίες</h1>  
-                <ul id="featured-panel" class="no-list-style">
                     {{#each advertisements}}
-                        
-                        <li class="place-center full-height">
                             <article class="ad-style almost-full-height">
                                 
                                         <div class="fill-block image-container">
-                                            <a class="no-link-style" href="#"><img src="https://wiki-ads.onrender.com/{{this.images.[0]}}"</img></a>
+                                            <a class="no-link-style" href="#"><img src="https://wiki-ads.onrender.com/{{this._img_url}}"</img></a>
                                         </div>
 
-                                        <h3 class="no-box-model-values"><span class="transparent-text">#{{this.id}}</span>  {{this.title}}</h3>
-                                        <p class="category-description">Περιγραφή: {{this.description}}</p>
-                                        <p class="font-extra-large">{{this.cost}}€</p>
-                                        <button class="add-to-favorites-button" 
-                                        data-id="{{this.id}}"
-                                        data-title="{{this.title}}"
-                                        data-description="{{this.description}}" 
-                                        data-cost="{{this.cost}}"
-                                        data-img="{{this.images.[0]}}">
-                                            <span class="fa fa-heart"></span>
-                                        </button>
+                                        <h3 class="no-box-model-values"><span class="transparent-text">#{{this._id}}</span>  {{this.title}}</h3>
+                                        <p class="category-description">Περιγραφή: {{this._description}}</p>
+                                        <p class="font-extra-large">{{this._cost}}€</p>
                             </article>   
-                        </li>
                     {{/each}}
-
-                </ul>
             </script>
         </main>
         <footer>
