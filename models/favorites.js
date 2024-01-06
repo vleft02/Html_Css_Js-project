@@ -114,30 +114,8 @@ class FavoritesMemoryDAO
 
 class FavoritesMongoDBDAO {
     constructor(db) {
-        this.db = db;
-        this.collection = db.collection('favorites');
     }
-
-    findAll() {
-        return this.collection.find({}).toArray();
-    }
-
-    find(username) {
-        //extra logic for matching the password to user 
-        return this.collection.findOne({ _username: username });
-    }
-
-    save(favorite) {
-        // Implementation for saving to MongoDB
-        // For example, use MongoDB's insert or update methods
-        this.collection.insertOne(favorite);
-    }
-
-    remove(favorite) {
-        // Implementation for removing from MongoDB
-        // For example, use MongoDB's delete method
-        // this.collection.deleteOne({ _username: username});
-    }
+    //Database Code
 }
 
 

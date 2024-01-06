@@ -55,27 +55,7 @@ class UsersMongoDBDAO {
         this.db = db;
         this.collection = db.collection('users');
     }
-
-    findAll() {
-        return this.collection.find({}).toArray();
-    }
-
-    find(username,password) {
-        //extra logic for matching the password to user 
-        return this.collection.findOne({ _username: username });
-    }
-
-    save(user) {
-        // Implementation for saving to MongoDB
-        // For example, use MongoDB's insert or update methods
-        this.collection.insertOne(user);
-    }
-
-    remove(username) {
-        // Implementation for removing from MongoDB
-        // For example, use MongoDB's delete method
-        this.collection.deleteOne({ _username: username});
-    }
+    //Database code
 }
 
 class UsersDAOFactory {
