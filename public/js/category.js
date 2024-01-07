@@ -1,10 +1,3 @@
-const jsonInit = {
-    method: "GET",
-    headers :{
-        'Accept': 'application/json'
-    }
-}
-
 let advertisements=[];
 let subCategories=[];
 let filters=[];
@@ -12,47 +5,74 @@ let categoryTitle;
 let userLoggedIn = false;
 let sessionId;
 let sessionUsername;
-let categoryId
+let categoryId;
 
 window.addEventListener('load',function()
 {  
 
     const category = new URLSearchParams(window.location.search).get('category');
     categoryId = category;
-    fetch ('https://wiki-ads.onrender.com/categories',jsonInit)
+    fetchCategoryTitle()
+    .then(()=>fetchAds())
+    .then(()=>fetchSubCategories())
+    .then(()=>showPageContent())
+    .then(()=>attachFilterEventListeners())
+    .then(()=>attachLoginEventListeners())
+    .then(()=>attachAddToFavoriteEventListensers())
+    .catch(error => {
+        console.error('Error ', error);
+    });
+
+})
+
+function fetchCategoryTitle()
+{
+    return fetch ('https://wiki-ads.onrender.com/categories',{method: "GET",
+                                                                headers :{
+                                                                    'Accept': 'application/json'
+                                                                }
+                                                            }
+    )
     .then(categories=>categories.json())
     .then(categories=>
     {   
         categories.forEach(categoryJson => 
             {
-                if(categoryJson.id == category)
+                if(categoryJson.id == categoryId)
                 {
                     categoryTitle = categoryJson.title
                 }
             })
     })
-    .then(()=>
-    {
-        return fetch('https://wiki-ads.onrender.com/ads?category='+category,jsonInit)
-    })
-    .then(response=>response.json())
-    .then(function (adsJson) {
-        adsJson.forEach(ad=>advertisements.push(ad));
-    })
-    .then(subCats=>
-    {
-        return fetch(`https://wiki-ads.onrender.com/categories/${category}/subcategories`);
-    })
+}
+
+function fetchSubCategories(){
+    return fetch(`https://wiki-ads.onrender.com/categories/${categoryId}/subcategories`)
     .then(subcategories => subcategories.json())
     .then(function(subCategoriesJson)
     {
         subCategoriesJson.forEach(subCatJson=>subCategories.push(subCatJson))
-        
+    
     })     
+}
 
-    .then(function()
-    {
-        let main = document.getElementsByTagName("main")[0] 
+function fetchAds()
+{
+    return fetch('https://wiki-ads.onrender.com/ads?category='+categoryId,{method: "GET",
+                                                                                headers :{
+                                                                                    'Accept': 'application/json'
+                                                                                }
+                                                                            }
+            )   
+            .then(response=>response.json())
+            .then(function (adsJson) {
+                adsJson.forEach(ad=>advertisements.push(ad));
+            })
+}
+
+function showPageContent()
+{
+    let main = document.getElementsByTagName("main")[0] 
         ads_template = document.getElementById("ads-template").textContent
         let compiledTemplate = Handlebars.compile(ads_template)
         let content = compiledTemplate({
@@ -61,26 +81,27 @@ window.addEventListener('load',function()
            subcategories : subCategories
         })
         main.innerHTML = content
-    })
-    .then(()=>
+}
+
+
+function attachFilterEventListeners()
+{
+    checkboxes = document.getElementsByClassName("filter-button");
+    for(let checkbox of checkboxes)
     {
-        checkboxes = document.getElementsByClassName("filter-button");
-        for(let checkbox of checkboxes)
-        {
-            checkbox.addEventListener("change", function() {
-                if (checkbox.checked) {
-                  filters.push(checkbox.getAttribute('value'))
-                  console.log("subcategory-id: "+checkbox.getAttribute('value'))
-                  console.log(filters)
-                } else {
-                  filters = filters.filter(subcategoryIds => subcategoryIds !== checkbox.getAttribute('value'));
-                    console.log(filters)
-                }
-                UpdateShownAds(filters)
-            })
-        }
-    })
-    .then(function()
+        checkbox.addEventListener("change", function() {
+            if (checkbox.checked) {
+              filters.push(checkbox.getAttribute('value'))
+            } else {
+              filters = filters.filter(subcategoryIds => subcategoryIds !== checkbox.getAttribute('value'));
+            }
+            UpdateShownAds(filters)
+        })
+    }
+}
+
+function attachLoginEventListeners()
+{
     {
         document.getElementById("login").addEventListener("click",function(event)
         {
@@ -92,42 +113,31 @@ window.addEventListener('load',function()
             LoginRequest(username.value,password.value);
         })
     }
-    )  
-    .then(()=>
+}
+
+function attachAddToFavoriteEventListensers()
+{
+    favoriteButtons = document.getElementsByClassName("add-to-favorites-button");
+    for(let button of favoriteButtons)
     {
-        favoriteButtons = document.getElementsByClassName("add-to-favorites-button");
-        for(let button of favoriteButtons)
-        {
-            button.addEventListener("click",function(){
+        button.addEventListener("click",function(){
+                if (userLoggedIn){
                     const id = button.getAttribute('data-id');
                     const title = button.getAttribute('data-title');
                     const description = button.getAttribute('data-description');
                     const cost =  button.getAttribute('data-cost');
                     const img_url = button.getAttribute('data-img');
-                    if(button.style.color === "purple") {
-                        button.style.color = "black";
-                        console.log("removed")
-                    }
-                    else
-                    {
-                        button.style.color = "purple";
-                        console.log("added")
-                    }
+                    button.style.color = "purple";
+                    console.log("Added")
                     addToFavorites(id, title, description, cost, img_url)
-            })
-        }
-    })
-    .catch(error => {
-        console.error('Error ', error);
-    });
+                }
 
-})
-
+        })
+    }
+}
 
 function addToFavorites(id,title,description,cost,img_url)
 {
-    if(userLoggedIn)
-    {
         ad = {
             sessionId:sessionId,
             username:sessionUsername,
@@ -153,8 +163,6 @@ function addToFavorites(id,title,description,cost,img_url)
         .catch(error => {
             console.error('Error ', error);
         });
-    }
-    
 }
 
 function LoginRequest(username,password)
@@ -176,12 +184,11 @@ function LoginRequest(username,password)
             })
         .then(json=>
             {
-                const sessionId = json.sessionId;
-                const sessionUsername = username
+                sessionId = json.sessionId;
+                sessionUsername = username
                 document.getElementById('favorites-url').setAttribute('href',`/favorite-ads.html?username=${username}&sessionId=${sessionId}`)
                 const loginMessage = document.getElementById("login-text");
                 const loginForm = document.getElementsByClassName("login-form");
-                console.log(loginForm)
                 if (loginForm.length > 0) {
                     loginForm[0].style.display = "none";
                 }
@@ -200,7 +207,7 @@ function LoginRequest(username,password)
     }
     else 
     {
-        console.log("already signed in")
+        console.log("Already signed in")
     }
 }
 
