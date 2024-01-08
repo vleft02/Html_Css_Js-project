@@ -12,7 +12,8 @@ window.addEventListener('load',function()
 
 })
 
-
+// The categories are fetched using GET from the remote server 
+// and used to populate the dropdown_categories array
 function fetchMenuCategories()
 {
     return fetch('https://wiki-ads.onrender.com/categories',{method: "GET",
@@ -21,12 +22,14 @@ function fetchMenuCategories()
                                                                     }
                                                             })
     .then(response=>response.json())
-    .then(cats=>
+    .then(categories=>
     {
-        dropdown_categories.push(...cats)
+        dropdown_categories.push(...categories)
     })
 }
 
+//With the use of the Handlebars library  HTML content is dynamically generated and added to the 
+// dropdown menu under categories
 function fillDropdownMenu()
 {
     let dropdownMenu = document.getElementById("dropdown-menu")

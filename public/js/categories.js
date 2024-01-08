@@ -12,6 +12,11 @@ window.addEventListener('load',function()
     });
 })
 
+
+// The categories are fetched using GET from the remote server,
+// each category then gets a new array subcategories that are received 
+// with an additional GET request. After we have received all the categories 
+// with their respective subcategories inside we populate the categories array
 function fetchCategories()
 {
     return fetch('https://wiki-ads.onrender.com/categories',{method: "GET",
@@ -40,6 +45,7 @@ function fetchCategories()
     })
 }
 
+//With the use of the Handlebars library  HTML content is dynamically generated 
 function showPageContent()
 {
     let main = document.getElementsByTagName("main")[0]
@@ -47,7 +53,6 @@ function showPageContent()
         let compiledTemplate = Handlebars.compile(category_template)
         let content = compiledTemplate({
             ad_categories: categories
-             
         })
         main.innerHTML = content
 }

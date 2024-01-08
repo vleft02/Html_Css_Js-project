@@ -75,7 +75,7 @@ function prepareAdData()
     })
 }
 
-
+//With the use of the Handlebars library  HTML content is dynamically generated 
 function showPageContent()
 {
     let main = document.getElementsByTagName("main")[0] 

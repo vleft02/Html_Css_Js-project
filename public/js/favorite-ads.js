@@ -22,11 +22,10 @@ function fetchFavoriteAds()
     )
     .then(response=>response.json())
     .then(function (ads) {
-        console.log(ads)
         ads.forEach(ad=>advertisements.push(ad));
     })
 }
-
+//With the use of the Handlebars library  HTML content is dynamically generated 
 function showPageContent(){
     let main = document.getElementsByTagName("main")[0] 
     favorites_template = document.getElementById("ads-template").textContent

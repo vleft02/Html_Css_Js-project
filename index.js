@@ -41,6 +41,7 @@ app.get('/', function(req, res){
     })
 })
 
+// serve index.html if specified
 app.get('/index.html', function(req, res){
 
     var options = {
@@ -52,6 +53,8 @@ app.get('/index.html', function(req, res){
     })
 })
 
+
+// serve category.html
 app.get('/category.html', function(req, res){
 
     var options = {
@@ -63,6 +66,7 @@ app.get('/category.html', function(req, res){
     })
 })
 
+// serve favorite-ads.html
 app.get('/favorite-ads.html' , function(req, res){
     var options = {
         root: path.join(__dirname, 'public')
@@ -72,20 +76,23 @@ app.get('/favorite-ads.html' , function(req, res){
         console.log(err)
     })
 })
+
+// If the user with the username,sessionid pair has
+//logged in and there is an existing session a list of the user's
+//favorite ads is served
 app.get('/favorite-ads.html/favorites' , function(req, res){
     const sessionId = req.query.sessionId;
     const username = req.query.username;
-    console.log(username,sessionId)
     if (sessionRepository.find(username,sessionId) === undefined)
     {
         res.status(401).json({success:false, message:'Invalid Session'})
     }
     favorites = favoritesRepository.findByUser(username);
     favorites=favorites.map(favorite=>favorite.ad)
-    console.log(favorites);
     res.json(favorites)
 })
 
+// serve subcategory.html
 app.get('/subcategory.html', function(req, res){
 
     var options = {
@@ -96,8 +103,10 @@ app.get('/subcategory.html', function(req, res){
         console.log(err)
     })
 })
+
+// when a users attempts to log in we authenticate the 
+// given username, password pair
 app.post('/category.html/login' , function(req, res){
-    console.log(req.body)
     const username = req.body.username;
     const password = req.body.password;
 
@@ -105,15 +114,20 @@ app.post('/category.html/login' , function(req, res){
     const user = userRepository.find(username, password);
   
     if (user) {
-      console.log("Success")
       sessionUniqueId = uuid.v4();
       sessionRepository.save(username,sessionUniqueId)
-      console.log(sessionRepository.find(username,sessionUniqueId))
       res.json({sessionId:sessionUniqueId});
     } else {
       res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
 });
+
+// when a user adds an advertisment to his favorites
+// We check: 
+//1. If He has an invalid session (401 Unauthorized)
+//2. If the ad has already been added (409 Conflict)
+// If the above are false a response is sent with the favorite to be added
+
 app.post('/category.html/add-to-favorites' , function(req, res){
     
     const sessionId = req.body.sessionId;
@@ -124,11 +138,8 @@ app.post('/category.html/add-to-favorites' , function(req, res){
     const cost = req.body.cost
     const img_url = req.body.img_url
 
-    console.log("User Session: "+username+", "+sessionId)
-    console.log(sessionRepository.findAll())
     if (sessionRepository.find(username,sessionId) === undefined)
     {
-        console.log(username,sessionId)
         res.status(401).json({success:false, message:'Invalid Session'})
     }
     if (favoritesRepository.find(username, id) === undefined)

@@ -9,7 +9,7 @@ let categoryId;
 
 window.addEventListener('load',function()
 {  
-
+    // the category Id is taken from the url search parameters
     const category = new URLSearchParams(window.location.search).get('category');
     categoryId = category;
     fetchCategoryTitle()
@@ -25,6 +25,8 @@ window.addEventListener('load',function()
 
 })
 
+// We fetch the categories from the remote server and then 
+// and then find the title of the chosen category 
 function fetchCategoryTitle()
 {
     return fetch ('https://wiki-ads.onrender.com/categories',{method: "GET",
@@ -46,6 +48,8 @@ function fetchCategoryTitle()
     })
 }
 
+// The sub categories that correspond to the chosen category 
+// are fetched using GET from the remote server and placed in the subCategories array
 function fetchSubCategories(){
     return fetch(`https://wiki-ads.onrender.com/categories/${categoryId}/subcategories`)
     .then(subcategories => subcategories.json())
@@ -56,6 +60,8 @@ function fetchSubCategories(){
     })     
 }
 
+// The adevrtiswements that correspond to the chosen category 
+// are fetched using GET from the remote server and placed in the advertisments array
 function fetchAds()
 {
     return fetch('https://wiki-ads.onrender.com/ads?category='+categoryId,{method: "GET",
@@ -70,6 +76,7 @@ function fetchAds()
             })
 }
 
+//With the use of the Handlebars library  HTML content is dynamically generated 
 function showPageContent()
 {
     let main = document.getElementsByTagName("main")[0] 
@@ -108,8 +115,6 @@ function attachLoginEventListeners()
             event.preventDefault();
             let username = document.getElementById("username");
             let password = document.getElementById("password");
-            console.log(username.value)
-            console.log(password.value)
             LoginRequest(username.value,password.value);
         })
     }
@@ -128,7 +133,6 @@ function attachAddToFavoriteEventListensers()
                     const cost =  button.getAttribute('data-cost');
                     const img_url = button.getAttribute('data-img');
                     button.style.color = "purple";
-                    console.log("Added")
                     addToFavorites(id, title, description, cost, img_url)
                 }
 
@@ -204,10 +208,6 @@ function LoginRequest(username,password)
             loginMessage.style.color = "red";
             loginMessage.innerHTML = "Η σύνδεση απέτυχε";
         });
-    }
-    else 
-    {
-        console.log("Already signed in")
     }
 }
 
