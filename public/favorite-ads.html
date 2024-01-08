@@ -48,6 +48,7 @@
         <main>
             <script id="ads-template" type="text/x-handlebars-template">
                 <h1>Αγαπημένες αγγελίες</h1>  
+                    {{#if advertisements.length}}
                     {{#each advertisements}}
                             <article class="ad-style almost-full-height">
                                 
@@ -60,6 +61,11 @@
                                         <p class="font-extra-large">{{this._cost}}€</p>
                             </article>   
                     {{/each}}
+                    {{else}}
+                        <div class="fill-all-columns">
+                            <p>Δεν έχουν προστεθεί αγγελίες στα αγαπημένα σας</p>
+                        </div>
+                    {{/if}}
             </script>
         </main>
         <footer>

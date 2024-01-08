@@ -50,6 +50,8 @@
         <main>
             <script id="ads-template" type="text/x-handlebars-template">
                 <h1>{{subcategorytitle}}</h1>
+                
+                {{#if advertisements.length}}
                 <ul id="featured-panel fill-all-columns" class="no-list-style">
                     {{#each advertisements}}
                         
@@ -93,6 +95,11 @@
                     {{/each}}
 
                 </ul>
+                {{else}}
+                <div>
+                    <p>Δεν υπάρχουν αγγελίες σε αυτήν την υποκατηγορία</p>
+                </div>
+                {{/if}}
             </script>
 
         </main>
