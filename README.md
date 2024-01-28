@@ -10,16 +10,16 @@ This project is a web application developed as part of a university course on we
 - npm
 
 ## Main Features
-1. Generating Content
+1. Generating Content:
 This service utilizes Handlebars to dynamically generate content on the server side. The content is fetched from a remote server and seamlessly integrated into the user interface.
 
-2. Log In Service
+2. Log In Service:
 Authenticates user's Log In info and generating unique session Ids 
 
-3. Add to Favorites
+3. Add to Favorites:
 Users can add items to their favorites list using this service. This feature enhances user interaction by allowing them to save and revisit specific content.
 
-4. Retrieve Favorites
+4. Retrieve Favorites:
 Users can retrieve their saved favorites, providing a personalized experience and easy access to content they find most valuable.
 
 
