@@ -3,9 +3,9 @@
 This branch is dedicated to the front end development of the website it was made using html, css and some javascript for form validation. The project gives an emphasis to semantic html and responsive layout design. The main features are constraint validation using javascript and responsive design for better user experience   
 
 ## Technologies Used
-Html
-css
-Javascript
+-Html
+-CSS
+-Javascript
 
 ## Key Features:
 1. Constraint Validation:
