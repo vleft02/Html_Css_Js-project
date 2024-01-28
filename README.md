@@ -1,38 +1,36 @@
-# inf165-webdev-project
-Βασική δομή ενός project για τις ανάγκες της εργασίας 2 του μαθήματος INF165.
+# Web Development project
+## Overview
+This project is a web application developed as part of a university course on web development, built using the Node.js framework with an Express server, client-side scripting in JavaScript, and Handlebars for dynamic content generation. The project features three main services that will be explained below. Also see the other branches for more on Front-end of the website
 
-```bash
-.
-├── index.js
-├── models
-└── public
-    ├── index.html
-    ├── css
-    |   └── style.css
-    └── js
-        └── main.js
-```
+## Technologies Used
+Node.js
+Express
+Handlebars
+JavaScript (Client-side)
+(Include other relevant technologies)
+Main Features
+1. Generating Content
+This service utilizes Handlebars to dynamically generate content on the server side. The content is fetched from a remote server and seamlessly integrated into the user interface.
 
-Οι απαραίτητες εξαρτήσεις υπάρχουν ήδη στο package.json. 
-Μπορείτε να τις εγκαταστήσετε με χρήση της εντολής
+2. Add to Favorites
+Users can add items to their favorites list using this service. This feature enhances user interaction by allowing them to save and revisit specific content.
+
+3. Retrieve Favorites
+Users can retrieve their saved favorites, providing a personalized experience and easy access to content they find most valuable.
+
+
+To download the required dependencies simply run
 ```
 npm install
 ```
 
-Για να δοκιμάσετε την εφαρμογή σας μπορείτε να την ξεκινήσετε με την εντολή
+To run the server type the following into the cmd
 ```
 node index.js
 ```
 
-Βέβαια, μετά από κάθε αλλαγή στον κώδικα του server θα πρέπει να κάνετε επανεκκίνηση της εφαρμογής. Για διευκόλυνσή σας μπορείτε να ξεκινήσετε την εφαρμογή με τη βοήθεια του εργαλείου nodemon ως εξής:
 
-```
-nodemon index.js
-```
-
-Κάθε φορά που αλλάζετε τον κώδικα του server, το nodemon επανεκκινεί αυτόματα τον server.
-
-## Χρήσιμες βιβλιοθήκες
+## Libraries Used  
 
 - [Handlebars](https://handlebarsjs.com/guide/): γλώσσα για τη σύνταξη υποδειγμάτων (templates) για δυναμική παραγωγή HTML περιεχομένου,
 - [expressjs](https://expressjs.com/en/guide/routing.html): γρήγορη υλοποίηση υπηρεσιών ιστού,
