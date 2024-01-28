@@ -9,10 +9,8 @@ Javascript
 
 ## Key Features:
 1. Constraint Validation:
-
 JavaScript is used for constraint validation of sign up forms.
 Ensures that user inputs adhere to specified criteria.
-Responsive Design:
-
-2. Prioritizes responsive layout design for optimal user experience across various devices.
+2. Responsive Design:
+Prioritizes responsive layout design for optimal user experience across various devices.
 Adapts seamlessly to different screen sizes, providing a consistent and visually pleasing interface.
